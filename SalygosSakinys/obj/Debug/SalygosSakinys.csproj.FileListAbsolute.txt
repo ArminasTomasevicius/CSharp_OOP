@@ -1,0 +1,5 @@
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\bin\Debug\SalygosSakinys.exe.config
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\bin\Debug\SalygosSakinys.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\bin\Debug\SalygosSakinys.pdb
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\obj\Debug\SalygosSakinys.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\obj\Debug\SalygosSakinys.pdb

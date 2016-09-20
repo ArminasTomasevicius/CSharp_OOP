@@ -1,0 +1,5 @@
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Funkcijos_Reikšmės_Skaičiavimas\bin\Debug\Funkcijos_Reikšmės_Skaičiavimas.exe.config
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Funkcijos_Reikšmės_Skaičiavimas\bin\Debug\Funkcijos_Reikšmės_Skaičiavimas.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Funkcijos_Reikšmės_Skaičiavimas\bin\Debug\Funkcijos_Reikšmės_Skaičiavimas.pdb
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Funkcijos_Reikšmės_Skaičiavimas\obj\Debug\Funkcijos_Reikšmės_Skaičiavimas.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Funkcijos_Reikšmės_Skaičiavimas\obj\Debug\Funkcijos_Reikšmės_Skaičiavimas.pdb

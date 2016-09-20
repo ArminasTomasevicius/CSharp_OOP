@@ -1,0 +1,6 @@
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Klasė\2 užduotis\bin\Debug\2 užduotis.exe.config
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Klasė\2 užduotis\bin\Debug\2 užduotis.exe
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Klasė\2 užduotis\bin\Debug\2 užduotis.pdb
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Klasė\2 užduotis\obj\Debug\2 užduotis.csprojResolveAssemblyReference.cache
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Klasė\2 užduotis\obj\Debug\2 užduotis.exe
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Klasė\2 užduotis\obj\Debug\2 užduotis.pdb

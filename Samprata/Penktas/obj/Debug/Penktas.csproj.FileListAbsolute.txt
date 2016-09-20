@@ -1,0 +1,5 @@
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Penktas\bin\Debug\Penktas.exe.config
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Penktas\bin\Debug\Penktas.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Penktas\bin\Debug\Penktas.pdb
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Penktas\obj\Debug\Penktas.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Penktas\obj\Debug\Penktas.pdb

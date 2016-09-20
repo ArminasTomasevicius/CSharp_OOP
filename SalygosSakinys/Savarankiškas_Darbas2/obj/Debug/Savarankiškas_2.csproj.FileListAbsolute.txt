@@ -1,0 +1,6 @@
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Savarankiškas_Darbas2\bin\Debug\Savarankiškas_Darbas2.exe.config
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Savarankiškas_Darbas2\bin\Debug\Savarankiškas_Darbas2.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Savarankiškas_Darbas2\bin\Debug\Savarankiškas_Darbas2.pdb
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Savarankiškas_Darbas2\obj\Debug\Savarankiškas_Darbas2.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Savarankiškas_Darbas2\obj\Debug\Savarankiškas_Darbas2.pdb
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\SalygosSakinys\Savarankiškas_Darbas2\obj\Debug\Savarankiškas_2.csprojResolveAssemblyReference.cache

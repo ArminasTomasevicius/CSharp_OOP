@@ -1,0 +1,5 @@
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\bin\Debug\Samprata.exe.config
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\bin\Debug\Samprata.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\bin\Debug\Samprata.pdb
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\obj\Debug\Samprata.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\obj\Debug\Samprata.pdb

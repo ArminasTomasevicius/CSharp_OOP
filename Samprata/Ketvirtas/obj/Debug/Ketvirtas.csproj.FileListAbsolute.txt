@@ -1,0 +1,5 @@
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Ketvirtas\bin\Debug\Ketvirtas.exe.config
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Ketvirtas\bin\Debug\Ketvirtas.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Ketvirtas\bin\Debug\Ketvirtas.pdb
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Ketvirtas\obj\Debug\Ketvirtas.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Samprata\Ketvirtas\obj\Debug\Ketvirtas.pdb

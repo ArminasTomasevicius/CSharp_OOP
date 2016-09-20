@@ -1,0 +1,5 @@
+c:\users\atomasevicius\documents\visual studio 2015\Projects\L1pirma-1\L1antra-2\bin\Debug\L1antra-2.exe.config
+c:\users\atomasevicius\documents\visual studio 2015\Projects\L1pirma-1\L1antra-2\bin\Debug\L1antra-2.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\L1pirma-1\L1antra-2\bin\Debug\L1antra-2.pdb
+c:\users\atomasevicius\documents\visual studio 2015\Projects\L1pirma-1\L1antra-2\obj\Debug\L1antra-2.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\L1pirma-1\L1antra-2\obj\Debug\L1antra-2.pdb

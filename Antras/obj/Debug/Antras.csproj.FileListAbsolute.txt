@@ -1,0 +1,5 @@
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Antras\bin\Debug\Antras.exe.config
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Antras\bin\Debug\Antras.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Antras\bin\Debug\Antras.pdb
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Antras\obj\Debug\Antras.exe
+c:\users\atomasevicius\documents\visual studio 2015\Projects\Antras\obj\Debug\Antras.pdb

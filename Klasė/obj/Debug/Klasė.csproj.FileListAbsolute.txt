@@ -1,0 +1,6 @@
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Klasė\bin\Debug\Klasė.exe.config
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Klasė\obj\Debug\Klasė.csprojResolveAssemblyReference.cache
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Klasė\bin\Debug\Klasė.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Klasė\bin\Debug\Klasė.pdb
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Klasė\obj\Debug\Klasė.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Klasė\obj\Debug\Klasė.pdb

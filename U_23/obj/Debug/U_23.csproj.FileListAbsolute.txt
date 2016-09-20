@@ -1,0 +1,6 @@
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\U_23\bin\Debug\U_23.exe.config
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\U_23\bin\Debug\U_23.exe
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\U_23\bin\Debug\U_23.pdb
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\U_23\obj\Debug\U_23.csprojResolveAssemblyReference.cache
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\U_23\obj\Debug\U_23.exe
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\U_23\obj\Debug\U_23.pdb
