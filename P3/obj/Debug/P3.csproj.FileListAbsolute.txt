@@ -1,0 +1,6 @@
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\P3\bin\Debug\P3.exe.config
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P3\bin\Debug\P3.exe
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P3\bin\Debug\P3.pdb
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P3\obj\Debug\P3.csprojResolveAssemblyReference.cache
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P3\obj\Debug\P3.exe
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P3\obj\Debug\P3.pdb

@@ -85,8 +85,8 @@ namespace Savarankiškas_2_4
             double ugis;
             double svoris;
 
-            Pozicija p1 = new Pozicija("Gynėjas", 169, 196);
-            Pozicija p2 = new Pozicija("Puolėjas", 197, 220);
+            Pozicija p1 = new Pozicija("Gynėjas", 169, 200);
+            Pozicija p2 = new Pozicija("Puolėjas", 201, 220);
 
             List<Draugas> draugai = new List<Draugas>();
             Console.WriteLine("Įveskite 1 draugo duomenis");

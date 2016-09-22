@@ -78,13 +78,15 @@ namespace Savarankiškas_2_3
             Siena s2 = new Siena(50.5, 0.5, 5.2);
             Bokstas b1 = new Bokstas(5.2, 0.5, 2.5);
 
-            int sum = 0;
+            int sum1 = 0;
+            int sum2 = 0;
 
-            sum += 2*VienaSiena(p1,s1);
-            sum += 2*VienaSiena(p1,s2);
-            sum += 4*Bokstas(p1,b1);
-
-            Console.WriteLine("Sunaudota plytų: {0}", sum);
+            sum1 += 2*VienaSiena(p1,s1);
+            sum1 += 2*VienaSiena(p1,s2);
+            sum2 += 4*Bokstas(p1,b1);
+            Console.WriteLine("Plytos sienoms: {0}", sum1);
+            Console.WriteLine("Plytos bokštams: {0}", sum2);
+            Console.WriteLine("Sunaudota plytų: {0}", sum1+sum2);
         }
 
 
