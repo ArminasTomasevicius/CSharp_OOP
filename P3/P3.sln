@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Savarankiškas_3_1", "..\Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Savarankiškas_3_2", "Savarankiškas_3_2\Savarankiškas_3_2.csproj", "{3C7D5CA6-9E6C-4E15-B59B-606069C17A2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dviratis", "..\Dviratis\Dviratis.csproj", "{298896F1-3305-47A3-98EA-D9C91981BFF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3C7D5CA6-9E6C-4E15-B59B-606069C17A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C7D5CA6-9E6C-4E15-B59B-606069C17A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C7D5CA6-9E6C-4E15-B59B-606069C17A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{298896F1-3305-47A3-98EA-D9C91981BFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{298896F1-3305-47A3-98EA-D9C91981BFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{298896F1-3305-47A3-98EA-D9C91981BFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{298896F1-3305-47A3-98EA-D9C91981BFF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,6 @@
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Dviratis\bin\Debug\Dviratis.exe.config
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Dviratis\bin\Debug\Dviratis.exe
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Dviratis\bin\Debug\Dviratis.pdb
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Dviratis\obj\Debug\Dviratis.csprojResolveAssemblyReference.cache
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Dviratis\obj\Debug\Dviratis.exe
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Dviratis\obj\Debug\Dviratis.pdb
