@@ -33,17 +33,14 @@ namespace Savarankiškas_3_1
     {
         static void Main(string[] args)
         {
-            double viso = 0;
-            double vid = 0;
-            double balance = 0;
-            int eu, cnt, n;
+            int n;
 
             const string CFd = "...\\...\\Duom.txt";
 
             Narys[] N = new Narys[100];
 
             Skaityti(CFd, N, out n);
-            Console.WriteLine(Calcus(N, n));
+            Console.WriteLine("Visi turimi pinigai, Visų turimų pinigų vidurkis, Bendri pinigai: {0}",Calcus(N, n));
 
 
         }
