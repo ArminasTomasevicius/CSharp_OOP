@@ -20,8 +20,8 @@ namespace Savarankiškas_3_2
 
         public double Eu
         {
-            set{ eu = value; }
-            get{return eu;}
+            set { eu = value; }
+            get { return eu; }
         }
         public double Rate
         {
@@ -41,36 +41,48 @@ namespace Savarankiškas_3_2
         {
             const string CFd1 = "...\\...\\A.txt";
             const string CFd2 = "...\\...\\B.txt";
+            int n;
 
-            Pinigai P1, P2;
+            Pinigai[] P1 = new Pinigai[100];
+            Pinigai[] P2 = new Pinigai[100];
 
-            P1 = Skaityti(CFd1);
-            P2 = Skaityti(CFd2);
+            Skaityti(CFd1, P1, out n);
+            Skaityti(CFd2, P2, out n);
 
-            double sum = P1.Eu + P2.Eu;
-
-            Console.WriteLine("Anupro pinigai: {0}", P1.Eu);
-            Console.WriteLine("Barboros pinigai: {0}", P2.Eu);
-            Console.WriteLine("Bendrai: {0}", sum);
+            Console.WriteLine("Anupro pinigai: {0}", Calcus(P1, n));
+            Console.WriteLine("Barboros pinigai: {0}", Calcus(P2, n));
+            Console.WriteLine("Bendrai: {0}", Calcus(P1, n) + Calcus(P2, n));
 
         }
 
-        static Pinigai Skaityti(string fv)
+        static void Skaityti(string fv, Pinigai[] P, out int n)
         {
-            double rate, eu, cnt;
             using (StreamReader reader = new StreamReader(fv))
             {
                 string line;
                 line = reader.ReadLine();
                 string[] parts;
-                    parts = line.Split(';');
-                    eu = double.Parse(parts[0]);
-                    cnt = double.Parse(parts[1]);
-                    rate = double.Parse(parts[2]);
-                Pinigai P = new Pinigai(eu, cnt, rate);
-                return P;
+                n = int.Parse(line);
+                for (int i = 0; i < n; i++)
+                {
+                    line = reader.ReadLine();
+                    parts = line.Split(' ');
+                    double eu = double.Parse(parts[0]);
+                    double cnt = double.Parse(parts[1]);
+                    double rate = double.Parse(parts[2]);
+                    P[i] = new Pinigai(eu, cnt, rate);
                 }
             }
+        }
+        static double Calcus(Pinigai[] P, int n)
+        {
+            double suma = 0;
 
+            for (int i = 0; i < n; i++)
+            {
+                suma += P[i].Eu;
+            }
+            return suma;
         }
     }
+}
