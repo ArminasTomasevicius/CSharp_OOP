@@ -88,7 +88,8 @@ namespace Dviratis
 
         static void Skaityti(string fv, Dviratis[] D, out int n, out int m, out string pav)
         {
-            int metai; double kaina; using (StreamReader reader = new StreamReader(fv))
+            int metai; double kaina;
+            using (StreamReader reader = new StreamReader(fv))
             {
                 string line;
                 line = reader.ReadLine();

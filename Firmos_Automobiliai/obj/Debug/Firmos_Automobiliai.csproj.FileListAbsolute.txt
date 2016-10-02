@@ -1,0 +1,6 @@
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Firmos_Automobiliai\bin\Debug\Firmos_Automobiliai.exe.config
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Firmos_Automobiliai\bin\Debug\Firmos_Automobiliai.exe
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Firmos_Automobiliai\bin\Debug\Firmos_Automobiliai.pdb
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Firmos_Automobiliai\obj\Debug\Firmos_Automobiliai.csprojResolveAssemblyReference.cache
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Firmos_Automobiliai\obj\Debug\Firmos_Automobiliai.exe
+C:\Users\armin\OneDrive\documents\visual studio 2015\Projects\Firmos_Automobiliai\obj\Debug\Firmos_Automobiliai.pdb

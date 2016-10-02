@@ -1,0 +1,11 @@
+10
+Panevëþys-Pajuostë;2,95;70;
+Berèiûnai-Naujamiestis;7,2;80;
+Ramygala-Krekenava;15,48;80;
+Krekenava-Skëmai-Grigiðkës;32,21;80;
+Panevëþys-Skaistgiriai- Puðalotas;22,2;80;
+Panevëþys-Pavaðuokiai-Subaèius;24,95;80;
+Nauradai-Naujamiestis-Krekenava;24,95;80;
+Naujamiestis-Upytë;6,13;70;
+Nauradai-Sujetai-Sinkonys;14,33;80;
+Peidþiai-Maþeniai-Raguva;21,17;70;

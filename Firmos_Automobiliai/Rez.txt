@@ -1,0 +1,16 @@
+Automobilių kiekis 8
+Automobilių sąrašas:
+|-----------------|------------|--------------------|
+|                 |            |                    |
+|   Pavadinimas   |  Degalai   | Sąnaudos (l/100 km)|
+|                 |            |                    |
+|-----------------|------------|--------------------|
+| �koda Fabia     | benzinas   |        7,10        |
+| Opel Meriva     | benzinas   |        7,50        |
+| Volkswagen Golf | dyzelinas  |        6,30        |
+| Opel Astra      | dyzelinas  |        6,10        |
+| Toyota Corolla  | benzinas   |        6,80        |
+| Toyota Yaris    | benzinas   |        5,90        |
+| Peugeot 207     | dyzelinas  |        5,50        |
+| �koda Octavia   | dyzelinas  |        7,30        |
+-----------------------------------------------------

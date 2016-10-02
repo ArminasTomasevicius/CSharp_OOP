@@ -41,17 +41,17 @@ namespace Savarankiškas_3_2
         {
             const string CFd1 = "...\\...\\A.txt";
             const string CFd2 = "...\\...\\B.txt";
-            int n;
+            int n = 0, m = 0;
 
             Pinigai[] P1 = new Pinigai[100];
             Pinigai[] P2 = new Pinigai[100];
 
             Skaityti(CFd1, P1, out n);
-            Skaityti(CFd2, P2, out n);
+            Skaityti(CFd2, P2, out m);
 
             Console.WriteLine("Anupro pinigai: {0}", Calcus(P1, n));
-            Console.WriteLine("Barboros pinigai: {0}", Calcus(P2, n));
-            Console.WriteLine("Bendrai: {0}", Calcus(P1, n) + Calcus(P2, n));
+            Console.WriteLine("Barboros pinigai: {0}", Calcus(P2, m));
+            Console.WriteLine("Bendrai: {0}", Calcus(P1, n) + Calcus(P2, m));
 
         }
 
