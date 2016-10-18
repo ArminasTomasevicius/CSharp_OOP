@@ -79,7 +79,7 @@ namespace P3
         {
             int metai;
             double kaina;
-            using (StreamReader reader = new StreamReader(fv))
+            using (StreamReader reader = new StreamReader(fv, Encoding.GetEncoding(1257)))
             {
                 string line;
                 line = reader.ReadLine();

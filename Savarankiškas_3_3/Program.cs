@@ -62,6 +62,7 @@ namespace Savarankiškas_3_3
 
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             Dviratis[] D1 = new Dviratis[100];
             Dviratis[] D2 = new Dviratis[100];
             int n1;
@@ -107,13 +108,27 @@ namespace Savarankiškas_3_3
             Formuoti(D2, n2, Dr, ref nr);
             SpausdintiDuomenis(CFrez, Dr, nr, "Modelių sąrašas");
 
+            Console.WriteLine();
+            Console.WriteLine("Brangiausias dviratis 1 rinkinyje: {0}  {1}", Brangiausias_Name(D1, n1), Brangiausias_Cost(D1, n1));
+            Console.WriteLine("Brangiausias dviratis 2 rinkinyje: {0}  {1}", Brangiausias_Name(D2, n2), Brangiausias_Cost(D2, n2));
+            if (Brangiausias_Cost(D1, n1) == Brangiausias_Cost(D2, n2))
+            {
+                Console.WriteLine("Brangiausi dviračiai rinkiniuose: {0}  {1}    {2}  {3}", Brangiausias_Name(D1, n1), Brangiausias_Cost(D1, n1), Brangiausias_Name(D2, n2), Brangiausias_Cost(D2, n2));
+            }else if (Brangiausias_Cost(D1, n1) > Brangiausias_Cost(D2, n2))
+            {
+                Console.WriteLine("Brangiausias dviratis 1 rinkinyje: {0}  {1}", Brangiausias_Name(D1, n1), Brangiausias_Cost(D1, n1));
+            }
+            else
+            {
+                Console.WriteLine("Brangiausias dviratis 2 rinkinyje: {0}  {1}", Brangiausias_Name(D2, n2), Brangiausias_Cost(D2, n2));
+            }
         }
 
 
 
         static void Skaityti(string Fd, Dviratis[] D, out int n1, out string pav1)
         {
-            using (StreamReader reader = new StreamReader(Fd))
+            using (StreamReader reader = new StreamReader(Fd, Encoding.GetEncoding(1257)))
             {
                 string eil;
                 int kiek;
@@ -193,7 +208,7 @@ namespace Savarankiškas_3_3
         }
 
 
-        static string Brangiausias(Dviratis[] D, int n)
+        static string Brangiausias_Name(Dviratis[] D, int n)
         {
             double j = 0;
             for(int i = 0; i < n; i++ )
@@ -211,6 +226,26 @@ namespace Savarankiškas_3_3
                 }
             }
             return "";
+        }
+
+        static double Brangiausias_Cost(Dviratis[] D, int n)
+        {
+            double j = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (D[i].ImtiKainą > j)
+                {
+                    j = D[i].ImtiKainą;
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                if (D[i].ImtiKainą == j)
+                {
+                    return D[i].ImtiKainą;
+                }
+            }
+            return 0;
         }
     }
 }

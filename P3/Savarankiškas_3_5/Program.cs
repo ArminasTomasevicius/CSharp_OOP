@@ -46,6 +46,7 @@ namespace Savarankiškas_3_5
         {
             const string CFd1 = "...\\...\\Duom1.txt";
             const string CFrez = "...\\...\\Rez.txt";
+            if (File.Exists(CFrez)) File.Delete(CFrez);
             Auto[] A = new Auto[100];
             int na;
 
@@ -56,8 +57,15 @@ namespace Savarankiškas_3_5
             {
                 fr.WriteLine("Vidutinės degalų sąnaudos: {0,7:f2} litro/100 km", VidSąnaudos(A, na));
                 fr.WriteLine("Dyzelinių automobilių kiekis: {0}", DyzKiek(A, na));
-                fr.WriteLine("Vidutinės benzininių automobilių sąnaudos: {0} litro/100 km", VidSanaudosBenz(A, na));
-            }
+                if (VidSanaudosBenz(A, na) == 0)
+                {
+                    fr.WriteLine("Nėra benzininių automobilių");
+                }
+                else
+                {
+                    fr.WriteLine("Vidutinės benzininių automobilių sąnaudos: {0} litro/100 km", VidSanaudosBenz(A, na));
+                }
+                }
         }
 
         static double VidSąnaudos(Auto[] A, int kiek)
@@ -103,14 +111,13 @@ namespace Savarankiškas_3_5
             }
             else
             {
-                Console.WriteLine("Nėra benzininių automobilių");
                 return 0;
             }
         }
 
         static void Skaityti(string Fd, Auto[] A, out int kiek)
         {
-            using (StreamReader reader = new StreamReader(Fd))
+            using (StreamReader reader = new StreamReader(Fd, Encoding.GetEncoding(1257)))
             {
                 string pav, degalai;
                 double sąnaudos;

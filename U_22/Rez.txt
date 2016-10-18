@@ -1,0 +1,40 @@
+Jonas
+
+|------------------------------------------------|-------------|---------|--------|
+|                                                |             |         |        |
+|   Tipas                                        |    Kiekis   |   Masė  |  Kaina |
+|                                                |             |         |        |
+|------------------------------------------------|-------------|---------|--------|
+|baisioji                                        |            5|        1|       2|
+|bjaurioji                                       |            5|        1|       2|
+
+
+Antanas
+
+|------------------------------------------------|-------------|---------|--------|
+|                                                |             |         |        |
+|   Tipas                                        |    Kiekis   |   Masė  |  Kaina |
+|                                                |             |         |        |
+|------------------------------------------------|-------------|---------|--------|
+|baisioji                                        |            5|        1|       2|
+|bjaurioji                                       |            5|        1|       2|
+
+
+Ūkininko Jonas sunkiausios kaliausės aprėdų skaičius:
+Kaliausės tipas baisioji, aprėdų skaičius 5, masė 1, kaina 2
+Kaliausės tipas bjaurioji, aprėdų skaičius 5, masė 1, kaina 2
+Ūkininko Antanas sunkiausios kaliausės aprėdų skaičius:
+Kaliausės tipas baisioji, aprėdų skaičius 5, masė 1, kaina 2
+Kaliausės tipas bjaurioji, aprėdų skaičius 5, masė 1, kaina 2
+Vidutinė Jonas kaliausės kaina: 2,00
+Vidutinė Antanas kaliausės kaina: 2,00
+Abiejų ūkininkų sunkiausios kaliausės yra vienodai aprėdytos: 5
+Abiejų ūkininkų vidutinės kaliausių kainos lygios: 2,00
+
+|------------------------------------------------|-------------|---------|--------|
+|                                                |             |         |        |
+|   Tipas                                        |    Kiekis   |   Masė  |  Kaina |
+|                                                |             |         |        |
+|------------------------------------------------|-------------|---------|--------|
+|bjaurioji                                       |            5|        1|       2|
+|bjaurioji                                       |            5|        1|       2|

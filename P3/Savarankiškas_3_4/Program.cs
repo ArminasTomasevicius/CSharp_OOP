@@ -46,6 +46,7 @@ namespace Savarankiškas_3_4
         {
             const string CFd1 = "...\\...\\Duom1.txt";
             const string CFrez = "...\\...\\Rez.txt";
+            if (File.Exists(CFrez)) File.Delete(CFrez);
             Kelias[] K = new Kelias[100];
             int na;
 
@@ -57,8 +58,9 @@ namespace Savarankiškas_3_4
 
         static void Skaityti(string Fd, Kelias[] K, out int kiek)
         {
-            using (StreamReader reader = new StreamReader(Fd))
+            using (StreamReader reader = new StreamReader(Fd, Encoding.GetEncoding(1257)))
             {
+                
                 string pav;
                 double ilgis, greitis;
                 string line;
@@ -79,7 +81,12 @@ namespace Savarankiškas_3_4
 
         static void Spausdinti(string fv, Kelias[] K, int nkiek)
         {
-            const string virsus = "|-----------------|------------|--------------------|\r\n" + "|                 |            |                    |\r\n" + "|   Kelias   |  Atstumas   | Greitis|\r\n" + "|                 |            |                    |\r\n" + "|-----------------|------------|--------------------|";
+
+            const string virsus = "|------------------------------------------------|-------------|---------|\r\n" +
+                                  "|                                                |             |         |\r\n" + 
+                                  "|   Kelias                                       |  Atstumas   | Greitis |\r\n" +
+                                  "|                                                |             |         |\r\n" +
+                                  "|------------------------------------------------|-------------|---------|";
             using (var fr = File.AppendText(fv))
             {
                 fr.WriteLine(virsus);
@@ -87,9 +94,9 @@ namespace Savarankiškas_3_4
                 for (int i = 0; i < nkiek; i++)
                 {
                     tarp = K[i];
-                    fr.WriteLine("| {0,-15} | {1,-9}  |    {2,8:f2}        |", tarp.ImtiPav, tarp.ImtiIlgi, tarp.ImtiGreiti);
+                    fr.WriteLine("| {0,-46} | {1,-11} | {2,7:f2} |", tarp.ImtiPav, tarp.ImtiIlgi, tarp.ImtiGreiti);
                 }
-                fr.WriteLine("-----------------------------------------------------");
+                fr.WriteLine("--------------------------------------------------------------------------");
             }
         }
 

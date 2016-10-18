@@ -1,34 +1,16 @@
-Automobilių kiekis 10
-Automobilių sąrašas:
-|-----------------|------------|--------------------|
-|                 |            |                    |
-|   Pavadinimas   |  Degalai   | Sąnaudos (l/100 km)|
-|                 |            |                    |
-|-----------------|------------|--------------------|
-| Panev��ys-Pajuost� | 2,95       |       70,00        |
-| Ber�i�nai-Naujamiestis | 7,2        |       80,00        |
-| Ramygala-Krekenava | 15,48      |       80,00        |
-| Krekenava-Sk�mai-Grigi�k�s | 32,21      |       80,00        |
-| Panev��ys-Skaistgiriai- Pu�alotas | 22,2       |       80,00        |
-| Panev��ys-Pava�uokiai-Suba�ius | 24,95      |       80,00        |
-| Nauradai-Naujamiestis-Krekenava | 24,95      |       80,00        |
-| Naujamiestis-Upyt� | 6,13       |       70,00        |
-| Nauradai-Sujetai-Sinkonys | 14,33      |       80,00        |
-| Peid�iai-Ma�eniai-Raguva | 21,17      |       70,00        |
------------------------------------------------------
-|-----------------|------------|--------------------|
-|                 |            |                    |
-|   Kelias   |  Atstumas   | Greitis|
-|                 |            |                    |
-|-----------------|------------|--------------------|
-| Panev��ys-Pajuost� | 2,95       |       70,00        |
-| Ber�i�nai-Naujamiestis | 7,2        |       80,00        |
-| Ramygala-Krekenava | 15,48      |       80,00        |
-| Krekenava-Sk�mai-Grigi�k�s | 32,21      |       80,00        |
-| Panev��ys-Skaistgiriai- Pu�alotas | 22,2       |       80,00        |
-| Panev��ys-Pava�uokiai-Suba�ius | 24,95      |       80,00        |
-| Nauradai-Naujamiestis-Krekenava | 24,95      |       80,00        |
-| Naujamiestis-Upyt� | 6,13       |       70,00        |
-| Nauradai-Sujetai-Sinkonys | 14,33      |       80,00        |
-| Peid�iai-Ma�eniai-Raguva | 21,17      |       70,00        |
------------------------------------------------------
+|------------------------------------------------|-------------|---------|
+|                                                |             |         |
+|   Kelias                                       |  Atstumas   | Greitis |
+|                                                |             |         |
+|------------------------------------------------|-------------|---------|
+| Panevėžys-Pajuostė                             | 2,95        |   70,00 |
+| Berčiūnai-Naujamiestis                         | 7,2         |   80,00 |
+| Ramygala-Krekenava                             | 15,48       |   80,00 |
+| Krekenava-Skėmai-Grigiškės                     | 32,21       |   80,00 |
+| Panevėžys-Skaistgiriai- Pušalotas              | 22,2        |   80,00 |
+| Panevėžys-Pavašuokiai-Subačius                 | 24,95       |   80,00 |
+| Nauradai-Naujamiestis-Krekenava                | 24,95       |   80,00 |
+| Naujamiestis-Upytė                             | 6,13        |   70,00 |
+| Nauradai-Sujetai-Sinkonys                      | 14,33       |   80,00 |
+| Peidžiai-Maženiai-Raguva                       | 21,17       |   70,00 |
+--------------------------------------------------------------------------

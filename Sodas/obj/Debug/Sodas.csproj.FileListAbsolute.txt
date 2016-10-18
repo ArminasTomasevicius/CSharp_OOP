@@ -1,0 +1,6 @@
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Sodas\bin\Debug\Sodas.exe.config
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Sodas\bin\Debug\Sodas.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Sodas\bin\Debug\Sodas.pdb
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Sodas\obj\Debug\Sodas.csprojResolveAssemblyReference.cache
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Sodas\obj\Debug\Sodas.exe
+c:\users\armin\onedrive\documents\visual studio 2015\Projects\Sodas\obj\Debug\Sodas.pdb

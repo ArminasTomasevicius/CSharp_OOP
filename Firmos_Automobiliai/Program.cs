@@ -46,6 +46,7 @@ namespace Firmos_Automobiliai
         {
             const string CFd1 = "...\\...\\Duom1.txt";
             const string CFrez = "...\\...\\Rez.txt";
+            if (File.Exists(CFrez)) File.Delete(CFrez);
             Auto[] A = new Auto[100];
             int na;
 
@@ -57,7 +58,7 @@ namespace Firmos_Automobiliai
 
         static void Skaityti(string Fd, Auto[] A, out int kiek)
         {
-            using (StreamReader reader = new StreamReader(Fd))
+            using (StreamReader reader = new StreamReader(Fd, Encoding.GetEncoding(1257)))
             {
                 string pav, degalai;
                 double sąnaudos;
