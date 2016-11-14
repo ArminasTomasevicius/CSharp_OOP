@@ -1,4 +1,7 @@
 Jonas
-2
+5
 baisioji 5 1 2
-bjaurioji 5 1 2
+bjaurioji 5 5 7
+baisioji 8 5 8
+kitokia 8 4 3
+bjaurioji 10 5 4

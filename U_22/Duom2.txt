@@ -1,4 +1,5 @@
 Antanas
-2
+3
 baisioji 5 1 2
 bjaurioji 5 1 2
+keistoji 8 5 7

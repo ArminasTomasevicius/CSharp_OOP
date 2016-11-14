@@ -1,0 +1,11 @@
+Statybu fakultetas
+9
+Petroviciene Anele Cekai 5 10 9 10 3 5 
+Mano Ateitis Cekai 5 10 9 10 3 5 
+Volanas Andrius Cekai 5 10 9 10 3 5 
+Nesakysiu Radvanas Bsquad 5 10 9 10 3 5 
+Sapiega Leonas Bsquad 5 10 9 10 3 5 
+Sarbievijus Mykalojus Bsquad 5 10 9 10 3 5 
+Nesakysiu Marija A-2 5 10 9 10 3 5 
+Lapas Algimas A-2 5 10 9 10 3 5 
+Krapas Tarpas A-2 5 10 9 10 3 5 

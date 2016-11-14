@@ -1,0 +1,6 @@
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\U4_22\bin\Debug\U4_22.exe.config
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\U4_22\bin\Debug\U4_22.exe
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\U4_22\bin\Debug\U4_22.pdb
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\U4_22\obj\Debug\U4_22.csprojResolveAssemblyReference.cache
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\U4_22\obj\Debug\U4_22.exe
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\U4_22\obj\Debug\U4_22.pdb
