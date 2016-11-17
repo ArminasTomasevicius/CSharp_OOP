@@ -75,22 +75,62 @@ namespace Savarankiškas_4_2
             return n;
         }
 
-        public void Dėti(Studentas ob)
+        public void Deti(Studentas ob)
         {
             Studentai[n++] = ob;
         }
 }
+
+    class Facult
+    {
+        const int CMaxi = 100;
+        private Grupe[] Grupes;
+        private int n;
+
+        public Facult()
+        {
+            n = 0;
+            Grupes = new Grupe[CMaxi];
+        }
+
+        public Grupe Imti(int i) { return Grupes[i]; }
+
+        public int Imti()
+        {
+            return n;
+        }
+
+        public void Deti(Grupe ob)
+        {
+            Grupes[n++] = ob;
+        }
+    }
+
 
     class Program
     {
         static void Main(string[] args)
         {
             int n = 0;
+            Grupe grupele = new Grupe();
             const string CFd = "...\\...\\Duom.txt";
-            Skaityti(ref n, CFd);
+            Skaityti(ref n, CFd,ref grupele);
+
+            for (int i = 0; i < n; i++)
+            {
+                int poz = 0;
+                for(int j = 0; j < grupele.Imti(); j++)
+                {
+                    if (grupele.Imti())
+                    {
+
+                    }poz = 1;
+                    break;
+                }
+            }
         }
 
-        static void Skaityti(ref int n, string fv)
+        static void Skaityti(ref int n, string fv, ref Grupe grupele)
         {
             int pkiekis;
             int[] paz = new int[100];
@@ -114,8 +154,9 @@ namespace Savarankiškas_4_2
                         paz[j] = int.Parse(parts[j+3]);
                     }
                     Studentas ob = new Studentas(vardas, pavarde, grupe, pkiekis, paz);
-                    grupe.Dėti(ob);
+                    grupele.Deti(ob);
                 }
+
             }
         }
     }

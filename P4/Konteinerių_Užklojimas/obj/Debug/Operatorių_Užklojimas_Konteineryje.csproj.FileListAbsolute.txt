@@ -1,0 +1,6 @@
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\Konteinerių_Užklojimas\bin\Debug\Konteinerių_Užklojimas.exe.config
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\Konteinerių_Užklojimas\bin\Debug\Konteinerių_Užklojimas.exe
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\Konteinerių_Užklojimas\bin\Debug\Konteinerių_Užklojimas.pdb
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\Konteinerių_Užklojimas\obj\Debug\Operatorių_Užklojimas_Konteineryje.csprojResolveAssemblyReference.cache
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\Konteinerių_Užklojimas\obj\Debug\Konteinerių_Užklojimas.exe
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P4\Konteinerių_Užklojimas\obj\Debug\Konteinerių_Užklojimas.pdb

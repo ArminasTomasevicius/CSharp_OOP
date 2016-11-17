@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Savarankiškas_4_2", "Savar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U4_22", "U4_22\U4_22.csproj", "{BEE951F8-83C5-438B-836D-5DC87A0FB806}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operatorių_Užklojimas_Konteineryje", "Konteinerių_Užklojimas\Operatorių_Užklojimas_Konteineryje.csproj", "{2DA10E88-4949-4946-89A7-D3D4497747E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BEE951F8-83C5-438B-836D-5DC87A0FB806}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEE951F8-83C5-438B-836D-5DC87A0FB806}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEE951F8-83C5-438B-836D-5DC87A0FB806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA10E88-4949-4946-89A7-D3D4497747E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA10E88-4949-4946-89A7-D3D4497747E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA10E88-4949-4946-89A7-D3D4497747E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA10E88-4949-4946-89A7-D3D4497747E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

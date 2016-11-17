@@ -58,10 +58,21 @@ namespace U4_22
         }
     }
 
+    class Destytojai
+    {
+
+    }
+
+    class Moduliai
+    {
+
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
