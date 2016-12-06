@@ -87,7 +87,10 @@ namespace Operatorių_Užklojimas_Konteineryje
         {
             for (int i = 0; i < n - 1; i++)
             {
-                Studentas min = St[i]; int im = i; for (int j = i + 1; j < n; j++) if (St[j] <= min)
+                Studentas min = St[i];
+                int im = i;
+                for (int j = i + 1; j < n; j++)
+                    if (St[j] <= min)
                     {
                         min = St[j];
                         im = j;
