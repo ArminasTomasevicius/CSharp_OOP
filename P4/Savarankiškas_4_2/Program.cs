@@ -16,19 +16,24 @@ namespace Savarankiškas_4_2
         private int pkiekis;
         private int[] pazymiai;
 
-        public Studentas(string pavarde, string vardas, string grupe, int pkiekis, int[] pazymiai)
+        public Studentas(string pavarde, string vardas, string grupe, int pkiekis, int[] pazymiai1)
         {
             this.pavarde = pavarde;
             this.vardas = vardas;
             this.grupe = grupe;
             this.pkiekis = pkiekis;
-            this.pazymiai = pazymiai;
+            pazymiai = new int[100];
+            for (int i = 0; i < pkiekis; i++)
+            {
+                this.pazymiai[i] = pazymiai1[i];
+            }
+            //this.pazymiai = pazymiai;
         }
 
         public string Pavarde
         {
-            set{ value = pavarde; }
-            get{ return pavarde; }
+            set { value = pavarde; }
+            get { return pavarde; }
         }
 
         public string Vardas
@@ -59,13 +64,13 @@ namespace Savarankiškas_4_2
     class Facult
     {
         private string pavadinimas;
-        private int kiekis;
+        private int pkiekis;
         private double suma;
 
-        public Facult(string pavadinimas, int kiekis, double suma)
+        public Facult(string pavadinimas, int pkiekis, double suma)
         {
             this.pavadinimas = pavadinimas;
-            this.kiekis = kiekis;
+            this.pkiekis = pkiekis;
             this.suma = suma;
         }
 
@@ -75,10 +80,10 @@ namespace Savarankiškas_4_2
             get { return pavadinimas; }
         }
 
-        public int Kiekis
+        public int Pkiekis
         {
-            set { value = kiekis; }
-            get { return kiekis; }
+            set { value = pkiekis; }
+            get { return pkiekis; }
         }
 
         public double Suma
@@ -87,30 +92,40 @@ namespace Savarankiškas_4_2
             get { return suma; }
         }
 
-        public double Vid()
+        public void DetiSuma(double sum)
         {
-            double vid = suma / kiekis;
-            return vid;
+            suma = sum;
         }
 
-        public static bool operator <= (Facult f1, Facult f2)
+        public void DetiKiek(int kiek)
+        {
+            pkiekis = kiek;
+        }
+
+        public double Vid
+        {
+            set { value = Vid; }
+            get { return suma / pkiekis; }
+        }
+
+        public static bool operator <=(Facult f1, Facult f2)
         {
             int p = String.Compare(f1.pavadinimas, f2.pavadinimas, StringComparison.CurrentCulture);
 
-            return ((f1.Vid()<f2.Vid()) || (f1.Vid() == f2.Vid()) && (p > 0));
+            return ((f1.Vid < f2.Vid) || (f1.Vid == f2.Vid) && (p > 0));
         }
 
-        public static bool operator >= (Facult f1, Facult f2)
+        public static bool operator >=(Facult f1, Facult f2)
         {
             int p = String.Compare(f1.pavadinimas, f2.pavadinimas, StringComparison.CurrentCulture);
 
-            return ((f1.Vid() > f2.Vid()) || (f1.Vid() == f2.Vid()) && (p > 0));
+            return ((f1.Vid > f2.Vid) || (f1.Vid == f2.Vid) && (p < 0));
         }
 
         public override string ToString()
         {
             string eilute;
-            eilute = string.Format("{0, -12} {1, -9} {2, -7} {3}", pavadinimas, kiekis, suma, Vid());
+            eilute = string.Format("{0, -12} {1, -9} {2, -7} {3}", pavadinimas, pkiekis, suma, Vid);
             return eilute;
         }
     }
@@ -128,7 +143,8 @@ namespace Savarankiškas_4_2
             Studentai = new Studentas[CMaxi];
         }
 
-        public Studentas Imti(int i) {
+        public Studentas Imti(int i)
+        {
             return Studentai[i];
         }
 
@@ -162,27 +178,42 @@ namespace Savarankiškas_4_2
             return n;
         }
 
+        public void DetiSuma(double sum, int i)
+        {
+            /* double s1;
+             s1 = Imti(i).Suma;
+             s1 += sum;
+             */
+            Facults[i].DetiSuma(sum);
+        }
+
+        public void DetiKiek(int kiek, int j)
+        {
+            Facults[j].DetiKiek(kiek);
+        }
+
         public void Deti(Facult ob)
         {
             Facults[n++] = ob;
         }
 
-     /*   public void RikiuotiVid()
-        {
-            for (int i = 0; i < n - 1; i++)
-            {
-                double min = Facults[i].Vid();
-                int im = i;
-                for (int j = i + 1; j < n; j++)
-                    if (Facults[j].Vid() < min)
-                    {
-                        min = Facults[j].Vid();
-                        im = j;
-                    }
-                Facults[im] = Facults[i];
-            }
-        }
-        */
+        /*  public void RikiuotiVid()
+          {
+              for (int i = 0; i < n - 1; i++)
+              {
+                  double min = Facults[i].Vid;
+                  int im = i;
+                  for (int j = i + 1; j < n; j++)
+                      if (Facults[j].Vid < min)
+                      {
+                          min = Facults[j].Vid;
+                          im = j;
+                      }
+                  Facults[im] = Facults[i];
+              }
+          }
+          */
+
         public void Rikiuoti()
         {
             for (int i = 0; i < n - 1; i++)
@@ -190,7 +221,7 @@ namespace Savarankiškas_4_2
                 Facult min = Facults[i];
                 int im = i;
                 for (int j = i + 1; j < n; j++)
-                    if (Facults[j] <= min)
+                    if (Facults[j] >= min)
                     {
                         min = Facults[j];
                         im = j;
@@ -199,52 +230,22 @@ namespace Savarankiškas_4_2
                 Facults[i] = min;
             }
         }
-
     }
-
 
     class Program
     {
+
+
+        const string CFd = "...\\...\\Duom1.txt";
+
         static void Main(string[] args)
         {
-            double suma;
-            int poz;
             int n = 0;
             Grupe grupele = new Grupe();
             Facult_Konteineris facult = new Facult_Konteineris();
-            const string CFd = "...\\...\\Duom.txt";
-            Skaityti(ref n, CFd,ref grupele);
-
-            for (int i = 0; i < n; i++)
-            {
-                poz = 0;
-                suma = 0;
-                int kiekis = 1;
-                for (int a = 0; a < grupele.Imti(i).Pkiekis; a++) {
-                    suma += grupele.Imti(i).Pazymiai[a];
-            }
-
-
-                for(int j = 0; j < facult.Imti(); j++)
-                {
-                    
-                    if (facult.Imti(j).Pavadinimas == grupele.Imti(i).Grupe)
-                    {
-                        facult.Imti(j).Kiekis++;
-                        Console.WriteLine(facult.Imti(j).Kiekis);
-                        facult.Imti(j).Suma += suma;
-                        poz++;
-                    }
-                }
-
-                if (poz==0)
-                {
-                    Facult ob = new Facult(grupele.Imti(i).Grupe, kiekis, suma);  //ideda ir nekeicia
-                    facult.Deti(ob);
-                    Console.WriteLine("Create");
-
-                }
-            }
+            Skaityti(ref n, CFd, ref grupele);
+            Magija(facult, grupele, n);
+            facult.Rikiuoti();
             Spausdinti(facult);
 
         }
@@ -270,7 +271,8 @@ namespace Savarankiškas_4_2
 
                     for (int j = 0; j < pkiekis; j++)
                     {
-                        paz[j] = int.Parse(parts[j+3]);
+                        paz[j] = int.Parse(parts[j + 4]);
+                        Console.WriteLine(" * " + j);
                     }
                     Studentas ob = new Studentas(vardas, pavarde, grupe, pkiekis, paz);
                     grupele.Deti(ob);
@@ -278,23 +280,73 @@ namespace Savarankiškas_4_2
 
             }
         }
-        
+
         static void Spausdinti(Facult_Konteineris facult)
         {
             double sum = 0;
             for (int i = 0; i < facult.Imti(); i++)
             {
                 sum = 0;
-                double vid = facult.Imti(i).Suma/facult.Imti(i).Kiekis;
+                double vid = facult.Imti(i).Suma / facult.Imti(i).Pkiekis;
                 sum += facult.Imti(i).Suma;
-               Console.WriteLine(facult.Imti(i).Suma);
-               Console.WriteLine(vid);
+                Console.WriteLine(facult.Imti(i).Suma);
+                Console.WriteLine(vid);
                 Console.WriteLine(i);
             }
-            
-            for(int i = 0; i < facult.Imti(); i++)
+
+            for (int i = 0; i < facult.Imti(); i++)
             {
                 Console.WriteLine("{0}", facult.Imti(i).ToString());
+            }
+        }
+
+        static void Magija(Facult_Konteineris facult, Grupe grupele, int n)
+        {
+            double suma;
+            int poz;
+            for (int i = 0; i < n; i++)
+            {
+                poz = 0;
+                suma = 0;
+                for (int a = 0; a < grupele.Imti(i).Pkiekis; a++)
+                {
+                    suma += grupele.Imti(i).Pazymiai[a];
+                    Console.WriteLine(" / " + grupele.Imti(i).Pazymiai[a]);
+                }
+
+
+                for (int j = 0; j < facult.Imti(); j++)
+                {
+
+                    if (facult.Imti(j).Pavadinimas == grupele.Imti(i).Grupe)
+                    {
+
+                        Console.WriteLine(facult.Imti(j).Pkiekis);
+
+                        double s1 = 0;
+                        int v = 0;
+                        s1 = facult.Imti(j).Suma;
+                        s1 = s1 + suma;
+
+                        v = facult.Imti(j).Pkiekis;
+                        v = v + grupele.Imti(i).Pkiekis;
+
+                        facult.DetiKiek(v, j);
+                        Console.WriteLine(s1 + "  " + suma + "  " + facult.Imti(j).Pavadinimas);
+                        facult.DetiSuma(s1, j);
+
+                        Console.WriteLine(facult.Imti(j).Suma);
+                        poz++;
+                    }
+                }
+
+                if (poz == 0)
+                {
+                    Facult ob = new Facult(grupele.Imti(i).Grupe, grupele.Imti(i).Pkiekis, suma);  //ideda ir nekeicia
+                    facult.Deti(ob);
+                    Console.WriteLine("Create");
+
+                }
             }
         }
     }

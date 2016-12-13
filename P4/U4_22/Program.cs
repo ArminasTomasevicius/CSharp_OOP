@@ -117,7 +117,7 @@ namespace U4_22
             destytojai = new Destytojas[CMaxi];
         }
 
-        public Destytojai Imti(int i)
+        public Destytojas Imti(int i)
         {
             return destytojai[i];
         }
@@ -211,26 +211,24 @@ namespace U4_22
             {
                 int poz = 0;
 
-                suma += grupele.Imti(i).Credit;
-
-                for (int j = 0; j < grupele.Imti(); j++)
+                for (int j = 0; j < mod.Imti(); j++)
                 {
-
-                    if (grupele.Imti(j).Pavadinimas == grupele.Imti(i).Grupe)
+                    if (grupele.Imti(j).MPavadinimas == mod.Imti(i).MPavadinimas)
                     {
-                        grupele.Imti(j).Kiekis++;
-                        Console.WriteLine(grupele.Imti(j).Kiekis);
-                        grupele.Imti(j).Suma += suma;
+                        grupele.Imti(i).Credit += ;
+                        Console.WriteLine(grupele.Imti(j).Credit);
                         poz++;
                     }
                 }
 
                 if (poz == 0)
                 {
-                    grupele ob = new grupele(grupele.Imti(i).Grupe, kiekis, suma);
+                    mod ob = new Moduliai(grupele.Imti(i).Grupe, kiekis, suma);
+                    suma += grupele.Imti(i).Credit;
                     grupele.Deti(ob);
                     Console.WriteLine("Create");
                 }
+                
             }
 
         }
@@ -258,7 +256,6 @@ namespace U4_22
 
                     Studentas ob = new Studentas(mpavadinimas, dpavarde, dvardas, credit, spavarde, svardas, grupe);
                     grupele.Deti(ob);
-                   // mod.Deti(ob);
                 }
 
             }

@@ -1,8 +1,8 @@
 Statybu fakultetas
 9
-Petroviciene Anele Cekai 5 10 9 10 3 5 
-Mano Ateitis Cekai 5 10 9 10 3 5 
-Volanas Andrius Cekai 5 10 9 10 3 5 
+Petroviciene Anele Cekai 4 10 9 8 3 5 
+Mano Ateitis Cekai 3 10 9 7 3 5 
+Volanas Andrius Cekai 3 10 9 10 3 5 
 Nesakysiu Radvanas Bsquad 5 10 9 10 3 5 
 Sapiega Leonas Bsquad 5 10 9 10 3 5 
 Sarbievijus Mykalojus Bsquad 5 10 9 10 3 5 
