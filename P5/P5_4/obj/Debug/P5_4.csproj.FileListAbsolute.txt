@@ -1,0 +1,6 @@
+C:\Users\armin\onedrive\documents\visual studio 2015\Projects\P5\P5_4\bin\Debug\P5_4.exe.config
+C:\Users\armin\onedrive\documents\visual studio 2015\Projects\P5\P5_4\bin\Debug\P5_4.exe
+C:\Users\armin\onedrive\documents\visual studio 2015\Projects\P5\P5_4\bin\Debug\P5_4.pdb
+C:\Users\armin\onedrive\documents\visual studio 2015\Projects\P5\P5_4\obj\Debug\P5_4.exe
+C:\Users\armin\onedrive\documents\visual studio 2015\Projects\P5\P5_4\obj\Debug\P5_4.pdb
+C:\Users\armin\onedrive\documents\visual studio 2015\Projects\P5\P5_4\obj\Debug\P5_4.csprojResolveAssemblyReference.cache
