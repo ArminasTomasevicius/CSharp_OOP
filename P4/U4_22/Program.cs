@@ -68,18 +68,24 @@ namespace U4_22
 
     class Destytojas
     {
-        private string mpavadinimas, dpavarde, dvardas, grupe, svardas, spavarde;
+        private string dpavarde, dvardas, grupe, svardas, spavarde;
+        private string[] mpavadinimas;
         private double credit;
+        private int mkiekis;
 
-        public Destytojas(string mpavadinimas, string dpavarde, string dvardas, double credit)
+        public Destytojas(string[] mpavadinimas, int mkiekis, string dpavarde, string dvardas, double credit)
         {
-            this.mpavadinimas = mpavadinimas;
             this.dpavarde = dpavarde;
             this.dvardas = dvardas;
             this.credit = credit;
+            mpavadinimas = new string[100];
+            for (int i = 0; i < mkiekis; i++)
+            {
+                this.mpavadinimas[i] = mpavadinimas[i];
+            }
         }
 
-        public string MPavadinimas
+        public string[] MPavadinimas
         {
             set { mpavadinimas = value; }
             get { return mpavadinimas; }
@@ -102,6 +108,45 @@ namespace U4_22
             set { credit = value; }
             get { return credit; }
         }
+    }
+
+    class Modulis
+    {
+        private string mpavadinimas, dpavarde, dvardas;
+        private double credit;
+
+        public Modulis(string mpavadinimas, string dpavarde, string dvardas, double credit)
+        {
+            this.mpavadinimas = mpavadinimas;
+            this.dpavarde = dpavarde;
+            this.dvardas = dvardas;
+            this.credit = credit;
+        }
+
+        public string MPavadinimas
+        {
+            set { mpavadinimas = value; }
+            get { return mpavadinimas; }
+        }
+
+        public string DPavarde
+        {
+            set { dpavarde = value; }
+            get { return dpavarde; }
+        }
+
+        public string DVardas
+        {
+            set { dvardas = value; }
+            get { return dvardas; }
+        }
+
+        public double Credit
+        {
+            set { credit = value; }
+            get { return credit; }
+        }
+
     }
 
     class Destytojai
@@ -191,6 +236,35 @@ namespace U4_22
         }
     }
 
+    class Konteineris
+    {
+        const int CMaxi = 100;
+        private Studentas[] Studentai;
+        private int n;
+        private string pav;
+
+        public Konteineris()
+        {
+            n = 0;
+            Studentai = new Studentas[CMaxi];
+        }
+
+        public Studentas Imti(int i)
+        {
+            return Studentai[i];
+        }
+
+        public int Imti()
+        {
+            return n;
+        }
+
+        public void Deti(Studentas ob)
+        {
+            Studentai[n++] = ob;
+        }
+    }
+
 
     class Program
     {
@@ -201,39 +275,102 @@ namespace U4_22
             Grupe grupele = new Grupe();
             Destytojai dest = new Destytojai();
             Moduliai mod = new Moduliai();
+            Konteineris kont = new Konteineris();
 
-            Skaityti(ref n, CFd, ref grupele, ref mod);
+            Skaityti(ref n, CFd, ref kont);
 
-            double suma = 0;
-            int kiekis = 1;
+            int poz = 0;
 
+            for (int i = 0; i < grupele.Imti(); i++)
+            {
+
+                if (kont.Imti(i).Grupe == grupele.Imti(i).Grupe)
+                {
+                    grupele.Deti(kont.Imti(i));
+                    Console.WriteLine(kont.Imti(i).Grupe);
+                    poz++;
+                    Console.WriteLine("Add");
+                }
+            }
+
+            if (poz == 0)
+            {
+                Grupe ob = new Grupe(kont.Imti(i));  //ideda ir nekeicia
+                grupele.Deti(ob);
+                Console.WriteLine("Create");
+
+
+            }
+
+        /* for (int i = 0; i < n; i++)
+         {
+
+         }
+
+
+         double suma = 0;
+         int kiekis = 1;
+
+         for (int i = 0; i < n; i++)
+         {
+             int poz = 0;
+
+             for (int j = 0; j < mod.Imti(); j++)
+             {
+                 if (grupele.Imti(j).MPavadinimas == mod.Imti(i).MPavadinimas)
+                 {
+                     grupele.Imti(i).Credit += ;
+                     poz++;
+                 }
+             }
+
+             if (poz == 0)
+             {
+                 string grupe = grupele.Imti(i).Grupe;
+                 suma += grupele.Imti(i).Credit;
+                 grupele.Deti(ob);
+                 Console.WriteLine("Create");
+             }
+
+         }
+         */
+    }
+
+        static void Magija(Konteineris kont, Grupe grupele, int n)
+        {
+            double suma;
+            int poz;
             for (int i = 0; i < n; i++)
             {
-                int poz = 0;
+                poz = 0;
+                suma = 0;
 
-                for (int j = 0; j < mod.Imti(); j++)
+
+                for (int j = 0; j < kont.Imti(); j++)
                 {
-                    if (grupele.Imti(j).MPavadinimas == mod.Imti(i).MPavadinimas)
+
+                    if (kont.Imti(j).Grupe == grupele.Imti(i).Grupe)
                     {
-                        grupele.Imti(i).Credit += ;
-                        Console.WriteLine(grupele.Imti(j).Credit);
+
+                        grupele.Deti(kont.Imti(i));
+                        Console.WriteLine(kont.Imti(i).Grupe);
+                        poz++;
+                        Console.WriteLine("Add");
                         poz++;
                     }
                 }
 
                 if (poz == 0)
                 {
-                    mod ob = new Moduliai(grupele.Imti(i).Grupe, kiekis, suma);
-                    suma += grupele.Imti(i).Credit;
+                    Grupe ob = new Grupe(kont.Imti(i));  //ideda ir nekeicia
                     grupele.Deti(ob);
                     Console.WriteLine("Create");
-                }
-                
-            }
 
+                }
+            }
         }
 
-        static void Skaityti(ref int n, string fv, ref Grupe grupele, ref Moduliai mod)
+        static void Skaityti(ref int n, string fv, ref Konteineris kont)
         {
             string mpavadinimas, dpavarde, dvardas, grupe, svardas, spavarde;
             double credit;
@@ -255,10 +392,10 @@ namespace U4_22
                     grupe = parts[6];
 
                     Studentas ob = new Studentas(mpavadinimas, dpavarde, dvardas, credit, spavarde, svardas, grupe);
-                    grupele.Deti(ob);
+                    kont.Deti(ob);
                 }
-
             }
+
         }
     }
 }

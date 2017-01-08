@@ -1,0 +1,4 @@
+Jonas        A         1990    10      5      
+Petras       B         1994    5       2      
+Jonas        A         1990    10      5      
+Petras       B         1994    5       2      

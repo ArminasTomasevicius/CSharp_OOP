@@ -1,0 +1,6 @@
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P5\P5_3_Regex\bin\Debug\P5_3_Regex.exe.config
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P5\P5_3_Regex\bin\Debug\P5_3_Regex.exe
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P5\P5_3_Regex\bin\Debug\P5_3_Regex.pdb
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P5\P5_3_Regex\obj\Debug\P5_3_Regex.csprojResolveAssemblyReference.cache
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P5\P5_3_Regex\obj\Debug\P5_3_Regex.exe
+C:\Users\armin\OneDrive\Documents\Visual Studio 2015\Projects\P5\P5_3_Regex\obj\Debug\P5_3_Regex.pdb
