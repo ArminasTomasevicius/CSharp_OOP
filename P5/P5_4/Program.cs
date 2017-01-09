@@ -20,21 +20,7 @@ namespace P5_4
             string[] words = Arraying(text);
             string[] wordsrev = Arraying(textrev);
 
-            int counter = 0;
-
-            for (int i = 0; i < words.Length; i++)
-            {
-                for (int j = 0; j < wordsrev.Length; j++)
-                {
-                    if ((words[i] == wordsrev[j]) && (words[i].Length == wordsrev[j].Length))
-                    {
-                        counter++;
-                        Console.WriteLine(wordsrev[i]);
-                        Console.WriteLine(wordsrev[j]);
-                    }
-                }
-            }
-            Console.WriteLine(counter);
+            Console.WriteLine(Repeats(words, wordsrev));
         }
 
         public static string[] Arraying(string text)
@@ -52,6 +38,25 @@ namespace P5_4
             char[] charArray = s.ToCharArray();
             Array.Reverse(charArray);
             return new string(charArray);
+        }
+
+        public static int Repeats(string[] words, string[] wordsrev)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                for (int j = 0; j < wordsrev.Length; j++)
+                {
+                    if ((words[i] == wordsrev[j]) && (words[i].Length == wordsrev[j].Length))
+                    {
+                        counter++;
+                        Console.WriteLine(wordsrev[i]);
+                        Console.WriteLine(wordsrev[j]);
+                    }
+                }
+            }
+            return counter;
         }
     }
 }
