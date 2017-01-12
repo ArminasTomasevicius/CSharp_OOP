@@ -20,7 +20,7 @@ namespace P5_4
             string[] words = Arraying(text);
             string[] wordsrev = Arraying(textrev);
 
-            Console.WriteLine(Repeats(words, wordsrev));
+            Console.WriteLine("Polindromų kiekis {0}", Repeats(words, wordsrev));
         }
 
         public static string[] Arraying(string text)
@@ -51,8 +51,6 @@ namespace P5_4
                     if ((words[i] == wordsrev[j]) && (words[i].Length == wordsrev[j].Length))
                     {
                         counter++;
-                        Console.WriteLine(wordsrev[i]);
-                        Console.WriteLine(wordsrev[j]);
                     }
                 }
             }

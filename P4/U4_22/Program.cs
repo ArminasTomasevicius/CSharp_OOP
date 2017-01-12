@@ -113,14 +113,15 @@ namespace U4_22
     class Modulis
     {
         private string mpavadinimas, dpavarde, dvardas;
-        private double credit;
+        private double credit, skiekis;
 
-        public Modulis(string mpavadinimas, string dpavarde, string dvardas, double credit)
+        public Modulis(string mpavadinimas, string dpavarde, string dvardas, double credit, double skiekis)
         {
             this.mpavadinimas = mpavadinimas;
             this.dpavarde = dpavarde;
             this.dvardas = dvardas;
             this.credit = credit;
+            this.skiekis = skiekis;
         }
 
         public string MPavadinimas
@@ -147,6 +148,18 @@ namespace U4_22
             get { return credit; }
         }
 
+        public double Skiekis
+        {
+            set { skiekis = value; }
+            get { return skiekis; }
+        }
+
+    }
+
+    class Grupe
+    {
+        private string pavadinimas;
+        private string s;
     }
 
     class Destytojai
@@ -207,14 +220,14 @@ namespace U4_22
         }
     }
 
-    class Grupe
+    class Grupes
     {
         const int CMaxi = 100;
         private Studentas[] Studentai;
         private int n;
         private string pav;
 
-        public Grupe()
+        public Grupes()
         {
             n = 0;
             Studentai = new Studentas[CMaxi];
@@ -272,71 +285,26 @@ namespace U4_22
         {
             int n = 0;
             const string CFd = "...\\...\\Duom.txt";
-            Grupe grupele = new Grupe();
+            Grupes grupele = new Grupes();
             Destytojai dest = new Destytojai();
             Moduliai mod = new Moduliai();
             Konteineris kont = new Konteineris();
 
             Skaityti(ref n, CFd, ref kont);
-
-            int poz = 0;
-
-            for (int i = 0; i < grupele.Imti(); i++)
-            {
-
-                if (kont.Imti(i).Grupe == grupele.Imti(i).Grupe)
-                {
-                    grupele.Deti(kont.Imti(i));
-                    Console.WriteLine(kont.Imti(i).Grupe);
-                    poz++;
-                    Console.WriteLine("Add");
-                }
-            }
-
-            if (poz == 0)
-            {
-                Grupe ob = new Grupe(kont.Imti(i));  //ideda ir nekeicia
-                grupele.Deti(ob);
-                Console.WriteLine("Create");
-
-
-            }
-
-        /* for (int i = 0; i < n; i++)
-         {
-
-         }
-
-
-         double suma = 0;
-         int kiekis = 1;
-
-         for (int i = 0; i < n; i++)
-         {
-             int poz = 0;
-
-             for (int j = 0; j < mod.Imti(); j++)
-             {
-                 if (grupele.Imti(j).MPavadinimas == mod.Imti(i).MPavadinimas)
-                 {
-                     grupele.Imti(i).Credit += ;
-                     poz++;
-                 }
-             }
-
-             if (poz == 0)
-             {
-                 string grupe = grupele.Imti(i).Grupe;
-                 suma += grupele.Imti(i).Credit;
-                 grupele.Deti(ob);
-                 Console.WriteLine("Create");
-             }
-
-         }
-         */
+            
     }
 
-        static void Magija(Konteineris kont, Grupe grupele, int n)
+        static void DaugiausiaiPasirinko()
+        {
+
+        }
+
+        static void AreAll()
+        {
+
+        }
+
+        static void IGrupes(Konteineris kont, Grupes grupele, int n)
         {
             double suma;
             int poz;
@@ -344,7 +312,6 @@ namespace U4_22
             {
                 poz = 0;
                 suma = 0;
-
 
                 for (int j = 0; j < kont.Imti(); j++)
                 {
@@ -358,15 +325,29 @@ namespace U4_22
                         Console.WriteLine("Add");
                         poz++;
                     }
+
                 }
 
                 if (poz == 0)
                 {
-                    Grupe ob = new Grupe(kont.Imti(i));  //ideda ir nekeicia
+                    Grupe ob = new Grupe();  //ideda ir nekeicia
                     grupele.Deti(ob);
                     Console.WriteLine("Create");
 
                 }
+            }
+        }
+
+        static void Nepasirinko()
+        {
+
+        }
+
+        static void IModulius(Grupes grupele, Destytojai dest, )
+        {
+            for ()
+            {
+
             }
         }
 
