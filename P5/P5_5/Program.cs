@@ -20,10 +20,12 @@ namespace P5_5
 
             string word = Console.ReadLine();
             string[] wordsremoved = Remove(words, word);
-
+            string s = s.Replace("\n", Environment.NewLine);
             string s = string.Join(" " ,wordsremoved);
+            
 
-            Spausdinti(rez, s);
+            File.WriteAllText(rez, s);
+
         }
 
         public static string[] Arraying(string text)
@@ -66,14 +68,5 @@ namespace P5_5
             }
             return words;
         }
-
-        static void Spausdinti(string fv, string words)
-        {
-            using (var fr = File.CreateText(fv))
-            {
-                fr.Write(words);
-            }
-        }
-
     }
 }
