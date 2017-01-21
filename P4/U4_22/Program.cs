@@ -68,8 +68,8 @@ namespace U4_22
 
     class Destytojas
     {
-        private string dpavarde, dvardas, grupe, svardas, spavarde;
-        private string[] mpavadinimas;
+        private string dpavarde, dvardas;
+        private string[] mpavadinimas = new string[100];
         private double credit;
         private int mokkiekis, modsk;
 
@@ -79,8 +79,7 @@ namespace U4_22
             this.dvardas = dvardas;
             this.credit = credit;
             this.modsk = modsk;
-            mpavadinimas = new string[100];
-            for (int i = 1; i < modsk; i++)
+            for (int i = 0; i < modsk; i++)
             {
                 this.mpavadinimas[i] = mpavadinimas[i];
             }
@@ -123,13 +122,19 @@ namespace U4_22
 
         public static bool operator <=(Destytojas d1, Destytojas d2)
         {
-                return (d1.Mokkiekis < d2.Mokkiekis);
+            return (d1.Mokkiekis < d2.Mokkiekis);
         }
 
         public static bool operator >=(Destytojas d1, Destytojas d2)
         {
             return (d1.Mokkiekis > d2.Mokkiekis);
         }
+
+        public void DetiM(int nr, string value)
+        {
+            mpavadinimas[nr] = value;
+        }
+    }
 
         class Modulis
         {
@@ -176,20 +181,19 @@ namespace U4_22
                 get { return skiekis; }
             }
 
-            public static bool operator >=(Facult m1, Facult m2)
+            public static bool operator >=(Modulis m1, Modulis m2)
             {
-                int p = String.Compare(f1.pavadinimas, f2.pavadinimas, StringComparison.CurrentCulture);
+                int p = String.Compare(m1.mpavadinimas, m2.mpavadinimas, StringComparison.CurrentCulture);
 
-                return ((f1.Vid > f2.Vid) || (f1.Vid == f2.Vid) && (p < 0));
+                return ((m1.Credit > m2.Credit) || (m1.Credit == m2.Credit) && (p < 0));
             }
 
-            public override string ToString()
+            public static bool operator <=(Modulis m1, Modulis m2)
             {
-                string eilute;
-                eilute = string.Format("{0, -12} {1, -9} {2, -7} {3}", pavadinimas, pkiekis, suma, Vid);
-                return eilute;
-            }
+                int p = String.Compare(m1.mpavadinimas, m2.mpavadinimas, StringComparison.CurrentCulture);
 
+                return ((m1.Credit < m2.Credit) || (m1.Credit == m2.Credit) && (p > 0));
+            }
         }
 
         class Grupe
@@ -216,58 +220,87 @@ namespace U4_22
             }
         }
 
-        class Destytojai
+    class Destytojai
+    {
+        private int CMaxi = 100;
+        private Destytojas[] destytojai;
+        private int n;
+        private string pav;
+
+        public Destytojai()
         {
-            private int CMaxi = 100;
-            private Destytojas[] destytojai;
-            private int n;
-            private string pav;
+            n = 0;
+            destytojai = new Destytojas[CMaxi];
+        }
 
-            public Destytojai()
-            {
-                n = 0;
-                destytojai = new Destytojas[CMaxi];
-            }
+        public Destytojas Imti(int i)
+        {
+            return destytojai[i];
+        }
 
-            public Destytojas Imti(int i)
-            {
-                return destytojai[i];
-            }
+        public int Imti()
+        {
+            return n;
+        }
 
-            public int Imti()
-            {
-                return n;
-            }
+        public void Deti(Destytojas ob)
+        {
+            destytojai[n++] = ob;
+        }
 
-            public void Deti(Destytojas ob)
-            {
-                destytojai[n++] = ob;
-            }
+        public Destytojai Rikiuoti()
+        {
+            int max = 0;
 
-            public void Rikiuoti()
+            for (int i = 0; i < n; i++)
             {
-                for (int i = 0; i < n - 1; i++)
+                if (destytojai[i].Mokkiekis >= max)
                 {
-                    Destytojas min = destytojai[i];
-                    int im = i;
-                    for (int j = i + 1; j < n; j++)
-                        if (destytojai[j] >= min)
-                        {
-                            min = destytojai[j];
-                            im = j;
-                        }
-                    destytojai[im] = destytojai[i];
-                    destytojai[i] = min;
+                    max = destytojai[i].Mokkiekis;
                 }
             }
+
+            Destytojai Bdest = new Destytojai();
+            for (int i = 0; i < n; i++)
+            {
+                if (max == destytojai[i].Mokkiekis)
+                {
+                    Bdest.Deti(destytojai[i]);
+                }
+            }
+
+            for (int g = 0; g < Bdest.Imti(); g++)
+            {
+                for (int k = 0; k < Bdest.Imti(g).Modsk; k++)
+                {
+                    Bdest.Imti(g).MPavadinimas[k] = Bdest.Imti(g).MPavadinimas[k];
+                }
+            }
+            return Bdest;
         }
+
+        public Moduliai Rikiuotimod(Destytojai Bdest, int index, Moduliai mod)
+        {
+            Moduliai BMod = new Moduliai();
+            for (int i = 0; i < Bdest.Imti(index).Modsk; i++) {
+                for (int j = 0; j < mod.Imti(); j++)
+                {
+                    if (Bdest.Imti(index).MPavadinimas[i] == mod.Imti(j).MPavadinimas)
+                    {
+                        BMod.Deti(mod.Imti(j));
+                    }
+                }
+                BMod.Rikiuoti();
+            }
+            return BMod;
+        }
+    }
 
         class Moduliai
         {
             private int CMaxi = 100;
             private Modulis[] moduliai;
             private int n;
-            private string pav;
 
             public Moduliai()
             {
@@ -289,7 +322,24 @@ namespace U4_22
             {
                 moduliai[n++] = ob;
             }
+
+        public void Rikiuoti()
+        {
+            for (int i = 0; i < n - 1; i++)
+            {
+                Modulis min = moduliai[i];
+                int im = i;
+                for (int j = i + 1; j < n; j++)
+                    if (moduliai[j] >= min)
+                    {
+                        min = moduliai[j];
+                        im = j;
+                    }
+                moduliai[im] = moduliai[i];
+                moduliai[i] = min;
+            }
         }
+    }
 
         class Grupes
         {
@@ -354,7 +404,7 @@ namespace U4_22
             static void Main(string[] args)
             {
                 int n = 0;
-                int[] BestD = new int[100];
+            Destytojai BestD = new Destytojai();
                 const string CFd = "...\\...\\Duom.txt";
                 Grupes grupele = new Grupes();
                 Destytojai dest = new Destytojai();
@@ -365,8 +415,11 @@ namespace U4_22
                 IGrupes(kont, grupele, n);
                 IModulius(kont, dest, mod);
                 IDestytojus(dest, mod);
-                BestD = DaugiausiaiPasirinko(dest);
-                Rikiuoju(dest, BestD);
+                mod.Rikiuoti();
+                BestD = dest.Rikiuoti();
+                Spausdinu(dest, BestD, mod);
+                
+                
             }
 
             static int[] DaugiausiaiPasirinko(Destytojai dest)
@@ -393,15 +446,33 @@ namespace U4_22
                 return index;
             }
 
-            static void Rikiuoju(Destytojai dest, int[] BestD)
+        static void Spausdinu(Destytojai dest, Destytojai BestD, Moduliai mod)
+        {
+            for (int i = 0; i < BestD.Imti(); i++)
+            {
+                Moduliai Bmod = new Moduliai();
+                Bmod = BestD.Rikiuotimod(BestD, i, mod);
+              Console.WriteLine(BestD.Imti(i).Dpavarde);
+                for (int j = 0; j < BestD.Imti(i).Modsk; j++) {
+                Console.WriteLine(BestD.Imti(i).Modsk);
+                Console.WriteLine(Bmod.Imti(j).MPavadinimas);
+                }
+                }
+            }
+            static void AreAll(Destytojai BestD, Grupes grupele)
+            {
+            for (int j = 0; j < BestD.Imti(); j++)
             {
 
-            }
-
-            static void AreAll()
+                for(int i = 0; i < grupele.Imti(); i++)
             {
+                  /*  if ()
+                    {
 
+                    }*/
             }
+            }
+        }
 
             static void IGrupes(Konteineris kont, Grupes grupele, int n)
             {
@@ -416,26 +487,23 @@ namespace U4_22
                         if (kont.Imti(i).Grupe == grupele.Imti(j).Pavadinimas)
                         {
                             grupele.Imti(j).Kiekis++;
-                            Console.WriteLine(kont.Imti(j).Grupe);
                             poz++;
-                            Console.WriteLine("Add");
                         }
 
                     }
 
                     if (poz == 0)
                     {
-                        Grupe ob = new Grupe(kont.Imti(i).Grupe, 0);
+                        Grupe ob = new Grupe(kont.Imti(i).Grupe, 1);
                         grupele.Deti(ob);
-                        Console.WriteLine("Create");
 
                     }
                 }
             }
 
-            static void Nepasirinko()
+            static void Nepasirinko(Destytojai Bdest)
             {
-
+                
             }
 
             static void IModulius(Konteineris kont, Destytojai dest, Moduliai mod)
@@ -451,19 +519,15 @@ namespace U4_22
                         {
                             mod.Imti(j).Credit += kont.Imti(i).Credit;
                             mod.Imti(j).Skiekis++;
-                            Console.WriteLine(mod.Imti(j).MPavadinimas);
                             poz++;
-                            Console.WriteLine("MAdd");
                         }
 
                     }
 
                     if (poz == 0)
                     {
-                        Modulis ob = new Modulis(kont.Imti(i).MPavadinimas, kont.Imti(i).Dpavarde, kont.Imti(i).Dpavarde, kont.Imti(i).Credit, 1);
+                        Modulis ob = new Modulis(kont.Imti(i).MPavadinimas, kont.Imti(i).Dpavarde, kont.Imti(i).Dvardas, kont.Imti(i).Credit, 1);
                         mod.Deti(ob);
-                        Console.WriteLine("MCreate");
-
                     }
                 }
 
@@ -477,31 +541,29 @@ namespace U4_22
                     poz = 0;
                     for (int j = 0; j < dest.Imti(); j++)
                     {
-
-                        if ((mod.Imti(i).DVardas == dest.Imti(j).Dvardas) && (mod.Imti(i).DPavarde == dest.Imti(j).Dpavarde))
+                        if (mod.Imti(i).DPavarde == dest.Imti(j).Dpavarde)
                         {
+                        dest.Imti(j).Modsk += 1;
+                        dest.Imti(j).DetiM(dest.Imti(j).Modsk-1, mod.Imti(i).MPavadinimas);
                             dest.Imti(j).Credit += mod.Imti(i).Credit;
-                            dest.Imti(j).Mokkiekis += mod.Imti(j).Skiekis;
-                            dest.Imti(j).Modsk++;
-                            Console.WriteLine(dest.Imti(j).MPavadinimas[0]);
+                            dest.Imti(j).Mokkiekis += mod.Imti(i).Skiekis;
                             poz++;
-                            Console.WriteLine("DAdd");
                         }
 
                     }
 
+
                     if (poz == 0)
                     {
                         string[] name = new string[100];
-                        name[1] = mod.Imti(i).MPavadinimas;
-      
-                        Destytojas ob = new Destytojas(1, name, mod.Imti(i).Skiekis, mod.Imti(i).DVardas, mod.Imti(i).DPavarde, mod.Imti(i).Credit);
+                        name[0] = mod.Imti(i).MPavadinimas;
+                        int modsk = 1;
+                        Destytojas ob = new Destytojas(modsk, name, mod.Imti(i).Skiekis, mod.Imti(i).DPavarde, mod.Imti(i).DVardas, mod.Imti(i).Credit);
                         dest.Deti(ob);
-                        Console.WriteLine("DCreate");
 
                     }
                 }
-            }
+        }
 
             static void Skaityti(ref int n, string fv, ref Konteineris kont)
             {
@@ -532,4 +594,3 @@ namespace U4_22
             }
         }
     }
-}
