@@ -1,0 +1,9 @@
+Geriausias dėstytojas: Simon
+Dėstytojo moduliai:
+Informatika
+Informatika2
+Informatika3
+ 
+3Bent ne visi pasirinko Simon modulius
+3k ne visi pasirinko Simon modulius
+3c visi pasirinko Simon modulius

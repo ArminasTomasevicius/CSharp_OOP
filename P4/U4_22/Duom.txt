@@ -1,7 +1,7 @@
 6
-Matematika Nark Leo 100 Tomas Arminas 3Bent
-Fizika Jotaut Alv 20 Maks Ieva 3Bent
-Fizikos Jotaut Alv 40 Mikas Pau 3c
-Informatika Simon Kest 50 Dzenk Mindaug 3Bent
-Inforkld Simon Kest 40 Djsndfkj KJFnkf 3c
-Informatia Simon Kest 20 Armin TOmas 3Bent
+Matematika Nark Leo 100 Tomas Savas 3Bent
+FizikosA Jotaut Alv 40 Mikas Paul 3k
+FizikosB Jotaut Alv 50 Jonas Dzenk 3Bent
+Informatika Simon Kest 50 Mindaug Jonaitis 3c
+Informatika2 Simon Kest 40 Gerda Kasp 3c
+Informatika3 Simon Kest 20 Arminas Tomas 3Bent

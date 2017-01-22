@@ -200,12 +200,17 @@ namespace U4_22
         {
             private string pavadinimas;
             private int kiekis;
+            private string[] mpav = new string[100];
 
-            public Grupe(string pavadinimas, int kiekis)
+            public Grupe(string pavadinimas, int kiekis, string[] mpav)
             {
                 this.pavadinimas = pavadinimas;
                 this.kiekis = kiekis;
+            for (int i = 0; i < kiekis; i++)
+            {
+                this.mpav[i] = mpav[i];
             }
+        }
 
             public string Pavadinimas
             {
@@ -218,7 +223,18 @@ namespace U4_22
                 set { kiekis = value; }
                 get { return kiekis; }
             }
-        }
+
+            public string[] MPav
+            {
+                set { mpav = value; }
+                get { return mpav; }
+            }
+
+        public void DetiD(int nr, string value)
+            {
+                mpav[nr] = value;
+            }
+    }
 
     class Destytojai
     {
@@ -401,11 +417,14 @@ namespace U4_22
 
         class Program
         {
-            static void Main(string[] args)
+        const string CFd = "...\\...\\Duom.txt";
+        const string fv = "...\\...\\Rez.txt";
+
+        static void Main(string[] args)
             {
-                int n = 0;
+            if (File.Exists(fv)) File.Delete(fv);
+            int n = 0;
             Destytojai BestD = new Destytojai();
-                const string CFd = "...\\...\\Duom.txt";
                 Grupes grupele = new Grupes();
                 Destytojai dest = new Destytojai();
                 Moduliai mod = new Moduliai();
@@ -418,6 +437,7 @@ namespace U4_22
                 mod.Rikiuoti();
                 BestD = dest.Rikiuoti();
                 Spausdinu(dest, BestD, mod);
+                AreAll(BestD, grupele);
                 
                 
             }
@@ -448,31 +468,48 @@ namespace U4_22
 
         static void Spausdinu(Destytojai dest, Destytojai BestD, Moduliai mod)
         {
-            for (int i = 0; i < BestD.Imti(); i++)
-            {
-                Moduliai Bmod = new Moduliai();
-                Bmod = BestD.Rikiuotimod(BestD, i, mod);
-              Console.WriteLine(BestD.Imti(i).Dpavarde);
-                for (int j = 0; j < BestD.Imti(i).Modsk; j++) {
-                Console.WriteLine(BestD.Imti(i).Modsk);
-                Console.WriteLine(Bmod.Imti(j).MPavadinimas);
-                }
-                }
-            }
-            static void AreAll(Destytojai BestD, Grupes grupele)
-            {
-            for (int j = 0; j < BestD.Imti(); j++)
-            {
-
-                for(int i = 0; i < grupele.Imti(); i++)
-            {
-                  /*  if ()
+            using (var fr = File.AppendText(fv))
+                for (int i = 0; i < BestD.Imti(); i++)
+                {
+                    Moduliai Bmod = new Moduliai();
+                    Bmod = BestD.Rikiuotimod(BestD, i, mod);
+                    fr.WriteLine("Geriausias dėstytojas: " + BestD.Imti(i).Dpavarde);
+                    fr.WriteLine("Dėstytojo moduliai:");
+                    for (int j = 0; j < BestD.Imti(i).Modsk; j++)
                     {
+                        fr.WriteLine(Bmod.Imti(j).MPavadinimas);
+                    }
+                    fr.WriteLine(" ");
+                }
+            }
 
-                    }*/
+        static void AreAll(Destytojai BestD, Grupes grupele)
+        {
+            using (var fr = File.AppendText(fv))
+                for (int i = 0; i < grupele.Imti(); i++)
+                {
+
+                    for (int j = 0; j < BestD.Imti(); j++)
+                    {
+                        int kont = 0;
+                        for (int k = 0; k < grupele.Imti(i).Kiekis; k++)
+                        {
+                            if (grupele.Imti(i).MPav[k] == BestD.Imti(j).Dpavarde)
+                            {
+                                kont++;
+                            }
+                        }
+                        if (kont == grupele.Imti(i).Kiekis)
+                        {
+                            fr.WriteLine(grupele.Imti(i).Pavadinimas + " visi pasirinko " + BestD.Imti(j).Dpavarde + " modulius");
+                        }
+                        else
+                        {
+                            fr.WriteLine(grupele.Imti(i).Pavadinimas + " ne visi pasirinko " + BestD.Imti(j).Dpavarde + " modulius");
+                        }
+                    }
+                }
             }
-            }
-        }
 
             static void IGrupes(Konteineris kont, Grupes grupele, int n)
             {
@@ -487,23 +524,21 @@ namespace U4_22
                         if (kont.Imti(i).Grupe == grupele.Imti(j).Pavadinimas)
                         {
                             grupele.Imti(j).Kiekis++;
-                            poz++;
+                            grupele.Imti(j).DetiD(grupele.Imti(j).Kiekis-1, kont.Imti(i).Dpavarde);
+                        poz++;
                         }
 
                     }
 
                     if (poz == 0)
                     {
-                        Grupe ob = new Grupe(kont.Imti(i).Grupe, 1);
+                    string[] name = new string[100];
+                    name[0] = kont.Imti(i).Dpavarde;
+                    Grupe ob = new Grupe(kont.Imti(i).Grupe, 1, name);
                         grupele.Deti(ob);
 
                     }
                 }
-            }
-
-            static void Nepasirinko(Destytojai Bdest)
-            {
-                
             }
 
             static void IModulius(Konteineris kont, Destytojai dest, Moduliai mod)
