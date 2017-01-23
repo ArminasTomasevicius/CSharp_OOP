@@ -417,7 +417,7 @@ namespace U4_22
 
         class Program
         {
-        const string CFd = "...\\...\\Duom3geriausi.txt";
+        const string CFd = "...\\...\\Duom.txt";
         const string fv = "...\\...\\Rez.txt";
 
         static void Main(string[] args)

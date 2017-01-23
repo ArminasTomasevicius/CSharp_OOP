@@ -1,10 +1,8 @@
-9
+7
 Matematika Nark Leo 100 Tomas Savas 3Bent
-Geometrija Nark Leo 70 Pijus Brad 3Bent
-Geometrijas Nark Leo 80 Ieva Jak 3c
-FizikosA Jotaut Alv 40 Mikas Paul 3c
-FizikosB Jotaut Alv 50 Jonas Dzenk 3Bent
-FizikosA Jotaut Alv 20 Karolis Butk 3Bent
-Informatika Simon Kest 50 Mindaug Jonaitis 3c
-Informatika2 Simon Kest 40 Gerda Kasp 3c
-Informatika3 Simon Kest 20 Arminas Tomas 3Bent
+Fizika Jotaut Alv 20 Maks Ieva 3Bent
+Fizikos Jotaut Alv 40 Mikas Paul 3k
+Fizikos Jotaut Alv 50 Jonas Dzen 3Bent
+Informatika Simon Kest 50 Dzenk Mindaug 3c
+Inforkld Simon Kest 40 Ieva Jak 3c
+Informatia Simon Kest 20 Arminas Tomas 3Bent
