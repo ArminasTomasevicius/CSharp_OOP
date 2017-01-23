@@ -1,9 +1,38 @@
+|---------------|--------------------------------------|--------------------------------------|-----------------------|--------------------------------------|--------------------------------------|--------------|
+|Modulis        |Dėstytojo vardas                      |Dėstytojo pavardė                     |Kreditų skaičius       |Studento vardas                       |Studento pavardė                      |Grupė         |
+|---------------|--------------------------------------|--------------------------------------|-----------------------|--------------------------------------|--------------------------------------|--------------|
+|Matematika     |Leo                                   |Nark                                  |100                    |Savas                                 |Tomas                                 |3Bent         |
+|Geometrijas    |Leo                                   |Nark                                  |80                     |Jak                                   |Ieva                                  |3c            |
+|Algebra        |Leo                                   |Nark                                  |40                     |Kem                                   |Luka                                  |3c            |
+|Fizikos        |Alv                                   |Jotaut                                |40                     |Paul                                  |Mikas                                 |3c            |
+|Fizika         |Alv                                   |Jotaut                                |50                     |Paul                                  |Miko                                  |3c            |
+|Mechanika      |Alv                                   |Jotaut                                |10                     |Jot                                   |Monik                                 |3c            |
+|Informatika    |Kest                                  |Simon                                 |50                     |Jonaitis                              |Mindaug                               |3c            |
+|Informatika3   |Kest                                  |Simon                                 |20                     |Tomas                                 |Arminas                               |3Bent         |
+|Algoritmai     |Kest                                  |Simon                                 |40                     |Bart                                  |Martynas                              |3c            |
+
+
+Geriausias dėstytojas: Nark
+Dėstytojo moduliai:
+Matematika
+Geometrijas
+Algebra
+ 
+Geriausias dėstytojas: Jotaut
+Dėstytojo moduliai:
+Fizika
+Fizikos
+Mechanika
+ 
 Geriausias dėstytojas: Simon
 Dėstytojo moduliai:
 Informatika
-Informatika2
+Algoritmai
 Informatika3
  
+3Bent ne visi pasirinko Nark modulius
+3Bent ne visi pasirinko Jotaut modulius
 3Bent ne visi pasirinko Simon modulius
-3k ne visi pasirinko Simon modulius
-3c visi pasirinko Simon modulius
+3c ne visi pasirinko Nark modulius
+3c ne visi pasirinko Jotaut modulius
+3c ne visi pasirinko Simon modulius

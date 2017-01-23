@@ -241,7 +241,6 @@ namespace U4_22
         private int CMaxi = 100;
         private Destytojas[] destytojai;
         private int n;
-        private string pav;
 
         public Destytojai()
         {
@@ -275,12 +274,13 @@ namespace U4_22
                     max = destytojai[i].Mokkiekis;
                 }
             }
-
+            Console.WriteLine(max);
             Destytojai Bdest = new Destytojai();
             for (int i = 0; i < n; i++)
             {
                 if (max == destytojai[i].Mokkiekis)
                 {
+                    Console.WriteLine(destytojai[i].Dpavarde);
                     Bdest.Deti(destytojai[i]);
                 }
             }
@@ -417,7 +417,7 @@ namespace U4_22
 
         class Program
         {
-        const string CFd = "...\\...\\Duom.txt";
+        const string CFd = "...\\...\\Duom3geriausi.txt";
         const string fv = "...\\...\\Rez.txt";
 
         static void Main(string[] args)
@@ -431,6 +431,7 @@ namespace U4_22
                 Konteineris kont = new Konteineris();
 
                 Skaityti(ref n, CFd, ref kont);
+                PradiniaiDuomenys(kont, n);
                 IGrupes(kont, grupele, n);
                 IModulius(kont, dest, mod);
                 IDestytojus(dest, mod);
@@ -465,6 +466,24 @@ namespace U4_22
                 }
                 return index;
             }
+
+        static void PradiniaiDuomenys(Konteineris kont, int n)
+        {
+            using (var fr = File.AppendText(fv))
+            {
+
+                fr.WriteLine("|---------------|--------------------------------------|--------------------------------------|-----------------------|--------------------------------------|--------------------------------------|--------------|");
+                fr.WriteLine("|Modulis        |Dėstytojo vardas                      |Dėstytojo pavardė                     |Kreditų skaičius       |Studento vardas                       |Studento pavardė                      |Grupė         |");
+                fr.WriteLine("|---------------|--------------------------------------|--------------------------------------|-----------------------|--------------------------------------|--------------------------------------|--------------|");
+                for (int i = 0; i < n; i++)
+                {
+                fr.WriteLine("|{0,-15}|{1,-38}|{2,-38}|{3,-23}|{4,-38}|{5,-38}|{6,-14}|", kont.Imti(i).MPavadinimas, kont.Imti(i).Dvardas, kont.Imti(i).Dpavarde, kont.Imti(i).Credit, kont.Imti(i).Svardas, kont.Imti(i).Spavarde, kont.Imti(i).Grupe);
+                }
+
+                fr.WriteLine("");
+                fr.WriteLine("");
+            }
+        }
 
         static void Spausdinu(Destytojai dest, Destytojai BestD, Moduliai mod)
         {
