@@ -48,6 +48,15 @@ namespace P6_1
             if (File.Exists(CFr))
                 File.Delete(CFr);
             Spausdinti(CFr, prekybosBaze, " Pradiniai duomenys");
+            using (var fr = File.AppendText(CFr))
+            {
+                fr.WriteLine("1)");
+                fr.WriteLine(" Vidutiniškai viena kasa per dieną aptarnavo {0} klientus", VidPirkeju(prekybosBaze));
+                KiekNedirbo(prekybosBaze, CFr);
+                fr.WriteLine("2)");
+                KiekvienaKasaAptarnavo(CFr, prekybosBaze);
+                KiekvienaDienaAptarnauta(CFr, prekybosBaze);
+            }
         }
 
         static void Skaityti(string fd, ref Matrica prekybosBaze)
@@ -93,6 +102,8 @@ namespace P6_1
                 fr.WriteLine(" Rezultatai");
                 fr.WriteLine();
                 fr.WriteLine(" Viso aptarnauta: {0} klientų.", VisoAptarnauta(prekybosBaze));
+                fr.WriteLine();
+                fr.WriteLine(" Daugiausia pirkėjų aptarnavo (kasa): {0}", KasosNumerisMaxPirkėjų(prekybosBaze));
             }
         }
 
@@ -112,16 +123,85 @@ namespace P6_1
         static double VidPirkeju(Matrica A)
         {
             int vid = 0, sum = 0, kiek = 0;
-            for (int i = 0; i < A.)
+            for (int i = 0; i < A.n; i++)
             {
-
+                for (int j = 0; j < A.m; j++)
+                {
+                    sum += A.ImtiReiksme(i, j);
+                    kiek++;
+                }
             }
-            return;
+            vid = sum / kiek;
+            return vid;
         }
 
-        static int KiekNedirbo()
+        static void KiekNedirbo(Matrica A, string fv)
         {
-            return;
+            for (int i = 0; i < A.n; i++)
+            {
+                int days = 0;
+                for (int j = 0; j < A.m; j++)
+                {
+                    if (A.ImtiReiksme(i, j) == 0)
+                    {
+                        days++;
+                    }
+                }
+                if (days != 0)
+                {
+                    using (var fr = File.AppendText(fv))
+                    {
+                        fr.WriteLine(" {0} kasa nedirbo {1} dienų(as) ", i++, days);
+                    }
+                }
+            }
+        }
+
+        static void KiekvienaKasaAptarnavo(string CFr, Matrica A)
+        {
+            using (var fr = File.AppendText(CFr))
+            {
+                for (int i = 0; i < A.n; i++)
+                {
+                    int suma = 0;
+                    for (int j = 0; j < A.m; j++)
+                        suma = suma + A.ImtiReiksme(i, j);
+                    fr.WriteLine(" Kasa nr. {0} aptarnavo {1} klientų.", i + 1, suma);
+                }
+            }
+        }
+
+        static void KiekvienaDienaAptarnauta(string CFr, Matrica A)
+        {
+            using (var fr = File.AppendText(CFr))
+            {
+                fr.WriteLine();
+                for (int j = 0; j < A.m; j++)
+                {
+                    int suma = 0;
+                    for (int i = 0; i < A.n; i++)
+                        suma = suma + A.ImtiReiksme(i, j);
+                    fr.WriteLine(" Diena nr. {0}: aptarnauta klientų - {1}.", j + 1, suma);
+                }
+            }
+        }
+
+        static int KasosNumerisMaxPirkėjų(Matrica A)
+        {
+            int max = 0;
+            int nr = 0;
+            for (int i = 0; i < A.n; i++)
+            {
+                int suma = 0;
+                for (int j = 0; j < A.m; j++)
+                    suma = suma + A.ImtiReiksme(i, j);
+                if (suma > max)
+                {
+                    max = suma;
+                    nr = i + 1;
+                }
+            }
+            return nr;
         }
     }
 }
