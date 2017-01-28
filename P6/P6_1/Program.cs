@@ -50,13 +50,22 @@ namespace P6_1
             Spausdinti(CFr, prekybosBaze, " Pradiniai duomenys");
             using (var fr = File.AppendText(CFr))
             {
+                fr.WriteLine("");
                 fr.WriteLine("1)");
                 fr.WriteLine(" Vidutiniškai viena kasa per dieną aptarnavo {0} klientus", VidPirkeju(prekybosBaze));
+            }
                 KiekNedirbo(prekybosBaze, CFr);
+            using (var fr = File.AppendText(CFr))
+            {
+                fr.WriteLine("");
                 fr.WriteLine("2)");
+            }
                 KiekvienaKasaAptarnavo(CFr, prekybosBaze);
                 KiekvienaDienaAptarnauta(CFr, prekybosBaze);
-            }
+            using (var fr = File.AppendText(CFr))
+                fr.WriteLine("");
+                VidKasaAptarnavo(CFr, prekybosBaze);
+            
         }
 
         static void Skaityti(string fd, ref Matrica prekybosBaze)
@@ -102,8 +111,11 @@ namespace P6_1
                 fr.WriteLine(" Rezultatai");
                 fr.WriteLine();
                 fr.WriteLine(" Viso aptarnauta: {0} klientų.", VisoAptarnauta(prekybosBaze));
-                fr.WriteLine();
-                fr.WriteLine(" Daugiausia pirkėjų aptarnavo (kasa): {0}", KasosNumerisMaxPirkėjų(prekybosBaze));
+                int nrmax=0, max=0, nrmin=0, min=999999999;
+                KasosNumerisMaxPirkėju(prekybosBaze, ref nrmax, ref max);
+                fr.WriteLine(" Daugiausiai pirkėjų aptarnavo {0} kasa - {1} pirkėjus ", nrmax, max);
+                DienosNumerisMinPirkeju(prekybosBaze, ref nrmin, ref min);
+                fr.WriteLine(" Mažiausiai pirkėjų buvo aptarnauta {0}-dienį - {1} pirkėjus ", nrmin, min);
             }
         }
 
@@ -149,7 +161,7 @@ namespace P6_1
                 }
                 if (days != 0)
                 {
-                    using (var fr = File.AppendText(fv))
+                    using (var fr = File.AppendText(CFr))
                     {
                         fr.WriteLine(" {0} kasa nedirbo {1} dienų(as) ", i++, days);
                     }
@@ -186,10 +198,8 @@ namespace P6_1
             }
         }
 
-        static int KasosNumerisMaxPirkėjų(Matrica A)
+        static void KasosNumerisMaxPirkėju(Matrica A, ref int nr, ref int max)
         {
-            int max = 0;
-            int nr = 0;
             for (int i = 0; i < A.n; i++)
             {
                 int suma = 0;
@@ -201,7 +211,42 @@ namespace P6_1
                     nr = i + 1;
                 }
             }
-            return nr;
+        }
+
+        static void DienosNumerisMinPirkeju(Matrica A, ref int nr, ref int min)
+        {
+            for (int i = 0; i < A.m; i++)
+            {
+                int suma = 0;
+                for (int j = 0; j < A.n; j++)
+                    suma = suma + A.ImtiReiksme(j, i);
+                if (suma < min)
+                {
+                    min = suma;
+                    nr = i + 1;
+                }
+            }
+        }
+
+        static void VidKasaAptarnavo(string CFr, Matrica A)
+        {
+            using (var fr = File.AppendText(CFr))
+            {
+                for (int i = 0; i < A.n; i++)
+                {
+                    int suma = 0;
+                    double vid = 0;
+                    int kiek = 0;
+                    for (int j = 0; j < A.m; j++)
+                    {
+                        suma = suma + A.ImtiReiksme(i, j);
+                        kiek++;
+                    }
+                    vid = suma / kiek;
+
+                    fr.WriteLine(" Kasa nr. {0} vidutiniškai aptarnavo {1} klientus.", i + 1, vid);
+                }
+            }
         }
     }
 }

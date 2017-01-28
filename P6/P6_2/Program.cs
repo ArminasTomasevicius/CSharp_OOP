@@ -54,9 +54,25 @@ namespace P6_2
 
     class Program
     {
+        const string CFd = "..\\..\\input.txt";
+        const string CFr = "..\\..\\Rezultatai.txt";
         static void Main(string[] args)
         {
             Matrica seimosIslaidos = new Matrica();
+            Skaityti(CFd, ref seimosIslaidos);
+            if (File.Exists(CFr))
+                File.Delete(CFr);
+            Spausdinti(CFr, seimosIslaidos, "Pradiniai duomenys");
+
+            Console.WriteLine("Pradiniai duomenys išspausdinti faile: {0}", CFr);
+            using (var fr = File.AppendText(CFr))
+            {
+                fr.WriteLine();
+                fr.WriteLine("Rezultatai");
+                fr.WriteLine();
+                fr.WriteLine("Viso išleista: {0,5:c2}.", VisosIslaidos(seimosIslaidos));
+            }
+
         }
 
         static void Skaityti(string fd, ref Matrica seimosIslaidos)
@@ -126,6 +142,16 @@ namespace P6_2
                     suma = suma + asmuo.ImtiPinigus();
                 }
             return (decimal)suma;
+        }
+
+        static int Neturejoislaidu()
+        {
+            return 0;
+        }
+
+        static void IslaidosKasdien()
+        {
+
         }
     }
 }
