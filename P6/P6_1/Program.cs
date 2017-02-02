@@ -134,7 +134,7 @@ namespace P6_1
 
         static double VidPirkeju(Matrica A)
         {
-            int vid = 0, sum = 0, kiek = 0;
+            double vid = 0, sum = 0, kiek = 0;
             for (int i = 0; i < A.n; i++)
             {
                 for (int j = 0; j < A.m; j++)
@@ -163,7 +163,7 @@ namespace P6_1
                 {
                     using (var fr = File.AppendText(CFr))
                     {
-                        fr.WriteLine(" {0} kasa nedirbo {1} dienų(as) ", i++, days);
+                        fr.WriteLine(" {0} kasa nedirbo {1} dienų(as) ", i+1, days);
                     }
                 }
             }

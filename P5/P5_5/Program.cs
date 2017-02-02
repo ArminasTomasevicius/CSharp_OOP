@@ -14,19 +14,33 @@ namespace P5_5
         {
             const string input = "..\\..\\input.txt";
             const string rez = "..\\..\\rez.txt";
-
             string text = File.ReadAllText(input);
             string[] words = Arraying(text);
-
+            Console.WriteLine("Žodis kurį norite išimti");
             string word = Console.ReadLine();
-            string[] wordsremoved = Remove(words, word);
-            string s = s.Replace("\n", Environment.NewLine);
-            string s = string.Join(" " ,wordsremoved);
-            
 
-            File.WriteAllText(rez, s);
+            /*using (StreamReader reader = new StreamReader(input))
+            {
+                //while (reader.ReadLine() != null)
+                //{
+                    string line = reader.ReadLine();
+                    char[] simbols = line.ToCharArray();
+                    for (int i =0; i < simbols.Length; i++)
+                    {
+                        Console.Write(simbols[i]);
+                    }
 
-        }
+               // }
+            }
+                */
+                string[] wordsremoved = Remove(words, word);
+            string s = string.Join(" ", wordsremoved);
+            s = s.Replace("\n", Environment.NewLine);
+                
+
+
+                File.WriteAllText(rez, s);
+            }
 
         public static string[] Arraying(string text)
         {
@@ -40,7 +54,20 @@ namespace P5_5
 
         public static string[] Remove(string[] words, string word)
         {
-            int removeIndex = Array.IndexOf(words, word);
+
+            string[] arr = words.Where(s => s != word).ToArray();
+            return arr;
+            
+        }
+    }
+}
+
+
+
+// Notes
+/*
+
+int removeIndex = Array.IndexOf(words, word);
 
             if (removeIndex >= 0)
             {
@@ -49,7 +76,7 @@ namespace P5_5
 
                 // loop from 0 to the length of the new array, with i being the position
                 // in the new array, and j being the position in the old array
-                for (int i = 0, j = 0; i < newStrItems.Length; i++, j++)
+                for (int i = 0, j = 0; i<newStrItems.Length; i++, j++)
                 {
                     // if the index equals the one we want to remove, bump
                     // j up by one to "skip" the value in the original array
@@ -66,7 +93,7 @@ namespace P5_5
                 // overwrite the old array with the new one
                 words = newStrItems;
             }
-            return words;
-        }
-    }
-}
+
+
+
+    */
