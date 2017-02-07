@@ -19,9 +19,9 @@ namespace Test_prep
             string sk = "/+|";
             using (StreamReader reader = new StreamReader(input))
             {
-                while (reader.ReadLine() != null)
+                string line = reader.ReadLine();
+                while (line != null)
                 {
-                    string line = reader.ReadLine();
                     RastiZodiEil(line, sk, zod);
                 }
             }

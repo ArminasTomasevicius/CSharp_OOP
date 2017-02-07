@@ -10,46 +10,20 @@ namespace P5_5
 {
     class Program
     {
+        const string input = "..\\..\\input.txt";
+        const string rez = "..\\..\\rez.txt";
+
         static void Main(string[] args)
         {
-            const string input = "..\\..\\input.txt";
-            const string rez = "..\\..\\rez.txt";
-            string text = File.ReadAllText(input);
-            string[] words = Arraying(text);
+            if (File.Exists(rez))
+                File.Delete(rez);
+
+            
             Console.WriteLine("Žodis kurį norite išimti");
             string word = Console.ReadLine();
 
-            /*using (StreamReader reader = new StreamReader(input))
-            {
-                //while (reader.ReadLine() != null)
-                //{
-                    string line = reader.ReadLine();
-                    char[] simbols = line.ToCharArray();
-                    for (int i =0; i < simbols.Length; i++)
-                    {
-                        Console.Write(simbols[i]);
-                    }
-
-               // }
-            }
-                */
-                string[] wordsremoved = Remove(words, word);
-            string s = string.Join(" ", wordsremoved);
-            s = s.Replace("\n", Environment.NewLine);
-                
-
-
-                File.WriteAllText(rez, s);
-            }
-
-        public static string[] Arraying(string text)
-        {
-            string[] words = Regex.Matches(text, "\\w+")
-              .OfType<Match>()
-              .Select(m => m.Value)
-              .ToArray();
-
-            return words;
+            Write(word);
+            
         }
 
         public static string[] Remove(string[] words, string word)
@@ -57,7 +31,31 @@ namespace P5_5
 
             string[] arr = words.Where(s => s != word).ToArray();
             return arr;
-            
+        }
+
+        public static void Write(string word)
+        {
+            char[] skirikliai = { '/', '*', '#', '+' };
+            string[] parts = new string[1000];
+            using (StreamReader reader = new StreamReader(input))
+            {
+
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                    parts = line.Split(skirikliai, StringSplitOptions.RemoveEmptyEntries);
+                    string[] naujas = Remove(parts, word);
+                    using (var fr = File.AppendText(rez))
+                    {
+                        for (int i = 0; i < naujas.Length; i++)
+                        {
+                            fr.Write(naujas[i] + " ");
+                        }
+                        fr.WriteLine();
+                    }
+                }
+            }
         }
     }
 }

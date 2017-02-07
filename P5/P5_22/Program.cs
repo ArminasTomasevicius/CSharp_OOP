@@ -20,28 +20,18 @@ namespace P5_22
 
         }
 
-        public static string Arraying(string text)
-        {
-            string word = Regex.Matches(text, "\\w+")
-              .OfType<Match>()
-              .Select(m => m.Value)
-              .ToString();
-
-            return word;
-        }
-
         static void Read(string input, ref int matches, char[] skirikliai)
         {
-            string[] parts = new string[1000];
+            string[] parts = new string[10];
 
             using (StreamReader reader = new StreamReader(input))
             {
-                while (reader.ReadLine() != null)
+                string line = reader.ReadLine();
+                while (line != null)
                 {
-                    string line = reader.ReadLine();
                     parts = line.Split(skirikliai, StringSplitOptions.RemoveEmptyEntries);
 
-                    for (int i = 0; i < parts.Length-1; i++)
+                    for (int i = 0; i < parts.Length; i=i+2)
                     {
                         if (match(parts[i],parts[i+1]))
                         {
@@ -51,22 +41,26 @@ namespace P5_22
 
                     int min = 0;
                     string trans_word="";
-                    for (int j = 0; j < parts.Length; j=j+2)
+                    Console.WriteLine(parts.Length);
+
+                    for (int j = 0; j < parts.Length-1; j++)
                     {
                         int length = parts[j].Length + parts[j + 1].Length;
                         if (min < length)
                         {
                             trans_word = parts[j];
+                            min = trans_word.Length;
                             int index = j;
                         }
                     }
                     string[] naujas = parts.Where(str => str != trans_word).ToArray();
                     naujas[naujas.Length-1] = trans_word;
-
-                    for (int i = 0; i < naujas.Length-1; i++)
+                    Console.WriteLine(trans_word);
+   
+                   /* for (int i = 0; i < naujas.Length; i++)
                     {
                         Console.WriteLine(naujas[i]);
-                    }
+                    }*/
                 }
             }
         }
@@ -78,10 +72,7 @@ namespace P5_22
 
         static bool match(string text1, string text2)
         {
-            string word1 = Arraying(text1);
-            string word2 = Arraying(text2);
-
-            if (word1[word1.Length-1] == word2[0])
+            if (text1[text1.Length-1] == text2[0])
             {
                 Console.WriteLine("t");
                 return true;
@@ -91,16 +82,22 @@ namespace P5_22
             return false;
         }
 
-            }
-            
+
+        public static string Arraying(string text)
+        {
+            string word = Regex.Matches(text, "\\w+")
+              .OfType<Match>()
+              .Select(m => m.Value)
+              .ToString();
+
+            return word;
         }
 
+    }
+            
+    }
 
-/* for (int i = 0; i<words.Length; i++)
- {
-     for (int j = 0; j<words.Length; j++)
-     {
-     */
+
 
 
 
