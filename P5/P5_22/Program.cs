@@ -10,40 +10,44 @@ namespace P5_22
 {
     class Program
     {
+        const string input = "..\\..\\input.txt";
+        const string rez = "..\\..\\rez.txt";
         static void Main(string[] args)
         {
-            const string input = "..\\..\\input.txt";
             char[] skirikliai = {'/', '!', '+'};
             int matches = 0;
+            if (File.Exists(rez))
+                File.Delete(rez);
             Read(input, ref matches, skirikliai);
+            Console.WriteLine("Atitikimai:");
             Console.WriteLine(matches);
 
         }
 
         static void Read(string input, ref int matches, char[] skirikliai)
         {
-            string[] parts = new string[10];
+            string[] parts = new string[1000];
 
             using (StreamReader reader = new StreamReader(input))
             {
-                string line = reader.ReadLine();
-                while (line != null)
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
                     parts = line.Split(skirikliai, StringSplitOptions.RemoveEmptyEntries);
 
-                    for (int i = 0; i < parts.Length; i=i+2)
+                    for (int i = 0; i < parts.Length - 1; i++)
                     {
-                        if (match(parts[i],parts[i+1]))
+                        if (match(parts[i], parts[i + 1]))
                         {
                             matches++;
                         }
                     }
 
                     int min = 0;
-                    string trans_word="";
+                    string trans_word = "";
                     Console.WriteLine(parts.Length);
 
-                    for (int j = 0; j < parts.Length-1; j++)
+                    for (int j = 0; j < parts.Length - 1; j++)
                     {
                         int length = parts[j].Length + parts[j + 1].Length;
                         if (min < length)
@@ -54,13 +58,20 @@ namespace P5_22
                         }
                     }
                     string[] naujas = parts.Where(str => str != trans_word).ToArray();
-                    naujas[naujas.Length-1] = trans_word;
+                    naujas[naujas.Length - 1] = trans_word;
                     Console.WriteLine(trans_word);
-   
-                   /* for (int i = 0; i < naujas.Length; i++)
+
+                    for (int i = 0; i < naujas.Length; i++)
                     {
-                        Console.WriteLine(naujas[i]);
-                    }*/
+                        using (var fr = File.AppendText(rez))
+                        {
+                            for (int j = 0; j < naujas.Length; j++)
+                            {
+                                fr.Write(naujas[j] + " ");
+                            }
+                            fr.WriteLine();
+                        }
+                    }
                 }
             }
         }
@@ -74,11 +85,9 @@ namespace P5_22
         {
             if (text1[text1.Length-1] == text2[0])
             {
-                Console.WriteLine("t");
                 return true;
             }
             else
-                Console.WriteLine("f");
             return false;
         }
 

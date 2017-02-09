@@ -6,108 +6,123 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Test_prep
+namespace K2_117
 {
     class Program
     {
-        const string input = "..\\..\\input.txt";
-        const string output = "..\\..\\output.txt";
+        const string input = "..\\..\\Tekstas.txt";
+        const string output = "..\\..\\RedTekstas.txt";
 
 
         static void Main(string[] args)
         {
-            string sk = "/+|";
-            using (StreamReader reader = new StreamReader(input))
-            {
-                string line = reader.ReadLine();
-                while (line != null)
-                {
-                    RastiZodiEil(line, sk, zod);
-                }
-            }
+            string zod = "";
+            int nr = 0;
+            string s = " .,;:?!";
+            if (File.Exists(output))
+                File.Delete(output);
+            RastiZTekste(input, s, out zod, ref nr);
+            PerkeltiEilute(input, output, nr);
         }
 
-        static int EilutesBSkaicius(string e)
+
+        static int NelygSkaitmenuSkaicius(string e)
         {
-            char[] balsiai = { 'a', 'e', 'i', 'y', 'u', 'o' };
+            char[] nskait = { '1', '3', '5', '7', '9' };
             int kiek = 0;
-            for (int j = 0; j < balsiai.Length-1; j++)
+            for (int j = 0; j < nskait.Length; j++)
             {
-                int i = e.IndexOf(balsiai[j], 0, e.Length - 1);
+                int i = e.IndexOf(nskait[j], 0, e.Length);
                 if (i != -1)
                 {
                     kiek++;
                 }
             }
+            Console.WriteLine(kiek);
             return kiek;
         }
 
-        static void RastiZodiEil(string e, string sk, out string zod)
+        static void TrumpasZodis(string e, string s, out string zod)
         {
+            int counter = 0;
             string min = "";
-            string[] words = Wording(e);
-            for (int i = 0; i < words.Length-1; i++)
+            string[] parts = new string[100];
+            char[] masyvas = s.ToCharArray(0, s.Length);
+            parts = e.Split(masyvas, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < parts.Length; i++)
             {
-                if (EilutesBSkaicius(words[i]) >= 2)
+                if ((NelygSkaitmenuSkaicius(parts[i]) >= 2) && (parts[i][0] == '2'))
                 {
-                    if (min.Length-1 < words[i].Length-1)
+                    if ((min.Length < parts[i].Length) || (min.Length == 0))
                     {
-                        min = words[i];
+                        min = parts[i];
+                        counter++;
+                        Console.WriteLine("count" + counter);
                     }
                 }
             }
-            zod = min;
+            if (counter > 0)
+            {
+                zod = min;
+            }
+            else
+            {
+                zod = "";
+            }
         }
 
-        static void RastiZTekste(string input, string sk, out string zod, ref int nr)
+        static void RastiZTekste(string fv, string s, out string zod, ref int nr)
         {
-            string text = File.ReadAllText(input);
-                    string[] words = Wording(text);
-                    for (int i = 0; i < words.Length-1; i++)
-                    {
-                        if (SkirtBalsiuSkaicius(words[i]) >= 3)
-                        {
+            int counter = 0;
+            bool yra = false;
+            using (StreamReader reader = new StreamReader(input))
+            {
+                string min = "kjhklhkljhlkjhkljhkjlhkjhkljhkljhkjlh";
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    counter++;
+                    TrumpasZodis(line, s, out zod);
 
-                        }
-                        SkirtBalsiuSkaicius(words[i]);
+                    if (zod.Length < min.Length)
+                    {
+                        min = zod;
+                        Console.WriteLine(min);
+                        nr = counter;
+                        yra = true;
                     }
                 }
 
-        static void PerkeltiEilute(string input, string output, int n)
-        {
+                if (yra)
+                {
+                    zod = min;
+                }
+                else
+                {
+                    zod = "";
+                }
 
+            }
         }
 
-        public static string[] Wording(string text)
+        static void PerkeltiEilute(string fv1, string fv2, int nr)
         {
-            string[] words = Regex.Matches(text, "\\w+")
-              .OfType<Match>()
-              .Select(m => m.Value)
-              .ToArray();
-
-            return words;
+            using(StreamReader reader = new StreamReader(input))
+            using (var fr = File.AppendText(output))
+            {
+                int counter = 0;
+                string line;
+                string nukelta="";
+                while ((line = reader.ReadLine()) != null)
+                {
+                    counter++;
+                    if (counter != nr)
+                        fr.WriteLine(line);
+                    else
+                        nukelta = line;
+                }
+                fr.WriteLine(nukelta);
+            }
         }
     }
 }
-
-/* Notes
- * 
- * string[] arr = words.Where(s => s != word).ToArray();
- * using (StreamReader reader = new StreamReader(input))
-            {
-                while (reader.ReadLine() != null)
-                {
-                    string line = reader.ReadLine();
-                    parts = line.Split(skirikliai, StringSplitOptions.RemoveEmptyEntries);
-
-//char_masyvas = Eil.ToCharArray(pr_nr, simb_kiek) – eilutės simbolius surašo (konvertuoja) į char_masyvą;
-//Eil1.IndexOf(simbolis, pr, kiekis) – randa simbolio pirmą vietą eilutėje, pradedant nuo simbolio, kurio numeris pr, ir tikrinant simbolių kiekį kiekis;
-
-//Eil.Insert(vieta, kint) – įterpimas į eilutę.kint - bool, char, int, double, string tipo kintamasis arba char tipo masyvas; 
-//Eil.Remove(pr, kiek) – šalina iš eilutės simbolius.pr – pradinis adresas; kiek – kiekis;
-
-    using (var fr = File.AppendText(CFr))
-            {
-            fr.WriteLine();
-
- */
