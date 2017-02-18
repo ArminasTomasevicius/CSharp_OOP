@@ -65,7 +65,7 @@ namespace P6_1
             using (var fr = File.AppendText(CFr))
                 fr.WriteLine("");
                 VidKasaAptarnavo(CFr, prekybosBaze);
-            
+   
         }
 
         static void Skaityti(string fd, ref Matrica prekybosBaze)
@@ -245,6 +245,35 @@ namespace P6_1
                     vid = suma / kiek;
 
                     fr.WriteLine(" Kasa nr. {0} vidutiniškai aptarnavo {1} klientus.", i + 1, vid);
+                }
+            }
+        }
+
+        static void MaziausiaiAptarnauta(string CFr, Matrica A) // nenaudojam, bet naudinga
+        {
+            using (var fr = File.AppendText(CFr))
+            {
+                int max = 99999999;
+                fr.WriteLine();
+                for (int j = 0; j < A.m; j++)
+                {
+                    int suma = 0;
+                    for (int i = 0; i < A.n; i++)
+                        suma = suma + A.ImtiReiksme(i, j);
+                    if (max > suma)
+                    {
+                        max = suma;
+                    }
+                }
+
+                for (int j = 0; j < A.m; j++)
+                {
+                    int suma = 0;
+                    for (int i = 0; i < A.n; i++)
+                        if (suma == max)
+                        {
+                            fr.WriteLine("Mainžiausiai pirkėjų buvo aptarnauta {0} dieną: {1} pirkėjai", j+1, max);
+                        }
                 }
             }
         }

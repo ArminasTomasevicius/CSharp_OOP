@@ -71,6 +71,12 @@ namespace P6_2
                 fr.WriteLine("Rezultatai");
                 fr.WriteLine();
                 fr.WriteLine("Viso išleista: {0,5:c2}.", VisosIslaidos(seimosIslaidos));
+                fr.WriteLine();
+                fr.WriteLine("Šeima neturėjo išlaidų {0} dienas", Neturejoislaidu(seimosIslaidos));
+                fr.WriteLine();
+                fr.WriteLine("Žmonos išlaidos: {0} €", NarioIslaidos(seimosIslaidos, "�mona"));
+                fr.WriteLine();
+                fr.WriteLine("Vyro išlaidos: {0} €", NarioIslaidos(seimosIslaidos, "vyras"));
             }
 
         }
@@ -144,14 +150,93 @@ namespace P6_2
             return (decimal)suma;
         }
 
-        static int Neturejoislaidu()
+        static int Neturejoislaidu(Matrica A)
         {
-            return 0;
+            Asmuo asmuo;
+            double pinigai=0;
+            int counter = 0;
+
+            for (int i = 0; i < A.n; i++)
+                for (int j = 0; j < A.m; j++)
+                {
+                    asmuo = A.ImtiReiksme(i, j);
+                    pinigai = asmuo.ImtiPinigus();
+                    if (pinigai == 0)
+                    {
+                        counter++;
+                    }
+                }
+
+            return counter;
         }
 
-        static void IslaidosKasdien()
+        static double NarioIslaidos(Matrica A, string vardas)
         {
+            Asmuo asmuo;
+            double pinigai = 0;
 
+            for (int i = 0; i < A.n; i++)
+            {
+                for (int j = 0; j < A.m; j++)
+                {
+                    asmuo = A.ImtiReiksme(i, j);
+                    if (asmuo.ImtiVarda() == vardas)
+                    {
+                        pinigai = pinigai + asmuo.ImtiPinigus();
+                    }
+                }
+            }
+            return pinigai;
+        }
+
+
+        static decimal IslaidosSavaitesDienaX(Matrica A, int nr)
+        {
+            double suma = 0;
+            for (int i = 0; i < A.n; i++)
+            {
+                Asmuo x = A.ImtiReiksme(i, nr - 1);
+                suma = suma + x.ImtiPinigus();
+            }
+            return (decimal)suma;
+        }
+        
+
+        static void IslaidosSavaitemis(string fv, ref Matrica A)
+        {
+            using (var fr = File.AppendText(fv))
+            {
+                for (int i = 0; i < A.n; i++)
+                {
+                    double suma = 0;
+                    for (int j = 0; j < A.m; j++)
+                    {
+                        Asmuo x = A.ImtiReiksme(i, j);
+                        suma = suma + x.ImtiPinigus();
+                    }
+                    fr.WriteLine("Savaitės nr. {0} išlaidos {1,5:c2}.", i + 1, (decimal)suma);
+                }
+            }
+        }
+
+        static void DienaMaxIslaidos(Matrica A, out int eilNr, out int stNr)
+        {
+            eilNr = -1;
+            stNr = -1;
+            double max = 0;
+            for (int i = 0; i < A.n; i++)
+            {
+                for (int j = 0; j < A.m; j++)
+                {
+                    double x = A.ImtiReiksme(i, j).ImtiPinigus();
+                    if (x > max)
+                    {
+                        max = x;
+                        eilNr = i + 1;
+                        stNr = j + 1;
+                    }
+                }
+            }
         }
     }
 }

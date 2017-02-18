@@ -1,4 +1,4 @@
-﻿ Pradiniai duomenys
+ Pradiniai duomenys
 
  Kasų kiekis 6
  Darbo dienų kiekis 7

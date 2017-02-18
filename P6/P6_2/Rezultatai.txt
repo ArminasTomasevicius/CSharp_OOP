@@ -11,3 +11,9 @@ vyras  10,10   vyras  20,20   vyras  30,30   vyras  50,50   vyras  20,10   vyras
 Rezultatai
 
 Viso išleista: 509,60 €.
+
+Šeima neturėjo išlaidų 4 dienas
+
+Žmonos išlaidos: 227 €
+
+Vyro išlaidos: 282,6 €

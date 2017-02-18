@@ -14,11 +14,12 @@ namespace P5_22
         const string rez = "..\\..\\rez.txt";
         static void Main(string[] args)
         {
-            char[] skirikliai = {'/', '!', '+'};
+            char[] skirikliai = {'/', '+', ' ', ';', '!'};
             int matches = 0;
             if (File.Exists(rez))
                 File.Delete(rez);
             Read(input, ref matches, skirikliai);
+           // Write();
             Console.WriteLine("Atitikimai:");
             Console.WriteLine(matches);
 
@@ -31,57 +32,70 @@ namespace P5_22
             using (StreamReader reader = new StreamReader(input))
             {
                 string line;
+                int index = 0;
                 while ((line = reader.ReadLine()) != null)
                 {
                     parts = line.Split(skirikliai, StringSplitOptions.RemoveEmptyEntries);
 
-                    for (int i = 0; i < parts.Length - 1; i++)
+                    if (line.Length != 0)
                     {
-                        if (match(parts[i], parts[i + 1]))
+                        if (parts.Length != 1)
                         {
-                            matches++;
+
+                            for (int i = 0; i < parts.Length - 1; i++)
+                            {
+                                if (Match(parts[i], parts[i + 1]))
+                                {
+                                    matches++;
+                                }
+                            }
+
+                            int min = 0;
+                            string trans_word = "";
+
+                            for (int j = 0; j < parts.Length - 1; j++)
+                            {
+                                int length = parts[j].Length + parts[j + 1].Length;
+
+                                if (min < length)
+                                {
+                                    trans_word = parts[j];
+                                    min = length;
+                                    index = j;
+                                }
+                            }
+                            string[] naujas = parts.Where(str => str != trans_word).ToArray();
+                            using (var fr = File.AppendText(rez))
+                            {
+                                for (int i = 0; i < naujas.Length; i++)
+                                {
+                                    fr.Write(naujas[i] + " ");
+                                }
+
+
+                                string intarpas = Tarpas(line, trans_word, parts[index + 1]);
+                                fr.Write(trans_word + intarpas);
+                                fr.WriteLine();
+
+                            }
+                        }
+                        else
+                        {
+                            using (var fr = File.AppendText(rez))
+                                fr.WriteLine(parts[0]);
                         }
                     }
-
-                    int min = 0;
-                    string trans_word = "";
-                    Console.WriteLine(parts.Length);
-
-                    for (int j = 0; j < parts.Length - 1; j++)
-                    {
-                        int length = parts[j].Length + parts[j + 1].Length;
-                        if (min < length)
-                        {
-                            trans_word = parts[j];
-                            min = trans_word.Length;
-                            int index = j;
-                        }
-                    }
-                    string[] naujas = parts.Where(str => str != trans_word).ToArray();
-                    naujas[naujas.Length - 1] = trans_word;
-                    Console.WriteLine(trans_word);
-
-                    for (int i = 0; i < naujas.Length; i++)
+                    else
                     {
                         using (var fr = File.AppendText(rez))
-                        {
-                            for (int j = 0; j < naujas.Length; j++)
-                            {
-                                fr.Write(naujas[j] + " ");
-                            }
-                            fr.WriteLine();
-                        }
+                            fr.Write(" ");
                     }
                 }
             }
         }
 
-        static void move()
-        {
-
-        }
-
-        static bool match(string text1, string text2)
+       
+        static bool Match(string text1, string text2)
         {
             if (text1[text1.Length-1] == text2[0])
             {
@@ -91,19 +105,21 @@ namespace P5_22
             return false;
         }
 
-
-        public static string Arraying(string text)
+        static string Tarpas(string text, string nuo, string iki)
         {
-            string word = Regex.Matches(text, "\\w+")
-              .OfType<Match>()
-              .Select(m => m.Value)
-              .ToString();
-
-            return word;
+            int start, end;
+            if (text.Contains(nuo) && text.Contains(iki))
+            {
+                start = text.IndexOf(nuo, 0) + nuo.Length;
+                end = text.IndexOf(iki, start);
+                return text.Substring(start, end - start);
+            }
+            else
+            {
+                return "";
+            }
         }
-
-    }
-            
+    }   
     }
 
 
