@@ -115,8 +115,9 @@ namespace P6_1
                 KasosNumerisMaxPirkėju(prekybosBaze, ref nrmax, ref max);
                 fr.WriteLine(" Daugiausiai pirkėjų aptarnavo {0} kasa - {1} pirkėjus ", nrmax, max);
                 DienosNumerisMinPirkeju(prekybosBaze, ref nrmin, ref min);
-                fr.WriteLine(" Mažiausiai pirkėjų buvo aptarnauta {0}-dienį - {1} pirkėjus ", nrmin, min);
+                //fr.WriteLine(" Mažiausiai pirkėjų buvo aptarnauta {0}-dienį - {1} pirkėjus ", nrmin, min);
             }
+            MaziausiaiAptarnauta(CFr, prekybosBaze);
         }
 
         static int VisoAptarnauta(Matrica A)
@@ -249,7 +250,7 @@ namespace P6_1
             }
         }
 
-        static void MaziausiaiAptarnauta(string CFr, Matrica A) // nenaudojam, bet naudinga
+        static void MaziausiaiAptarnauta(string CFr, Matrica A)
         {
             using (var fr = File.AppendText(CFr))
             {
@@ -270,7 +271,8 @@ namespace P6_1
                 {
                     int suma = 0;
                     for (int i = 0; i < A.n; i++)
-                        if (suma == max)
+                        suma = suma + A.ImtiReiksme(i, j);
+                    if (suma == max)
                         {
                             fr.WriteLine("Mainžiausiai pirkėjų buvo aptarnauta {0} dieną: {1} pirkėjai", j+1, max);
                         }

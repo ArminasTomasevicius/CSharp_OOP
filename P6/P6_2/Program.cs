@@ -77,8 +77,24 @@ namespace P6_2
                 fr.WriteLine("Žmonos išlaidos: {0} €", NarioIslaidos(seimosIslaidos, "�mona"));
                 fr.WriteLine();
                 fr.WriteLine("Vyro išlaidos: {0} €", NarioIslaidos(seimosIslaidos, "vyras"));
+                fr.WriteLine();
             }
 
+            IslaidosSavaitemis(CFr, ref seimosIslaidos);
+
+            using (var fr = File.AppendText(CFr))
+            {
+                fr.WriteLine();
+                fr.WriteLine("Antradienių bendros išlaidos {0,5:c2}.", IslaidosSavaitesDienaX(seimosIslaidos, 2));
+                fr.WriteLine("Šeštadienių bendros išlaidos {0,5:c2}.", IslaidosSavaitesDienaX(seimosIslaidos, 6));
+
+                fr.WriteLine();
+                int savaite, diena;
+                Asmuo a; DienaMaxIslaidos(seimosIslaidos, out savaite, out diena);
+                fr.Write("Daugiausia išleista {0} sav. {1} dieną.", savaite, diena);
+                a = seimosIslaidos.ImtiReiksme(savaite - 1, diena - 1);
+                fr.WriteLine(" Pinigus išleido {0}: {1,5:c2}.", a.ImtiVarda(), a.ImtiPinigus());
+            }
         }
 
         static void Skaityti(string fd, ref Matrica seimosIslaidos)

@@ -14,12 +14,11 @@ namespace P5_22
         const string rez = "..\\..\\rez.txt";
         static void Main(string[] args)
         {
-            char[] skirikliai = {'/', '+', ' ', ';', '!'};
+            char[] skirikliai = {'/', '+', ' ', ';', '!', '?'};
             int matches = 0;
             if (File.Exists(rez))
                 File.Delete(rez);
             Read(input, ref matches, skirikliai);
-           // Write();
             Console.WriteLine("Atitikimai:");
             Console.WriteLine(matches);
 
@@ -28,11 +27,14 @@ namespace P5_22
         static void Read(string input, ref int matches, char[] skirikliai)
         {
             string[] parts = new string[1000];
+            string pradzia = "";
 
             using (StreamReader reader = new StreamReader(input))
             {
                 string line;
                 int index = 0;
+                bool match = false;
+
                 while ((line = reader.ReadLine()) != null)
                 {
                     parts = line.Split(skirikliai, StringSplitOptions.RemoveEmptyEntries);
@@ -41,39 +43,60 @@ namespace P5_22
                     {
                         if (parts.Length != 1)
                         {
-
-                            for (int i = 0; i < parts.Length - 1; i++)
+                            int min = 0;
+                            string trans_word = "";
+                            int k = 0;
+                            if ((k = line.IndexOf(parts[0])) != 0)
+                            {
+                                pradzia = line.Substring(0, k);
+                            }
+                            
+                            for (int i = 0; i < parts.Length-1; i++)
                             {
                                 if (Match(parts[i], parts[i + 1]))
                                 {
                                     matches++;
+                                    match = true;
+                                    for (int j = 0; j < parts.Length - 1; j++)
+                                    {
+                                        int length = parts[j].Length + parts[j + 1].Length;
+
+                                        if (min < length && Match(parts[j], parts[j+1])==true)
+                                        {
+                                            trans_word = parts[j];
+                                            min = length;
+                                            index = j;
+                                        }
+                                    }
                                 }
-                            }
-
-                            int min = 0;
-                            string trans_word = "";
-
-                            for (int j = 0; j < parts.Length - 1; j++)
-                            {
-                                int length = parts[j].Length + parts[j + 1].Length;
-
-                                if (min < length)
+                                else
                                 {
-                                    trans_word = parts[j];
-                                    min = length;
-                                    index = j;
+                                    match = false;
                                 }
                             }
-                            string[] naujas = parts.Where(str => str != trans_word).ToArray();
+
+                            string[] naujas = parts.Where((source, indexas) => indexas != index).ToArray();
                             using (var fr = File.AppendText(rez))
                             {
+                                string intarpas;
                                 for (int i = 0; i < naujas.Length; i++)
                                 {
-                                    fr.Write(naujas[i] + " ");
+                         
+                                    if (i != naujas.Length-1)
+                                    {
+                                            intarpas = Tarpas(line, naujas[i], naujas[i + 1], trans_word);
+                                            fr.Write(pradzia + naujas[i] + intarpas);
+                                    }
+                                    else
+                                    {
+                                        intarpas = line.Substring((line.IndexOf(naujas[i]) + naujas[i].Length), line.Length - (line.IndexOf(naujas[i]) + naujas[i].Length));
+                                        fr.Write(naujas[i] + intarpas);
+                                    }
                                 }
 
 
-                                string intarpas = Tarpas(line, trans_word, parts[index + 1]);
+                                intarpas = Tarpas(line, trans_word, parts[index+1], trans_word);
+
                                 fr.Write(trans_word + intarpas);
                                 fr.WriteLine();
 
@@ -88,7 +111,7 @@ namespace P5_22
                     else
                     {
                         using (var fr = File.AppendText(rez))
-                            fr.Write(" ");
+                            fr.Write(Environment.NewLine);
                     }
                 }
             }
@@ -105,30 +128,47 @@ namespace P5_22
             return false;
         }
 
-        static string Tarpas(string text, string nuo, string iki)
+        static string Tarpas(string text, string nuo, string iki, string trans)
         {
             int start, end;
             if (text.Contains(nuo) && text.Contains(iki))
             {
                 start = text.IndexOf(nuo, 0) + nuo.Length;
                 end = text.IndexOf(iki, start);
-                return text.Substring(start, end - start);
+
+                string check = text.Substring(start, end - start);
+
+                if (check.Contains(trans))
+                {
+                    if (end - start > 0)
+                    {
+                        start = text.IndexOf(nuo, 0) + nuo.Length;
+                        end = text.IndexOf(trans, start);
+                        return text.Substring(start, end - start);
+                    }
+                    else
+                    {
+                        return " ";
+                    }
+                }
+                else
+                {
+                start = text.IndexOf(nuo, 0) + nuo.Length;
+                end = text.IndexOf(iki, start);
+                if (end - start > 0)
+                {
+                    return text.Substring(start, end - start);
+                }
+                else
+                {
+                    return " ";
+                }
+            }
             }
             else
             {
-                return "";
+                return " ";
             }
         }
     }   
     }
-
-
-
-
-
-
-//char_masyvas = Eil.ToCharArray(pr_nr, simb_kiek) – eilutės simbolius surašo (konvertuoja) į char_masyvą;
-//Eil1.IndexOf(simbolis, pr, kiekis) – randa simbolio pirmą vietą eilutėje, pradedant nuo simbolio, kurio numeris pr, ir tikrinant simbolių kiekį kiekis;
-
-//Eil.Insert(vieta, kint) – įterpimas į eilutę.kint - bool, char, int, double, string tipo kintamasis arba char tipo masyvas; 
-//Eil.Remove(pr, kiek) – šalina iš eilutės simbolius.pr – pradinis adresas; kiek – kiekis;

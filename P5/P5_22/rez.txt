@@ -1,5 +1,4 @@
-211 55555 6 7 145;;; 
- 23 2; 
-5 6 7 4 
-Tekstas
-56 45;;;
+ AB;;; BCDEF FA???CAB!!
+   ABC    ABC    CDFFG 123ABC 
+FA?CDEF;;;; 
+CDEFG

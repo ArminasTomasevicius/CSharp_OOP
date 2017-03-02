@@ -14,7 +14,10 @@
 
  Viso aptarnauta: 207 klientų.
  Daugiausiai pirkėjų aptarnavo 3 kasa - 41 pirkėjus 
- Mažiausiai pirkėjų buvo aptarnauta 4-dienį - 24 pirkėjus 
+
+Mainžiausiai pirkėjų buvo aptarnauta 4 dieną: 24 pirkėjai
+Mainžiausiai pirkėjų buvo aptarnauta 5 dieną: 24 pirkėjai
+Mainžiausiai pirkėjų buvo aptarnauta 7 dieną: 24 pirkėjai
 
 1)
  Vidutiniškai viena kasa per dieną aptarnavo 4,92857142857143 klientus
