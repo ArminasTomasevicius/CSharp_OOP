@@ -235,7 +235,7 @@ namespace P6_3
                 for (int i = 0; i < mokykl.n; i++)
                 {
                     line = reader.ReadLine();
-                    parts = line.Split(' ');
+                    parts = line.Split(' ', ';');
                     for (int j = 0; j < mokykl.m; j++)
                     {
                         laikas = int.Parse(parts[j]);

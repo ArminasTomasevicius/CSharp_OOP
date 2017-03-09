@@ -90,11 +90,16 @@ namespace P6_2
 
                 fr.WriteLine();
                 int savaite, diena;
-                Asmuo a; DienaMaxIslaidos(seimosIslaidos, out savaite, out diena);
+                Asmuo a;
+                DienaMaxIslaidos(seimosIslaidos, out savaite, out diena);
                 fr.Write("Daugiausia išleista {0} sav. {1} dieną.", savaite, diena);
                 a = seimosIslaidos.ImtiReiksme(savaite - 1, diena - 1);
                 fr.WriteLine(" Pinigus išleido {0}: {1,5:c2}.", a.ImtiVarda(), a.ImtiPinigus());
+                // paversti į savaitę matricos ivedimas, spausinimas, matricos klase, skaiciavimai visoje matricoje, eiluteje
+                fr.WriteLine();
             }
+            MinSavaite(CFd, CFr, seimosIslaidos);
+            KasdienIslaidos(CFr, seimosIslaidos);
         }
 
         static void Skaityti(string fd, ref Matrica seimosIslaidos)
@@ -253,6 +258,53 @@ namespace P6_2
                     }
                 }
             }
+        }
+
+        static void MinSavaite(string fv, string rez, Matrica A)
+        {
+            using (var fr = File.AppendText(rez))
+            {
+                double min = 999999999;
+                for (int i = 0; i < A.n; i++)
+                {
+                    double suma = 0;
+                    for (int j = 0; j < A.m; j++)
+                    {
+                        Asmuo x = A.ImtiReiksme(i, j);
+                        suma = suma + x.ImtiPinigus();
+                    }
+                    if (suma < min)
+                    {
+                        min = suma;
+                        Console.WriteLine(min);
+                    }
+                }
+                for (int i = 0; i < A.n; i++)
+                {
+                    double suma = 0;
+                    for (int j = 0; j < A.m; j++)
+                    {
+                        Asmuo x = A.ImtiReiksme(i, j);
+                        suma = suma + x.ImtiPinigus();
+                    }
+                    if (suma == min)
+                    {
+                        fr.WriteLine("Mažiausiai išleista: {0} savatę", i+1);
+                    }
+                }
+            }
+        }
+
+        static void KasdienIslaidos(string fv, Matrica A)
+        {
+            using (var fr = File.AppendText(fv))
+            {
+                for (int i = 1; i <= 7; i++)
+                {
+                    fr.WriteLine("{0} dieniais išviso išleista - {1}", i, IslaidosSavaitesDienaX(A, i));
+                    Console.WriteLine("{0}   {1}",i, IslaidosSavaitesDienaX(A, i));
+                }
+           }
         }
     }
 }
