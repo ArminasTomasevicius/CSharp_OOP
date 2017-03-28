@@ -192,6 +192,7 @@ namespace P6_3
                 else
                     fr.WriteLine("{0} klasės mokinių sąraše nėra.", klasė);
             }
+            Nesinaudoja(CFr, mokykl);
         }
 
         static void SkaitytiMok(string fd, ref Mokykla mokykl)
@@ -229,13 +230,15 @@ namespace P6_3
                 line = reader.ReadLine();
                 string[] parts;
                 nn = int.Parse(line);
+                mokykl.n = nn;
                 line = reader.ReadLine();
                 mm = int.Parse(line);
                 mokykl.m = mm;
                 for (int i = 0; i < mokykl.n; i++)
                 {
                     line = reader.ReadLine();
-                    parts = line.Split(' ', ';');
+                    Console.WriteLine(line);
+                    parts = line.Split(';');
                     for (int j = 0; j < mokykl.m; j++)
                     {
                         laikas = int.Parse(parts[j]);
@@ -291,6 +294,27 @@ namespace P6_3
             if (kiek != 0)
                 return suma / kiek;
             else return 0;
+        }
+
+        static void Nesinaudoja(string fv, Mokykla mokykl)
+        {
+            int counter = 0;
+            using (var fr = File.AppendText(fv))
+            {
+                fr.WriteLine();
+                fr.WriteLine("Kiek mokykloje yra mokinių, kurie nesinaudoja internetu: ");
+                for (int i = 0; i < mokykl.n; i++)
+                {
+                    double suma = 0;
+                    for (int j = 0; j < mokykl.m; j++)
+                        suma += mokykl.ImtiWWW(i, j);
+                    if (suma == 0)
+                    {
+                        counter++;
+                    }
+                }
+                fr.WriteLine(counter);
+            }
         }
     }
 }

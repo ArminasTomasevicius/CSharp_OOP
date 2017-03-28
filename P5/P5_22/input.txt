@@ -1,4 +1,6 @@
- AB;;;CAB!!BCDEF FA???
-   ABC ABC   ABC!! CDFFG 123
-CDEF;;;; FA?
-CDEFG
+145  211;;; 145;;; 55555; 145  6;7
+
+2; 23;
+4 5 6 7
+Tekstas
+45;;;56!!!
