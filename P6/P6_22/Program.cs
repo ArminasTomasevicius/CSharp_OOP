@@ -128,7 +128,7 @@ namespace P6_22
         {
             for (int i = 0; i < bankai.n; i++)
             {
-                bankai.Imti(i).ImtiSalis;
+                = bankai.Imti(i).ImtiSalis;
             }
 
         }

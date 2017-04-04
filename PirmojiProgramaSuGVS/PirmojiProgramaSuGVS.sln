@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirmojiProgramaSuGVS", "PirmojiProgramaSuGVS\PirmojiProgramaSuGVS.csproj", "{FFDE683C-634E-4FF4-B46F-C18F41D04BDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Studentai", "GUI_Studentai\GUI_Studentai.csproj", "{4609DE31-6650-4667-810F-5B54B2CD5273}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFDE683C-634E-4FF4-B46F-C18F41D04BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDE683C-634E-4FF4-B46F-C18F41D04BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDE683C-634E-4FF4-B46F-C18F41D04BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDE683C-634E-4FF4-B46F-C18F41D04BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4609DE31-6650-4667-810F-5B54B2CD5273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4609DE31-6650-4667-810F-5B54B2CD5273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4609DE31-6650-4667-810F-5B54B2CD5273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4609DE31-6650-4667-810F-5B54B2CD5273}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
