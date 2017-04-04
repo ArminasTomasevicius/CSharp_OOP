@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,40 +41,98 @@ namespace P6_22
 
     }
 
+    class Bankai
+    {
+        private Bankas[] Banku;
+        const int CMaxMk = 1000;
+        const int CMaxDn = 30;
+        public int n { get; set; }
+        private int[,] Matrica;
 
-        class Program
+        public Bankai()
         {
-            static void Main(string[] args)
+            n = 0;
+            Banku = new Bankas[CMaxMk];
+            Matrica = new int[CMaxMk, CMaxDn];
+        }
+
+        public Bankas Imti(int nr) { return Banku[nr]; }
+
+        public void Dėti(Bankas ob) { Banku[n++] = ob; }
+
+        public void PakeistiBanka(int nr, Bankas mok) { Banku[nr] = mok; }
+
+        public void DėtiMatrica(int i, int j, int r) { Matrica[i, j] = r; }
+
+        public int ImtiMatrica(int i, int j) { return Matrica[i, j]; }
+
+        public void Rikiuoti()
+        {
+
+        }
+
+    }
+
+
+    class Program
+    {
+        const string input = "...\\...\\input.txt";
+        const string output = "...\\...\\output.txt";
+
+        static void Main(string[] args)
+        {
+            Bankai bankai = new Bankai();
+            SkaitytiMok(input, ref bankai);
+
+        }
+
+        static void SkaitytiMok(string fd, ref Bankai bankai)
+        {
+            string pav, salis;
+            int skaicius, n, prc;
+            string line;
+            using (StreamReader reader = new StreamReader(fd))
             {
-
-
-            }
-
-            static void SkaitytiMok(string fd, ref Bankai bankai)
-            {
-                string pav, vard;
-                int klas, nn;
-                double vid;
-                string line;
-                using (StreamReader reader = new StreamReader(fd))
+                line = reader.ReadLine();
+                string[] parts;
+                n = int.Parse(line);
+                for (int i = 0; i < n; i++)
                 {
                     line = reader.ReadLine();
-                    string[] parts;
-                    nn = int.Parse(line);
-                    for (int i = 0; i < nn; i++)
+                    parts = line.Split(';');
+                    pav = parts[0];
+                    salis = parts[1];
+                    skaicius = int.Parse(parts[2]);
+                    Bankas ban;
+                    ban = new Bankas();
+                    ban.Dėti(pav, salis, skaicius);
+                    bankai.Dėti(ban);
+                    Console.WriteLine(bankai.n);
+                }
+
+                for (int i = 0; i < bankai.n; i++)
+                {
+                    line = reader.ReadLine();
+                    Console.WriteLine(line);
+                    parts = line.Split(';');
+                    for (int j = 0; j < 6; j++)
                     {
-                        line = reader.ReadLine();
-                        parts = line.Split(';');
-                        pav = parts[0]; vard = parts[1];
-                        klas = int.Parse(parts[2]);
-                        vid = double.Parse(parts[3]);
-                        Mokinys mok;
-                        mok = new Mokinys();
-                        mok.Dėti(pav, vard, klas, vid);
-                        mokykl.Dėti(mok);
+                        prc = int.Parse(parts[j]);
+                        bankai.DėtiMatrica(i, j, prc);
                     }
                 }
             }
         }
-    }
+
+        static void KiekValstybiu(Bankai bankai)
+        {
+            for (int i = 0; i < bankai.n; i++)
+            {
+                bankai.Imti(i).ImtiSalis;
+            }
+
+        }
+    
+
 }
+    }
