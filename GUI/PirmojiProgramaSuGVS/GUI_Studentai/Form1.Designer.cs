@@ -45,14 +45,14 @@
             this.rezultatai.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.rezultatai.Location = new System.Drawing.Point(12, 12);
             this.rezultatai.Name = "rezultatai";
-            this.rezultatai.Size = new System.Drawing.Size(100, 96);
+            this.rezultatai.Size = new System.Drawing.Size(407, 165);
             this.rezultatai.TabIndex = 0;
             this.rezultatai.Text = "";
             // 
             // ivesti
             // 
             this.ivesti.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.ivesti.Location = new System.Drawing.Point(12, 143);
+            this.ivesti.Location = new System.Drawing.Point(12, 183);
             this.ivesti.Name = "ivesti";
             this.ivesti.Size = new System.Drawing.Size(113, 34);
             this.ivesti.TabIndex = 1;
@@ -63,7 +63,7 @@
             // spausdinti
             // 
             this.spausdinti.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.spausdinti.Location = new System.Drawing.Point(141, 143);
+            this.spausdinti.Location = new System.Drawing.Point(145, 183);
             this.spausdinti.Name = "spausdinti";
             this.spausdinti.Size = new System.Drawing.Size(140, 34);
             this.spausdinti.TabIndex = 2;
@@ -74,7 +74,7 @@
             // skaiciuoti
             // 
             this.skaiciuoti.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.skaiciuoti.Location = new System.Drawing.Point(12, 183);
+            this.skaiciuoti.Location = new System.Drawing.Point(287, 219);
             this.skaiciuoti.Name = "skaiciuoti";
             this.skaiciuoti.Size = new System.Drawing.Size(132, 34);
             this.skaiciuoti.TabIndex = 3;
@@ -85,7 +85,7 @@
             // rasti
             // 
             this.rasti.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.rasti.Location = new System.Drawing.Point(168, 183);
+            this.rasti.Location = new System.Drawing.Point(306, 258);
             this.rasti.Name = "rasti";
             this.rasti.Size = new System.Drawing.Size(113, 34);
             this.rasti.TabIndex = 4;
@@ -96,7 +96,7 @@
             // baigti
             // 
             this.baigti.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.baigti.Location = new System.Drawing.Point(12, 223);
+            this.baigti.Location = new System.Drawing.Point(306, 298);
             this.baigti.Name = "baigti";
             this.baigti.Size = new System.Drawing.Size(113, 34);
             this.baigti.TabIndex = 5;
@@ -108,7 +108,7 @@
             // 
             this.vertinimai.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.vertinimai.FormattingEnabled = true;
-            this.vertinimai.Location = new System.Drawing.Point(234, 14);
+            this.vertinimai.Location = new System.Drawing.Point(307, 183);
             this.vertinimai.Name = "vertinimai";
             this.vertinimai.Size = new System.Drawing.Size(121, 30);
             this.vertinimai.TabIndex = 6;
@@ -119,7 +119,7 @@
             this.rezultatas.AutoSize = true;
             this.rezultatas.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.rezultatas.ForeColor = System.Drawing.Color.Blue;
-            this.rezultatas.Location = new System.Drawing.Point(12, 264);
+            this.rezultatas.Location = new System.Drawing.Point(12, 229);
             this.rezultatas.Name = "rezultatas";
             this.rezultatas.Size = new System.Drawing.Size(191, 19);
             this.rezultatas.TabIndex = 7;
@@ -129,7 +129,7 @@
             // 
             this.pavardeVardas.AutoSize = true;
             this.pavardeVardas.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.pavardeVardas.Location = new System.Drawing.Point(12, 292);
+            this.pavardeVardas.Location = new System.Drawing.Point(12, 258);
             this.pavardeVardas.Name = "pavardeVardas";
             this.pavardeVardas.Size = new System.Drawing.Size(171, 24);
             this.pavardeVardas.TabIndex = 8;
@@ -139,7 +139,7 @@
             // pavardeVrd
             // 
             this.pavardeVrd.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.pavardeVrd.Location = new System.Drawing.Point(209, 263);
+            this.pavardeVrd.Location = new System.Drawing.Point(12, 297);
             this.pavardeVrd.Name = "pavardeVrd";
             this.pavardeVrd.Size = new System.Drawing.Size(219, 26);
             this.pavardeVrd.TabIndex = 9;
