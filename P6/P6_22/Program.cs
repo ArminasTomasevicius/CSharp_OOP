@@ -66,6 +66,13 @@ namespace P6_22
 
         public int ImtiMatrica(int i, int j) { return Matrica[i, j]; }
 
+        public override string ToString()
+        {
+            string eilute = "";
+            //alternative
+            return eilute;
+        }
+
         public void Rikiuoti()
         {
 
@@ -81,9 +88,15 @@ namespace P6_22
 
         static void Main(string[] args)
         {
+            if (File.Exists(output))
+                File.Delete(output);
+
+            string laik;
             Bankai bankai = new Bankai();
             SkaitytiMok(input, ref bankai);
-
+            laik = Console.ReadLine();
+            KiekValstybiu(bankai);
+            PradiniaiDuomenys(bankai);
         }
 
         static void SkaitytiMok(string fd, ref Bankai bankai)
@@ -126,13 +139,58 @@ namespace P6_22
 
         static void KiekValstybiu(Bankai bankai)
         {
+            List<string> list = new List<string>();
             for (int i = 0; i < bankai.n; i++)
             {
-                = bankai.Imti(i).ImtiSalis;
+                if (list.Contains(bankai.Imti(i).ImtiSalis()) == false || list.Count == 0)
+                    list.Add(bankai.Imti(i).ImtiSalis());
             }
 
+            Console.WriteLine(list.Count);
         }
-    
 
-}
+        static void Apsimoka(Bankai bankai, int laik)
+        {
+            int max = 0;
+            for (int i = 0; i < bankai.ImtiMatrica(laik, i); i++)
+            {
+                int current = bankai.ImtiMatrica(laik, i);
+                if (current > max)
+                {
+                    max = current;
+                }
+            }
+
+            for (int i = 0; i < bankai.ImtiMatrica(laik, i); i++)
+            {
+                if (max == bankai.ImtiMatrica(laik, i))
+                {
+                    Console.WriteLine("Labiausiai apsimoka laikyti {0}", bankai.Imti(i).ImtiPav());
+                }
+            }
+        }
+
+        static void PradiniaiDuomenys(Bankai bankai)
+        {
+            using (var fr = File.CreateText(output))
+            {
+                fr.WriteLine("Pradiniai duomenys: ");
+                fr.WriteLine();
+
+                for (int i = 0; i < bankai.n; i++)
+                {
+                    fr.WriteLine(bankai.Imti(i).ToString());
+                }
+
+                for (int i = 0; i < bankai.n; i++)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        fr.Write("{0}; ", bankai.ImtiMatrica(i, j));
+                    }
+                    fr.WriteLine();
+                }
+            }
+        }
     }
+}
