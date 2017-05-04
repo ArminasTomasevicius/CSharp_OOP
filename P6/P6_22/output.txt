@@ -4,7 +4,17 @@ Siauliu          LT           5
 Medicinos        LT           4
 SEB              SE           3
 Swed             SE           7
-1; 2; 3; 6; 12; 24; 0; 
-0; 0; 1; 2; 5; 7; 0; 
-1; 1; 1; 1; 1; 1; 0; 
-10; 10; 15; 20; 5; 15; 0; 
+
+1; 2; 3; 6; 12; 24; 
+0; 0; 1; 2; 5; 7; 
+1; 1; 1; 1; 1; 1; 
+10; 10; 15; 20; 5; 15; 
+
+Lietuvoje veikia 2 kitų valstybių bankai
+1 laikotarpį labiausiai apsimoka laikyti Swed banke
+2 laikotarpį labiausiai apsimoka laikyti Swed banke
+3 laikotarpį labiausiai apsimoka laikyti Swed banke
+4 laikotarpį labiausiai apsimoka laikyti Swed banke
+5 laikotarpį labiausiai apsimoka laikyti Siauliu banke
+6 laikotarpį labiausiai apsimoka laikyti Siauliu banke
+7 laikotarpį labiausiai apsimoka laikyti Siauliu banke
