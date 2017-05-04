@@ -45,7 +45,6 @@ namespace P6_22
         
        public static bool operator >=(Bankas b1, Bankas b2)
         {
- 
             int p = string.Compare(b1.ImtiPav(), b2.ImtiPav(), StringComparison.CurrentCulture);
             return (p>0);
         }
@@ -91,10 +90,9 @@ namespace P6_22
 
         public void Rikiuoti()
         {
-            int temp = 0;
-            for (int write = 0; write < n; write++)
+            for (int write = 0; write < n-1; write++)
             {
-                for (int sort = 0; sort < n - 1; sort++)
+                for (int sort = 0; sort < n - 2; sort++)
                 {
 
                     int b1 = ImtiMatrica(Banku[sort].ImtiNr(), 3);
@@ -102,19 +100,18 @@ namespace P6_22
 
                     if (b1 > b2)
                     {
-                        temp = b2;
-                        b2 = b1;
-                        b1 = temp;
+                        Bankas temp = Banku[sort + 1];
+                        Banku[sort + 1] = Banku[sort];
+                        Banku[sort] = temp;
                     }
 
                     if (b1 == b2)
                     {
-                        Console.WriteLine("A");
                         if (Banku[sort] >= Banku[sort+1])
                         {
-                            temp = b2;
-                            b2 = b1;
-                            b1 = temp;
+                            Bankas temp = Banku[sort + 1];
+                            Banku[sort + 1] = Banku[sort];
+                            Banku[sort] = temp;
                         }
                     }
                 }
@@ -138,7 +135,6 @@ namespace P6_22
             Bankai bankai = new Bankai();
             SkaitytiMok(input, ref bankai);
             PradiniaiDuomenys(bankai);
-            KiekValstybiu(bankai);
             Apsimoka(bankai, 0);
             Apsimoka(bankai, 1);
             Apsimoka(bankai, 2);
@@ -146,6 +142,7 @@ namespace P6_22
             Apsimoka(bankai, 4);
             Apsimoka(bankai, 5);
             Apsimoka(bankai, 6);
+            KiekValstybiu(bankai);
             RikiuotoSpausdinimas(ref bankai);
             
         }
@@ -200,7 +197,7 @@ namespace P6_22
             using (var fr = File.AppendText(output))
             {
                 fr.WriteLine();
-                fr.WriteLine("Lietuvoje veikia {0} kitų valstybių bankai", list.Count);
+                fr.WriteLine("Lietuvoje veikia {0} valstybių bankai", list.Count);
             }
         }
 
@@ -255,10 +252,15 @@ namespace P6_22
         static void RikiuotoSpausdinimas(ref Bankai bankai)
         {
             bankai.Rikiuoti();
-
-            for (int i = 0; i < bankai.n; i++)
+            using (var fr = File.AppendText(output))
             {
-                Console.WriteLine(bankai.Imti(i).ToString());
+                fr.WriteLine();
+                fr.WriteLine("Surikiuoti objektai:");
+                for (int i = 0; i < bankai.n; i++)
+                {
+                    Console.WriteLine(bankai.Imti(i).ToString());
+                    fr.WriteLine("{0}", bankai.Imti(i).ToString());
+                }
             }
         }
     }
