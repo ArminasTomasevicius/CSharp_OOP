@@ -1,5 +1,11 @@
-Zalgiris
-Matulevicius Mantas 8 P 5
-Samuolis Tadas 9 P 7
+Domas Gar
+3
+LT 5 10
+USA 2 5
+LV 1 11
 
-Rytas
+Tomas Sav
+3
+PL 5 12
+USA 3 5
+RU 1 10
