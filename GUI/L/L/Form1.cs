@@ -20,6 +20,7 @@ namespace L
 
         Monetos Kolekcija1;
         Monetos Kolekcija2;
+        Monetos Kolekcija3;
   
 
         public Form1()
@@ -27,7 +28,7 @@ namespace L
             InitializeComponent();
 
             spausdinti.Enabled = false;
-            skaiciuoti.Enabled = false;
+            delete.Enabled = false;
             rasti.Enabled = false;
 
             if (File.Exists(CFr))
@@ -44,23 +45,41 @@ namespace L
         {
             rezultatai.LoadFile(CFd, RichTextBoxStreamType.PlainText);
             SkaitytiMonetKont(CFd, out Kolekcija1, out Kolekcija2);
+            Kolekcija3 = SudarytiNaujaKonteineri(Kolekcija1, Kolekcija2);
 
-            ivesti.Enabled = false;
+            ivesti.Enabled = true;
             spausdinti.Enabled = true;
-            skaiciuoti.Enabled = true;
+            delete.Enabled = true;
             rasti.Enabled = true;
         }
 
         private void spausdinti_Click(object sender, EventArgs e)
         {
-            SpausdintiMonetKont(CFr, Kolekcija1, "Monetų kolekcijos sąrašas ");
+            SpausdintiMonetKont(CFr, Kolekcija3, "Monetų kolekcijos sąrašas ");
             rezultatai.LoadFile(CFr, RichTextBoxStreamType.PlainText);
-            vertinimai.SelectedIndex = 0;
         }
 
         private void skaiciuoti_Click(object sender, EventArgs e)
         {
-            string ivertis = vertinimai.SelectedItem.ToString();
+            Kolekcija3 = pasalinti(Kolekcija3);
+        }
+
+        private Monetos pasalinti(Monetos Kolekcija)
+        {
+            Monetos naujaKolekcija = new Monetos();
+            char[] raide = SalisR.Text.ToCharArray();
+            for (int i = 0; i < Kolekcija.Kiek; i++)
+            {
+                if (raide[0] != Kolekcija.ImtiMoneta(i).Salis[0])
+                {
+                    naujaKolekcija.DetiMoneta(Kolekcija.ImtiMoneta(i));
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return naujaKolekcija;
         }
 
         private void rasti_Click(object sender, EventArgs e)
@@ -148,7 +167,8 @@ namespace L
 
         static void SpausdintiMonetKont(string fv, Monetos MonetosKont, string antraste)
         {
-            const string virsus = "-----------------------------------\r\n" + " Pagaminimo Šalis     Nominalas        Svoris \r\n" + "-----------------------------------";
+            File.Delete(CFr);
+            const string virsus = "---------------------------------------------\r\n" + " Pagaminimo Šalis     Nominalas     Svoris \r\n" + "---------------------------------------------";
             using (var fr = new StreamWriter(File.Open(fv, FileMode.Append), Encoding.GetEncoding(1257)))
             {
                 fr.WriteLine("\n " + antraste);
@@ -156,9 +176,9 @@ namespace L
                 for (int i = 0; i < MonetosKont.Kiek; i++)
                 {
                     Moneta moneta = MonetosKont.ImtiMoneta(i);
-                    fr.WriteLine("{0, 3}   {1}", i + 1, moneta);
+                    fr.WriteLine("{0, 3} {1}", i + 1, moneta);
                 }
-                fr.WriteLine("-----------------------------------\n");
+                fr.WriteLine("---------------------------------------------\n");
             }
         }
 
@@ -168,7 +188,7 @@ namespace L
             for (int i = 0; i < MonetosKont.Kiek; i++)
             {
                 Moneta moneta = MonetosKont.ImtiMoneta(i);
-                if (moneta.Nominalas == nominalas)  // reikia pakeisti į vertės skaičiavimo ciklą
+                if (moneta.Nominalas == nominalas)
                     kiek++;
             }
             return kiek;
@@ -203,6 +223,86 @@ namespace L
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private Monetos SudarytiNaujaKonteineri(Monetos Kolekcija1, Monetos Kolekcija2)
+        {
+            Monetos Kolekcija3 = new Monetos();
+            for (int i = 0; i < Kolekcija1.Kiek; i++)
+            {
+                if (Kolekcija1.ImtiMoneta(i).Nominalas == 1)
+                {
+                    Kolekcija3.DetiMoneta(Kolekcija1.ImtiMoneta(i));
+                }
+            }
+
+            for (int i = 0; i < Kolekcija2.Kiek; i++)
+            {
+                if (Kolekcija2.ImtiMoneta(i).Nominalas == 1)
+                {
+                    Kolekcija3.DetiMoneta(Kolekcija2.ImtiMoneta(i));
+                }
+            }
+
+            return Kolekcija3;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private Monetos surikiuoti(Monetos Kolekcija3)
+        {
+            Monetos Kolekcija = new Monetos();
+
+            for (int i = 0; i < Kolekcija3.Kiek; i++)
+            {
+                int max = Kolekcija3.ImtiMoneta(i).Svoris;
+                int index = i;
+
+            for (int j = i; j < Kolekcija3.Kiek; j++)
+            {
+                if (max < Kolekcija3.ImtiMoneta(j).Svoris)
+                {
+                        max = Kolekcija3.ImtiMoneta(j).Svoris;
+                        index = j;
+                }
+            }
+                Kolekcija.DetiMoneta(Kolekcija3.ImtiMoneta(index));
+         }
+            return Kolekcija;
+        }
+
+        private void rikiuoti_Click_1(object sender, EventArgs e)
+        {
+            SpausdintiMonetKont(CFr, surikiuoti(Kolekcija3), "Surikiuotos Monetos");
+            rezultatai.LoadFile(CFr, RichTextBoxStreamType.PlainText);
+        }
+
+        private void SalisR_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newM_Click(object sender, EventArgs e)
+        {
+            int max = Int32.Parse(maxnominalas.Text);
+
+            if (Int32.Parse(maxnominalas.Text) >= Int32.Parse(nominalasN.Text)) {
+                Moneta moneta = new Moneta(SalisN.Text, Int32.Parse(nominalasN.Text), Int32.Parse(svorisN.Text));
+                Kolekcija3.DetiMoneta(moneta);
+            }
         }
     }
 }
