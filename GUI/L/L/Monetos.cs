@@ -28,5 +28,10 @@ namespace L
         {
             moneta[Kiek++] = Moneta;
         }
+
+        public void DetiTiksliai(Moneta moneta, int index)
+        {
+            this.moneta[index] = moneta;
+        }
     }
 }

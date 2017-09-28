@@ -11,4 +11,4 @@ Tomas Sav
 PL 5 12
 USA 1 5
 RU 2 12
-GER 1 4
+GER 1 11

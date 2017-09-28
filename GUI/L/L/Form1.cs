@@ -262,25 +262,24 @@ namespace L
 
         }
 
-        private Monetos surikiuoti(Monetos Kolekcija3)
+        private Monetos surikiuoti(Monetos Kolekcija)
         {
-            Monetos Kolekcija = new Monetos();
 
-            for (int i = 0; i < Kolekcija3.Kiek; i++)
+            Moneta temp;
+            for (int i = 0; i < Kolekcija.Kiek; i++)
             {
-                int max = Kolekcija3.ImtiMoneta(i).Svoris;
-                int index = i;
-
-            for (int j = i; j < Kolekcija3.Kiek; j++)
-            {
-                if (max < Kolekcija3.ImtiMoneta(j).Svoris)
+                for (int n = i; n < Kolekcija.Kiek; n++)
                 {
-                        max = Kolekcija3.ImtiMoneta(j).Svoris;
-                        index = j;
+                    if (Kolekcija.ImtiMoneta(n).Svoris > Kolekcija.ImtiMoneta(i).Svoris)
+                    {
+                        temp = Kolekcija.ImtiMoneta(n);
+                        Kolekcija.DetiTiksliai(Kolekcija.ImtiMoneta(i), n);
+                        Kolekcija.DetiTiksliai(temp, i);
+                        i--;
+                        break;
+                    }
                 }
             }
-                Kolekcija.DetiMoneta(Kolekcija3.ImtiMoneta(index));
-         }
             return Kolekcija;
         }
 
