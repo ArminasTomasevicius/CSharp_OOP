@@ -40,9 +40,9 @@
             this.uzduotis = new System.Windows.Forms.ToolStripMenuItem();
             this.nurodymai = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.vertinimai = new System.Windows.Forms.ComboBox();
+            this.rezultatai = new System.Windows.Forms.Label();
+            this.pavardeVrd = new System.Windows.Forms.RichTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,20 +73,23 @@
             // ivesti
             // 
             this.ivesti.Name = "ivesti";
-            this.ivesti.Size = new System.Drawing.Size(152, 22);
+            this.ivesti.Size = new System.Drawing.Size(129, 22);
             this.ivesti.Text = "Įvestis";
+            this.ivesti.Click += new System.EventHandler(this.ivesti_Click);
             // 
             // spausdinti
             // 
             this.spausdinti.Name = "spausdinti";
-            this.spausdinti.Size = new System.Drawing.Size(152, 22);
+            this.spausdinti.Size = new System.Drawing.Size(129, 22);
             this.spausdinti.Text = "Spausdinti";
+            this.spausdinti.Click += new System.EventHandler(this.spausdinti_Click);
             // 
             // baigti
             // 
             this.baigti.Name = "baigti";
-            this.baigti.Size = new System.Drawing.Size(152, 22);
+            this.baigti.Size = new System.Drawing.Size(129, 22);
             this.baigti.Text = "Baigti";
+            this.baigti.Click += new System.EventHandler(this.baigti_Click);
             // 
             // skaiciavimai
             // 
@@ -102,12 +105,14 @@
             this.studentu_sk.Name = "studentu_sk";
             this.studentu_sk.Size = new System.Drawing.Size(181, 22);
             this.studentu_sk.Text = "Studentų skaičius";
+            this.studentu_sk.Click += new System.EventHandler(this.studentu_sk_Click);
             // 
             // studento_ivert
             // 
             this.studento_ivert.Name = "studento_ivert";
             this.studento_ivert.Size = new System.Drawing.Size(181, 22);
             this.studento_ivert.Text = "Studento įvertinimai";
+            this.studento_ivert.Click += new System.EventHandler(this.studento_ivert_Click);
             // 
             // pagalba
             // 
@@ -123,12 +128,14 @@
             this.uzduotis.Name = "uzduotis";
             this.uzduotis.Size = new System.Drawing.Size(188, 22);
             this.uzduotis.Text = "Užduotis";
+            this.uzduotis.Click += new System.EventHandler(this.uzduotis_Click);
             // 
             // nurodymai
             // 
             this.nurodymai.Name = "nurodymai";
             this.nurodymai.Size = new System.Drawing.Size(188, 22);
             this.nurodymai.Text = "Nurodymai vartotojui";
+            this.nurodymai.Click += new System.EventHandler(this.nurodymai_Click);
             // 
             // richTextBox1
             // 
@@ -137,40 +144,38 @@
             this.richTextBox1.Size = new System.Drawing.Size(288, 161);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "Čia bus parodyti programos pradiniai duomenys";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
-            // comboBox1
+            // vertinimai
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(306, 27);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
+            this.vertinimai.FormattingEnabled = true;
+            this.vertinimai.Location = new System.Drawing.Point(306, 27);
+            this.vertinimai.Name = "vertinimai";
+            this.vertinimai.Size = new System.Drawing.Size(121, 21);
+            this.vertinimai.TabIndex = 2;
             // 
-            // label1
+            // rezultatai
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(303, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Čia bus parodyti rezultatai";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.rezultatai.AutoSize = true;
+            this.rezultatai.Location = new System.Drawing.Point(303, 62);
+            this.rezultatai.Name = "rezultatai";
+            this.rezultatai.Size = new System.Drawing.Size(127, 13);
+            this.rezultatai.TabIndex = 3;
+            this.rezultatai.Text = "Čia bus parodyti rezultatai";
             // 
-            // richTextBox2
+            // pavardeVrd
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(12, 194);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(221, 23);
-            this.richTextBox2.TabIndex = 4;
-            this.richTextBox2.Text = "Čia užrašykite pavardę ir vardą";
+            this.pavardeVrd.Location = new System.Drawing.Point(12, 194);
+            this.pavardeVrd.Name = "pavardeVrd";
+            this.pavardeVrd.Size = new System.Drawing.Size(221, 23);
+            this.pavardeVrd.TabIndex = 4;
+            this.pavardeVrd.Text = "Čia užrašykite pavardę ir vardą";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 223);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(448, 162);
             this.dataGridView1.TabIndex = 5;
             // 
             // Form1
@@ -179,9 +184,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 410);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.pavardeVrd);
+            this.Controls.Add(this.rezultatai);
+            this.Controls.Add(this.vertinimai);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -209,9 +214,9 @@
         private System.Windows.Forms.ToolStripMenuItem uzduotis;
         private System.Windows.Forms.ToolStripMenuItem nurodymai;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.ComboBox vertinimai;
+        private System.Windows.Forms.Label rezultatai;
+        private System.Windows.Forms.RichTextBox pavardeVrd;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
