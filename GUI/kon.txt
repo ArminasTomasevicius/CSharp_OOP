@@ -1,0 +1,88 @@
+static void Burbuliukas(Studentas[] Studentai, int kiek)
+{
+int i = 0; // intervalo pradžios žymeklis
+bool bk = true; // požymis, ar buvo sukeitimu
+while (bk)
+{
+bk = false;
+for (int j = kiek - 1; j > i; j--)
+if (Studentai[j] > Studentai[j-1])
+{
+bk = true;
+Studentas stud = Studentai[j];
+Studentai[j] = Studentai[j - 1];
+Studentai[j - 1] = stud;
+}
+i++;
+}
+}
+
+
+static void SujungtiTvarkingus(int[] Mas1, int kiek1, int[] Mas2, int kiek2,
+
+int[] Mas3, out int kiek3)
+
+{
+kiek3 = 0;
+int i = 0, j = 0;
+while ((i < kiek1) && (j < kiek2))
+if (Mas1[i] < Mas2[j])
+{
+Mas3[kiek3] = Mas1[i]; kiek3 = kiek3 + 1; i = i + 1;
+}
+else
+{
+Mas3[kiek3] = Mas2[j]; kiek3 = kiek3 + 1; j = j + 1;
+}
+while (i < kiek1)
+{
+Mas3[kiek3] = Mas1[i]; kiek3 = kiek3 + 1; i = i + 1;
+}
+while (j < kiek2)
+{
+Mas3[kiek3] = Mas2[j]; kiek3 = kiek3 + 1; j = j + 1;
+}
+}
+
+
+private Monetos surikiuoti(Monetos Kolekcija)
+        {
+
+            Moneta temp;
+            for (int i = 0; i < Kolekcija.Kiek; i++)
+            {
+                for (int n = i; n < Kolekcija.Kiek; n++)
+                {
+                    if (Kolekcija.ImtiMoneta(n).Svoris > Kolekcija.ImtiMoneta(i).Svoris)
+                    {
+                        temp = Kolekcija.ImtiMoneta(n);
+                        Kolekcija.DetiTiksliai(Kolekcija.ImtiMoneta(i), n);
+                        Kolekcija.DetiTiksliai(temp, i);
+                        i--;
+                        break;
+                    }
+                }
+            }
+            return Kolekcija;
+        }
+
+
+private void Pasalinti(Monetos Kolekcija)
+        {
+            char[] raide = SalisR.Text.ToCharArray();
+            for (int i = 0; i < Kolekcija.Kiek; i++)
+            {
+                if (raide[0] == Kolekcija.ImtiMoneta(i).Salis[0])
+                {
+
+                    for (int j = i; j < Kolekcija.Kiek-1; j++)
+                    {
+                        Kolekcija.Apkeisti(Kolekcija.ImtiMoneta(j), Kolekcija.ImtiMoneta(j+1));
+                    }
+                    i--;
+                    Kolekcija.Kiek = Kolekcija.Kiek - 1;
+                }
+            }
+        }
+
+
