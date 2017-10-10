@@ -86,3 +86,23 @@ private void Pasalinti(Monetos Kolekcija)
         }
 
 
+private void Iterpti(Monetos Kolekcija, Moneta moneta)
+        {
+            bool iterpe = false;
+            for (int i = 0; i < Kolekcija.Kiek; i++)
+            {
+                if (moneta.Svoris >= Kolekcija.ImtiMoneta(i).Svoris && iterpe == false)
+                {
+                    Kolekcija.Kiek = Kolekcija.Kiek + 1;
+                    for (int j = Kolekcija.Kiek - 1; j > i; j--)
+                    {
+                        Kolekcija.Apkeisti(j, j - 1);
+                    }
+                    iterpe = true;
+                    Kolekcija.DetiTiksliai(moneta, i);
+                } else if (moneta.Svoris <= Kolekcija.ImtiMoneta(i).Svoris && iterpe == false)
+                {
+                    Kolekcija.Kiek = Kolekcija.Kiek + 1;  
+                }
+            }
+        }

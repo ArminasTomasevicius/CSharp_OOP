@@ -44,5 +44,11 @@ namespace L
             moneta1.Nominalas = nominalas;
             moneta1.Svoris = svoris;
         }
+
+        public void Apkeisti(int moneta1, int moneta2) {
+            var tmp = moneta[moneta1];
+            moneta[moneta1] = moneta[moneta2];
+            moneta[moneta2] = tmp;
+        }
     }
 }

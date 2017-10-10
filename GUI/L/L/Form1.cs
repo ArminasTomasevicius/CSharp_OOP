@@ -311,12 +311,10 @@ namespace L
             {
                 if (moneta.Svoris >= Kolekcija.ImtiMoneta(i).Svoris && iterpe == false)
                 {
-                    i++;
                     Kolekcija.Kiek = Kolekcija.Kiek + 1;
-                    for (int j = Kolekcija.Kiek; j >= i; j--)
+                    for (int j = Kolekcija.Kiek-1; j > i; j--)
                     {
-                        Kolekcija.Apkeisti(Kolekcija.ImtiMoneta(j), Kolekcija.ImtiMoneta(j-1));
-                       // MessageBox.Show(Kolekcija.ImtiMoneta(j).Svoris.ToString());
+                        Kolekcija.Apkeisti(j, j-1);
                     }
                     iterpe = true;
                     Kolekcija.DetiTiksliai(moneta, i);
