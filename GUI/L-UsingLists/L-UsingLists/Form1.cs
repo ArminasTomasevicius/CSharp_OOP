@@ -61,28 +61,28 @@ namespace L
 
         private void skaiciuoti_Click(object sender, EventArgs e)
         {
-            Pasalinti(Kolekcija3);
+            Kolekcija3 = pasalinti(Kolekcija3);
         }
 
-        private void Pasalinti(Monetos Kolekcija)
+        private Monetos pasalinti(Monetos Kolekcija)
         {
+            Monetos naujaKolekcija = new Monetos();
             char[] raide = SalisR.Text.ToCharArray();
             for (int i = 0; i < Kolekcija.Kiek; i++)
             {
-                if (raide[0] == Kolekcija.ImtiMoneta(i).Salis[0])
+                if (raide[0] != Kolekcija.ImtiMoneta(i).Salis[0])
                 {
-
-                    for (int j = i; j < Kolekcija.Kiek-1; j++)
-                    {
-                        Kolekcija.Apkeisti(Kolekcija.ImtiMoneta(j), Kolekcija.ImtiMoneta(j+1));
-                    }
-                    i--;
-                    Kolekcija.Kiek = Kolekcija.Kiek - 1;
+                    naujaKolekcija.DetiMoneta(Kolekcija.ImtiMoneta(i));
+                }
+                else
+                {
+                    continue;
                 }
             }
+            return naujaKolekcija;
         }
 
-        private void Rasti_Click(object sender, EventArgs e)
+        private void rasti_Click(object sender, EventArgs e)
         {
             rezultatai.Text = Kolekcija1.Pav.ToString() + " bendra monetų vertė:" + RastiSum(Kolekcija1).ToString() + "\n" + "Sunkiausia moneta:";
             RastiSunkiausia(Kolekcija1);
@@ -300,27 +300,7 @@ namespace L
 
             if (Int32.Parse(maxnominalas.Text) >= Int32.Parse(nominalasN.Text)) {
                 Moneta moneta = new Moneta(SalisN.Text, Int32.Parse(nominalasN.Text), Int32.Parse(svorisN.Text));
-                Iterpti(Kolekcija3, moneta);
-            }
-        }
-
-        private void Iterpti(Monetos Kolekcija, Moneta moneta)
-        {
-            bool iterpe = false;
-            for (int i = 0; i < Kolekcija.Kiek; i++)
-            {
-                if (moneta.Svoris >= Kolekcija.ImtiMoneta(i).Svoris && iterpe == false)
-                {
-                    i++;
-                    Kolekcija.Kiek = Kolekcija.Kiek + 1;
-                    for (int j = Kolekcija.Kiek; j >= i; j--)
-                    {
-                        Kolekcija.Apkeisti(Kolekcija.ImtiMoneta(j), Kolekcija.ImtiMoneta(j-1));
-                       // MessageBox.Show(Kolekcija.ImtiMoneta(j).Svoris.ToString());
-                    }
-                    iterpe = true;
-                    Kolekcija.DetiTiksliai(moneta, i);
-                }
+                Kolekcija3.DetiMoneta(moneta);
             }
         }
     }

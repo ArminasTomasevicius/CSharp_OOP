@@ -33,16 +33,5 @@ namespace L
         {
             this.moneta[index] = moneta;
         }
-
-        public void Apkeisti(Moneta moneta1, Moneta moneta2)
-        {
-            string salis = moneta2.Salis;
-            int nominalas = moneta2.Nominalas;
-            int svoris = moneta2.Svoris;
-
-            moneta1.Salis = salis;
-            moneta1.Nominalas = nominalas;
-            moneta1.Svoris = svoris;
-        }
     }
 }

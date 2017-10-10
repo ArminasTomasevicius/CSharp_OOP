@@ -59,6 +59,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(472, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // failas
             // 
@@ -73,21 +74,21 @@
             // ivesti
             // 
             this.ivesti.Name = "ivesti";
-            this.ivesti.Size = new System.Drawing.Size(129, 22);
+            this.ivesti.Size = new System.Drawing.Size(152, 22);
             this.ivesti.Text = "Įvestis";
             this.ivesti.Click += new System.EventHandler(this.ivesti_Click);
             // 
             // spausdinti
             // 
             this.spausdinti.Name = "spausdinti";
-            this.spausdinti.Size = new System.Drawing.Size(129, 22);
+            this.spausdinti.Size = new System.Drawing.Size(152, 22);
             this.spausdinti.Text = "Spausdinti";
             this.spausdinti.Click += new System.EventHandler(this.spausdinti_Click);
             // 
             // baigti
             // 
             this.baigti.Name = "baigti";
-            this.baigti.Size = new System.Drawing.Size(129, 22);
+            this.baigti.Size = new System.Drawing.Size(152, 22);
             this.baigti.Text = "Baigti";
             this.baigti.Click += new System.EventHandler(this.baigti_Click);
             // 

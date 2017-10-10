@@ -218,8 +218,25 @@ namespace P2_Savarankiskas
             double m_vid = 0;
             double v_vid = 0;
 
-            lyties_vid(StudentuTestas, out m_vid, out v_vid);
-            MessageBox.Show("Vidutinis vyru pazymys: " + v_vid.ToString() + "\n" + "Vidutinis moteru pazymys: "+ m_vid.ToString());
+            Lyties_vid(StudentuTestas, out m_vid, out v_vid);
+
+            if (m_vid != 0 && v_vid != 0)
+            {
+                MessageBox.Show("Vidutinis vyru pazymys: " + v_vid.ToString() + "\n" + "Vidutinis moteru pazymys: " + m_vid.ToString());
+
+            }
+            else if (m_vid == 0)
+            {
+                MessageBox.Show("Vidutinis vyru pazymys: " + v_vid.ToString() + "\n" + "Merginų nėra");
+            }
+            else if (v_vid == 0)
+            {
+                MessageBox.Show("Vaikinų nėra " + "\n" + "Vidutinis moteru pazymys: " + m_vid.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Vaikinų nėra " + "\n" + "Merginų nėra ");
+            }
         }
 
         private void nurodymai_Click(object sender, EventArgs e)
@@ -227,13 +244,13 @@ namespace P2_Savarankiskas
             richTextBox1.LoadFile(CFn, RichTextBoxStreamType.PlainText);
         }
 
-        static void lyties_vid(List<Studentas> studentai, out double m_vid, out double v_vid)
+        static void Lyties_vid(List<Studentas> studentai, out double m_vid, out double v_vid)
         {
             int m = 0;
-            int m_sum = 0;
+            double m_sum = 0;
 
             int v = 0;
-            int v_sum = 0;
+            double v_sum = 0;
 
                 for (int i = 0; i < studentai.Count; i++)
                 {
@@ -254,6 +271,14 @@ namespace P2_Savarankiskas
 
             v_vid = v_sum / v;
             m_vid = m_sum / m;
+
+            if (v == 0) { v_vid = 0; }
+            if (m == 0) { m_vid = 0; }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
