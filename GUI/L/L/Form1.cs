@@ -114,7 +114,7 @@ namespace L
             for (int i = 0; i < Kolekcija.Kiek; i++)
             {
                 if (Kolekcija.ImtiMoneta(i).Svoris == sunkiausia)
-                    rezultatai.Text = rezultatai.Text + sunkiausia;
+                    rezultatai.Text = rezultatai.Text + "\n" + Kolekcija.ImtiMoneta(i).Salis + " | " + Kolekcija.ImtiMoneta(i).Nominalas + " | " + Kolekcija.ImtiMoneta(i).Svoris;
             }
         }
 
@@ -173,12 +173,19 @@ namespace L
             {
                 fr.WriteLine("\n " + antraste);
                 fr.WriteLine(virsus);
-                for (int i = 0; i < MonetosKont.Kiek; i++)
+                if (MonetosKont.Kiek == 0)
                 {
-                    Moneta moneta = MonetosKont.ImtiMoneta(i);
-                    fr.WriteLine("{0, 3} {1}", i + 1, moneta);
+                    fr.WriteLine("Monetų nėra");
                 }
-                fr.WriteLine("---------------------------------------------\n");
+                else
+                {
+                    for (int i = 0; i < MonetosKont.Kiek; i++)
+                    {
+                        Moneta moneta = MonetosKont.ImtiMoneta(i);
+                        fr.WriteLine("{0, 3} {1}", i + 1, moneta);
+                    }
+                    fr.WriteLine("---------------------------------------------\n");
+                }
             }
         }
 
@@ -307,17 +314,29 @@ namespace L
         private void Iterpti(Monetos Kolekcija, Moneta moneta)
         {
             bool iterpe = false;
-            for (int i = 0; i < Kolekcija.Kiek; i++)
+
+            if (Kolekcija.Kiek == 0)
+            {
+                Kolekcija.Kiek += 1;
+                Kolekcija.DetiTiksliai(moneta, Kolekcija.Kiek - 1);
+            }
+
+            for (int i = 0; i < Kolekcija.Kiek-1; i++)
             {
                 if (moneta.Svoris >= Kolekcija.ImtiMoneta(i).Svoris && iterpe == false)
                 {
                     Kolekcija.Kiek = Kolekcija.Kiek + 1;
-                    for (int j = Kolekcija.Kiek-1; j > i; j--)
+                    for (int j = Kolekcija.Kiek - 1; j > i; j--)
                     {
-                        Kolekcija.Apkeisti(j, j-1);
+                        Kolekcija.Apkeisti(j, j - 1);
                     }
                     iterpe = true;
                     Kolekcija.DetiTiksliai(moneta, i);
+                } else if (moneta.Svoris <= Kolekcija.ImtiMoneta(Kolekcija.Kiek-1).Svoris && iterpe == false)
+                {
+                    Kolekcija.Kiek = Kolekcija.Kiek + 1;
+                    Kolekcija.DetiTiksliai(moneta, Kolekcija.Kiek-1);
+                    break;
                 }
             }
         }

@@ -101,7 +101,6 @@
             this.rasti.TabIndex = 4;
             this.rasti.Text = "Rasti";
             this.rasti.UseVisualStyleBackColor = true;
-            this.rasti.Click += new System.EventHandler(this.rasti_Click);
             // 
             // baigti
             // 

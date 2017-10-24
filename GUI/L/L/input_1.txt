@@ -1,0 +1,14 @@
+Domas Gar
+5
+LT 5 10
+USA 2 5
+LV 1 11
+LT 1 9
+US 1 10
+
+Tomas Sav
+4
+PL 5 12
+USA 1 12
+RU 2 12
+GER 1 11

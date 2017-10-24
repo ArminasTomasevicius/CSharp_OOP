@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L", "L\L.csproj", "{237888F1-87A7-4E59-80DC-809F7BC97920}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L-UsingLists", "L-UsingLists\L-UsingLists.csproj", "{237888F1-87A7-4E59-80DC-809F7BC97920}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD03C074-145E-4683-8FFD-B14DFE909363}
 	EndGlobalSection
 EndGlobal

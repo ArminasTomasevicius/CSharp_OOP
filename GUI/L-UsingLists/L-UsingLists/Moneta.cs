@@ -10,7 +10,7 @@ namespace L
     {
             public string Salis { get; set; }
             public int Nominalas { get; set; }
-            public int Svoris { get; }
+            public int Svoris { get; set;  }
 
             public Moneta(string salis, int nominalas, int svoris)
             {
