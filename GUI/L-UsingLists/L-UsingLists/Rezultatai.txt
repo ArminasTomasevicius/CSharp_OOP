@@ -1,14 +1,12 @@
 
- Surikiuotos Monetos
+ Monetø kolekcijos sàraðas 
 ---------------------------------------------
  Pagaminimo Ðalis     Nominalas     Svoris 
 ---------------------------------------------
-  1 Turkija                   5     12
-  2 Turkija                   5     12
-  3 LV                        1     11
-  4 GER                       1     11
-  5 US                        1     10
-  6 LT                        1      9
-  7 USA                       1      5
+  1 LV                        1     11
+  2 LT                        1      9
+  3 US                        1     10
+  4 USA                       1      5
+  5 GER                       1     11
 ---------------------------------------------
 

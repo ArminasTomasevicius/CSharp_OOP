@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,9 @@ namespace L
         private List<Moneta> Monetos1;
         private List<Moneta> Monetos2;
         private List<Moneta> Monetos3;
+        private string pav1;
+        private string pav2;
+
 
         public Form1()
         {
@@ -43,7 +47,7 @@ namespace L
         private void ivesti_Click(object sender, EventArgs e)
         {
             rezultatai.LoadFile(CFd, RichTextBoxStreamType.PlainText);
-            SkaitytiMonetKont(CFd, out List<Moneta> Monetos1, out List<Moneta> Monetos2);
+            SkaitytiMonetKont(CFd, out List<Moneta> Monetos1, out List<Moneta> Monetos2, out pav1, out pav2);
             Monetos3 = SudarytiNaujaKonteineri(Monetos1, Monetos2);
 
             ivesti.Enabled = true;
@@ -66,28 +70,21 @@ namespace L
         private void Pasalinti(List<Moneta> Kolekcija)
         {
             char[] raide = SalisR.Text.ToCharArray();
-            for (int i = 0; i < Kolekcija.Count; i++)
+            for (int i = 0; i < Kolekcija.Count-1; i++)
             {
                 if (raide[0] == Kolekcija[i].Salis[0])
                 {
-
-                    for (int j = i; j < Kolekcija.Count - 1; j++)
-                    {
-                        //Kolekcija.Swap();
-                        Kolekcija.Apkeisti(Kolekcija.ImtiMoneta(j), Kolekcija.ImtiMoneta(j + 1));
-                    }
-                    i--;
-                    Kolekcija. = Kolekcija.Kiek - 1;
+                    Kolekcija.Remove(Kolekcija[i]);
                 }
             }
         }
 
         private void Rasti_Click(object sender, EventArgs e)
         {
-            rezultatai.Text = Monetos1.Pav.ToString() + " bendra monetų vertė:" + RastiSum(Monetos1).ToString() + "\n" + "Sunkiausia moneta:";
+            rezultatai.Text = pav1 + " bendra monetų vertė:" + RastiSum(Monetos1).ToString() + "\n" + "Sunkiausia moneta:";
             RastiSunkiausia(Monetos1);
 
-            rezultatai.Text = rezultatai.Text + "\n" + Monetos2.Pav.ToString() + " bendra monetų vertė:" + RastiSum(Monetos2).ToString() + "\n" + "Sunkiausia moneta:";
+            rezultatai.Text = rezultatai.Text + "\n" + pav2 + " bendra monetų vertė:" + RastiSum(Monetos2).ToString() + "\n" + "Sunkiausia moneta:";
             RastiSunkiausia(Monetos2);
         }
 
@@ -123,14 +120,13 @@ namespace L
             Close();
         }
 
-        static void SkaitytiMonetKont(string fv, out List<Moneta> MonetosKont1, out List<Moneta> MonetosKont2)
+        static void SkaitytiMonetKont(string fv, out List<Moneta> MonetosKont1, out List<Moneta> MonetosKont2, out string pav1, out string pav2)
         {
             using (StreamReader srautas = new StreamReader(fv, Encoding.GetEncoding(1257)))
             {
                 string eilute;
-
-                string pav = srautas.ReadLine();
-                MonetosKont1.Pav = pav;
+                MonetosKont1 = new List<Moneta>();
+                pav1 = srautas.ReadLine();
                 int km = Int32.Parse(srautas.ReadLine());
                 for (int i = 0; i < km; i++)
                 {
@@ -144,9 +140,9 @@ namespace L
                     MonetosKont1.Add(moneta);
                 }
 
+                MonetosKont2 = new List<Moneta>();
                 srautas.ReadLine();
-                pav = srautas.ReadLine();
-                MonetosKont2.Pav = pav;
+                pav2 = srautas.ReadLine();
                 km = Int32.Parse(srautas.ReadLine());
                 for (int i = 0; i < km; i++)
                 {
@@ -232,12 +228,12 @@ namespace L
 
         private List<Moneta> SudarytiNaujaKonteineri(List<Moneta> Kolekcija1, List<Moneta> Kolekcija2)
         {
-            Kolekcija3 = new List;
+            List<Moneta> Kolekcija3 = new List<Moneta>();
             for (int i = 0; i < Kolekcija1.Count; i++)
             {
                 if (Kolekcija1[i].Nominalas == 1)
                 {
-                    Kolekcija3.DetiMoneta(Kolekcija1[i]);
+                    Kolekcija3.Add(Kolekcija1[i]);
                 }
             }
 
@@ -245,7 +241,7 @@ namespace L
             {
                 if (Kolekcija2[i].Nominalas == 1)
                 {
-                    Kolekcija3.DetiMoneta(Kolekcija2[i]);
+                    Kolekcija3.Add(Kolekcija2[i]);
                 }
             }
 
@@ -278,8 +274,8 @@ namespace L
                     if (Kolekcija[i].Svoris > Kolekcija[i].Svoris)
                     {
                         temp = Kolekcija[i];
-                        Kolekcija.DetiTiksliai(Kolekcija.ImtiMoneta(i), n);
-                        Kolekcija.DetiTiksliai(temp, i);
+                        Kolekcija.Insert(n, Kolekcija[i]);
+                        Kolekcija.Insert(i, temp);
                         i--;
                         break;
                     }
@@ -315,23 +311,17 @@ namespace L
             bool iterpe = false;
             for (int i = 0; i < Kolekcija.Count - 1; i++)
             {
-                if (moneta.Svoris >= Kolekcija.ImtiMoneta(i).Svoris && iterpe == false)
+                if (moneta.Svoris >= Kolekcija[i].Svoris && iterpe == false)
                 {
-                    Kolekcija.Kiek = Kolekcija.Kiek + 1;
-                    for (int j = Kolekcija.Kiek - 1; j > i; j--)
-                    {
-                        Kolekcija.Apkeisti(j, j - 1);
-                    }
                     iterpe = true;
-                    Kolekcija.DetiTiksliai(moneta, i);
-                }
-                else if (moneta.Svoris <= Kolekcija.ImtiMoneta(Kolekcija.Kiek - 1).Svoris && iterpe == false)
-                {
-                    Kolekcija.Kiek = Kolekcija.Kiek + 1;
-                    Kolekcija.DetiTiksliai(moneta, Kolekcija.Kiek - 1);
-                    break;
+                    Kolekcija.Insert(i, moneta);
                 }
             }
+        }
+
+        private void Apkeisti(Moneta Kolekcija, Moneta Kolekcija1)
+        {
+            //reikia papildytiiiii
         }
     }
 }
