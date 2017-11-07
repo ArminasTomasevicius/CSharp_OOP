@@ -47,7 +47,7 @@ namespace L
         private void ivesti_Click(object sender, EventArgs e)
         {
             rezultatai.LoadFile(CFd, RichTextBoxStreamType.PlainText);
-            SkaitytiMonetKont(CFd, out List<Moneta> Monetos1, out List<Moneta> Monetos2, out pav1, out pav2);
+            SkaitytiMonetKont(CFd, out Monetos1, out Monetos2, out pav1, out pav2);
             Monetos3 = SudarytiNaujaKonteineri(Monetos1, Monetos2);
 
             ivesti.Enabled = true;
@@ -75,23 +75,15 @@ namespace L
                 if (raide[0] == Kolekcija[i].Salis[0])
                 {
                     Kolekcija.Remove(Kolekcija[i]);
+                    i--;
                 }
             }
-        }
-
-        private void Rasti_Click(object sender, EventArgs e)
-        {
-            rezultatai.Text = pav1 + " bendra monetų vertė:" + RastiSum(Monetos1).ToString() + "\n" + "Sunkiausia moneta:";
-            RastiSunkiausia(Monetos1);
-
-            rezultatai.Text = rezultatai.Text + "\n" + pav2 + " bendra monetų vertė:" + RastiSum(Monetos2).ToString() + "\n" + "Sunkiausia moneta:";
-            RastiSunkiausia(Monetos2);
         }
 
         static int RastiSum(List<Moneta> Kolekcija)
         {
             int sum = 0;
-            for (int i = 0; i < Kolekcija.Count; i++)
+            for (int i = 0; i < Kolekcija.Count - 1; i++)
             {
                 sum += Kolekcija[i].Nominalas;
             }
@@ -271,7 +263,7 @@ namespace L
             {
                 for (int n = i; n < Kolekcija.Count; n++)
                 {
-                    if (Kolekcija[i].Svoris > Kolekcija[i].Svoris)
+                    if (Kolekcija[n].Svoris > Kolekcija[i].Svoris)
                     {
                         temp = Kolekcija[i];
                         Kolekcija.Insert(n, Kolekcija[i]);
@@ -322,6 +314,17 @@ namespace L
         private void Apkeisti(Moneta Kolekcija, Moneta Kolekcija1)
         {
             //reikia papildytiiiii
+        }
+
+        private void rasti_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show(Monetos1.ToString());
+            rezultatai.Text = pav1 + " bendra monetų vertė:" + RastiSum(Monetos1).ToString() + "\n" + "Sunkiausia moneta:";
+            RastiSunkiausia(Monetos1);
+
+
+            rezultatai.Text = rezultatai.Text + "\n" + pav2 + " bendra monetų vertė:" + RastiSum(Monetos2).ToString() + "\n" + "Sunkiausia moneta:";
+            RastiSunkiausia(Monetos2);
         }
     }
 }
