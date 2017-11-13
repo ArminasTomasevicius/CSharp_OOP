@@ -1,0 +1,6 @@
+Duona;maisto;0,92;100
+Sviestas;maisto;2,42;200
+Bulves;daržoves;0,27;200 
+Kopustai;daržoves;1,09;300 
+Morkos;daržoves;0,88;150 
+Burokai;daržoves;0,88;120
