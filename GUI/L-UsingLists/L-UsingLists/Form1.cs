@@ -11,19 +11,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// 3 failai, zr foto
 namespace L
 {
     public partial class Form1 : Form
     {
 
-        const string CFd = "..\\..\\input.txt";
+        const string CFd = "..\\..\\input1.txt";
+        const string CFf = "..\\..\\input2.txt";
+        const string CFg = "..\\..\\input3.txt";
         const string CFr = "..\\..\\Rezultatai.txt";
 
         private List<Moneta> Monetos1;
         private List<Moneta> Monetos2;
         private List<Moneta> Monetos3;
+        private List<Moneta> Papildomas;
         private string pav1;
         private string pav2;
+        private string pav3;
 
 
         public Form1()
@@ -47,7 +52,12 @@ namespace L
         private void ivesti_Click(object sender, EventArgs e)
         {
             rezultatai.LoadFile(CFd, RichTextBoxStreamType.PlainText);
-            SkaitytiMonetKont(CFd, out Monetos1, out Monetos2, out pav1, out pav2);
+            SkaitytiMonetKont(CFd, out Monetos1, out pav1);
+            SpausdintiMonetKont(CFr, Monetos1, pav1);
+            SkaitytiMonetKont(CFf, out Monetos2, out pav2);
+            SpausdintiMonetKont(CFr, Monetos2, pav2);
+            SkaitytiMonetKont(CFg, out Papildomas, out pav3);
+            SpausdintiMonetKont(CFr, Papildomas, pav3);
             Monetos3 = SudarytiNaujaKonteineri(Monetos1, Monetos2);
 
             ivesti.Enabled = true;
@@ -65,12 +75,13 @@ namespace L
         private void skaiciuoti_Click(object sender, EventArgs e)
         {
             Pasalinti(Monetos3);
+            SpausdintiMonetKont(CFr, Monetos3, "Pasalinus");
         }
 
         private void Pasalinti(List<Moneta> Kolekcija)
         {
             char[] raide = SalisR.Text.ToCharArray();
-            for (int i = 0; i < Kolekcija.Count-1; i++)
+            for (int i = 0; i < Kolekcija.Count; i++)
             {
                 if (raide[0] == Kolekcija[i].Salis[0])
                 {
@@ -95,8 +106,7 @@ namespace L
             int sunkiausia = 0;
             for (int i = 0; i < Kolekcija.Count; i++)
             {
-                if (Kolekcija[i].Svoris > sunkiausia)
-                {
+                if (Kolekcija[i].Svoris > sunkiausia) {
                     sunkiausia = Kolekcija[i].Svoris;
                 }
             }
@@ -112,7 +122,7 @@ namespace L
             Close();
         }
 
-        static void SkaitytiMonetKont(string fv, out List<Moneta> MonetosKont1, out List<Moneta> MonetosKont2, out string pav1, out string pav2)
+        static void SkaitytiMonetKont(string fv, out List<Moneta> MonetosKont1, out string pav1)
         {
             using (StreamReader srautas = new StreamReader(fv, Encoding.GetEncoding(1257)))
             {
@@ -131,31 +141,13 @@ namespace L
                     Moneta moneta = new Moneta(salis, nominalas, svoris);
                     MonetosKont1.Add(moneta);
                 }
-
-                MonetosKont2 = new List<Moneta>();
-                srautas.ReadLine();
-                pav2 = srautas.ReadLine();
-                km = Int32.Parse(srautas.ReadLine());
-                for (int i = 0; i < km; i++)
-                {
-                    eilute = srautas.ReadLine();
-                    string[] eilDalis = eilute.Split(' ');
-                    string salis = eilDalis[0];
-                    int nominalas = Int32.Parse(eilDalis[1]);
-                    int svoris = Int32.Parse(eilDalis[2]);
-
-                    Moneta moneta = new Moneta(salis, nominalas, svoris);
-                    MonetosKont2.Add(moneta);
-
-                }
             }
         }
 
         static void SpausdintiMonetKont(string fv, List<Moneta> MonetosKont, string antraste)
         {
-            File.Delete(CFr);
             const string virsus = "---------------------------------------------\r\n" + " Pagaminimo Šalis     Nominalas     Svoris \r\n" + "---------------------------------------------";
-            using (var fr = new StreamWriter(File.Open(fv, FileMode.Append), Encoding.GetEncoding(1257)))
+            using (var fr = File.AppendText(fv))
             {
                 fr.WriteLine("\n " + antraste);
                 fr.WriteLine(virsus);
@@ -255,30 +247,16 @@ namespace L
 
         }
 
-        private List<Moneta> surikiuoti(List<Moneta> Kolekcija)
+        private List<Moneta> Surikiuoti(List<Moneta> Kolekcija)
         {
 
-            Moneta temp;
-            for (int i = 0; i < Kolekcija.Count; i++)
-            {
-                for (int n = i; n < Kolekcija.Count; n++)
-                {
-                    if (Kolekcija[n].Svoris > Kolekcija[i].Svoris)
-                    {
-                        temp = Kolekcija[i];
-                        Kolekcija.Insert(n, Kolekcija[i]);
-                        Kolekcija.Insert(i, temp);
-                        i--;
-                        break;
-                    }
-                }
-            }
+           Kolekcija.Sort((x, y) => y.Svoris.CompareTo(x.Svoris));
             return Kolekcija;
         }
 
         private void rikiuoti_Click_1(object sender, EventArgs e)
         {
-            SpausdintiMonetKont(CFr, surikiuoti(Monetos3), "Surikiuotos Monetos");
+            SpausdintiMonetKont(CFr, Surikiuoti(Monetos3), "Surikiuotos Monetos");
             rezultatai.LoadFile(CFr, RichTextBoxStreamType.PlainText);
         }
 
@@ -289,36 +267,56 @@ namespace L
 
         private void newM_Click(object sender, EventArgs e)
         {
-            int max = Int32.Parse(maxnominalas.Text);
 
-            if (Int32.Parse(maxnominalas.Text) >= Int32.Parse(nominalasN.Text))
+            for (int i = 0; i < Papildomas.Count; i++)
             {
-                Moneta moneta = new Moneta(SalisN.Text, Int32.Parse(nominalasN.Text), Int32.Parse(svorisN.Text));
-                Iterpti(Monetos3, moneta);
+                if (Int32.Parse(maxnominalas.Text) >= Papildomas[i].Nominalas)
+                {
+
+                    Moneta moneta = new Moneta(Papildomas[i].Salis, Papildomas[i].Nominalas, Papildomas[i].Svoris);
+                    Iterpti(Monetos3, moneta);
+                }
             }
+            SpausdintiMonetKont(CFr, Monetos3, "Papildytas konteineris");
         }
 
         private void Iterpti(List<Moneta> Kolekcija, Moneta moneta)
         {
             bool iterpe = false;
-            for (int i = 0; i < Kolekcija.Count - 1; i++)
+            if (Kolekcija.Count == 0)
+            {
+                iterpe = true;
+                Kolekcija.Add(moneta);
+            }
+            for (int i = 0; i < Kolekcija.Count; i++)
             {
                 if (moneta.Svoris >= Kolekcija[i].Svoris && iterpe == false)
                 {
                     iterpe = true;
                     Kolekcija.Insert(i, moneta);
+                    break;
+                }
+              
+            }
+
+            for (int i = 0; i < Kolekcija.Count; i++)
+            {
+                if (moneta.Svoris <= Kolekcija[i].Svoris && iterpe == false)
+                {
+                    iterpe = true;
+                    Kolekcija.Add(moneta);
+                    break;
                 }
             }
         }
 
         private void Apkeisti(Moneta Kolekcija, Moneta Kolekcija1)
         {
-            //reikia papildytiiiii
+
         }
 
         private void rasti_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show(Monetos1.ToString());
             rezultatai.Text = pav1 + " bendra monetų vertė:" + RastiSum(Monetos1).ToString() + "\n" + "Sunkiausia moneta:";
             RastiSunkiausia(Monetos1);
 

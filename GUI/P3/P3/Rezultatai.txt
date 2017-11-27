@@ -2,36 +2,58 @@ Pradinis sąrašas
 ----------------------------------------------------------
  Pavadinimas           Tipas                Kaina   Kiekis 
 ----------------------------------------------------------
-  Duona                maisto                0,92    100
-  Sviestas             maisto                2,42    200
-  Bulves               dar˛oves              0,27    200
-  Kopustai             dar˛oves              1,09    300
-  Morkos               dar˛oves              0,88    150
-  Burokai              dar˛oves              0,88    120
+  Duona                maisto               92.00    100
+  Sviestas             maisto               242.00    200
+  Bulves               dar˛oves             27.00    200
+  Kopustai             dar˛oves             109.00    300
+  Morkos               dar˛oves             88.00    150
+  Burokai              dar˛oves             88.00    120
 ----------------------------------------------------------
 
 Suformuotas sarasas
 ----------------------------------------------------------
  Pavadinimas           Tipas                Kaina   Kiekis 
 ----------------------------------------------------------
-  Duona                maisto                0,92    100
-  Sviestas             maisto                2,42    200
-  Bulves               dar˛oves              0,27    200
-  Kopustai             dar˛oves              1,09    300
-  Morkos               dar˛oves              0,88    150
-  Burokai              dar˛oves              0,88    120
+  Bulves               dar˛oves             27.00    200
+  Kopustai             dar˛oves             109.00    300
+  Morkos               dar˛oves             88.00    150
+  Burokai              dar˛oves             88.00    120
 ----------------------------------------------------------
 
 Rikiuotas suformuotas sarasas
 ----------------------------------------------------------
  Pavadinimas           Tipas                Kaina   Kiekis 
 ----------------------------------------------------------
-  Sviestas             maisto                2,42    200
-  Kopustai             dar˛oves              1,09    300
-  Duona                maisto                0,92    100
-  Burokai              dar˛oves              0,88    120
-  Morkos               dar˛oves              0,88    150
-  Bulves               dar˛oves              0,27    200
+  Kopustai             dar˛oves             109.00    300
+  Burokai              dar˛oves             88.00    120
+  Morkos               dar˛oves             88.00    150
+  Bulves               dar˛oves             27.00    200
 ----------------------------------------------------------
 
-Kiekio visurkis = 178,33
+Kiekio vidurkis = 192.50
+Papildomas sarasas
+----------------------------------------------------------
+ Pavadinimas           Tipas                Kaina   Kiekis 
+----------------------------------------------------------
+  Nutela               maisto               92.00    100
+  Sokoladas            maisto               242.00    200
+  Brokuliai            dar˛oves             27.00    200
+  Kopustai             dar˛oves             109.00    300
+  Morkos               dar˛oves             88.00    150
+  Burokai              dar˛oves             88.00    120
+----------------------------------------------------------
+
+Iterptas sarasas
+----------------------------------------------------------
+ Pavadinimas           Tipas                Kaina   Kiekis 
+----------------------------------------------------------
+  Sokoladas            maisto               242.00    200
+  Sokoladas            maisto               242.00    200
+  Kopustai             dar˛oves             109.00    300
+  Kopustai             dar˛oves             109.00    300
+  Burokai              dar˛oves             88.00    120
+  Burokai              dar˛oves             88.00    120
+  Morkos               dar˛oves             88.00    150
+  Bulves               dar˛oves             27.00    200
+----------------------------------------------------------
+

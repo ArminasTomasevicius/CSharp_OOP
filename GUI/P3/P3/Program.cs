@@ -10,6 +10,7 @@ namespace P3
     class Program
     {
         const string CFd1 = "..\\..\\Prekes.txt";
+        const string CFd2 = "..\\..\\Prekes1.txt";
         const string CFr = "..\\..\\Rezultatai.txt";
         static void Main(string[] args)
         {
@@ -32,7 +33,7 @@ namespace P3
                 using (var fr = File.AppendText(CFr))
                 {
                     double vid = NaujasPrekiuList.Average(item => item.kiek);
-                    fr.WriteLine("Kiekio visurkis = {0, 5:f}", vid);
+                    fr.WriteLine("Kiekio vidurkis = {0, 5:f}", vid);
                 }
             }
             else
@@ -40,6 +41,24 @@ namespace P3
                 {
                     fr.WriteLine("Naujas sarasas tuscias");
                 }
+
+            List<Prekes> Papildomas = new List<Prekes>();
+            Skaityti(CFd2, Papildomas);
+            if (Papildomas.Count() > 0)
+            {
+                Spausdinti(CFr, Papildomas, "Papildomas sarasas");
+                Iterpti(NaujasPrekiuList, Papildomas);
+                Console.WriteLine("done");
+                Spausdinti(CFr, NaujasPrekiuList, "Iterptas sarasas");
+
+            }
+            else
+            {
+                using (var fr = File.AppendText(CFr))
+                {
+                    fr.WriteLine("Papildomas sarasas tuscias");
+                }
+            }
         }
 
 
@@ -64,7 +83,7 @@ namespace P3
                     double kaina = double.Parse(parts[2]);
                     int kiek = int.Parse(parts[3]);
                     Prekes pr = new Prekes(pav, tema, kaina, kiek);
-                    PrekiuList.Add(pr); 
+                    PrekiuList.Add(pr);
                 }
             }
         }
@@ -85,6 +104,20 @@ namespace P3
             for (int i = 0; i < PrekiuList.Count; i++)
                 su = su + PrekiuList[i].Suma();
             return su;
+        }
+
+        static void Iterpti(List<Prekes> NaujasPrekiuList, List<Prekes> Papildomas)
+        {
+            for (int i = 0; NaujasPrekiuList.Count() > i; i++)
+            {
+                for (int j = i; Papildomas.Count() > j; j++)
+                {
+                    if (NaujasPrekiuList[i].CompareTo(Papildomas[j]) == 1)
+                    {
+                        NaujasPrekiuList.Insert(i, Papildomas[j]);
+                    }
+                }
+            }
         }
     }
 }

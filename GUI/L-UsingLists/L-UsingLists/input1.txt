@@ -1,0 +1,7 @@
+Domas Gar
+5
+ULT 5 10
+USA 2 5
+ULV 1 12
+ULT 1 12
+US 1 10

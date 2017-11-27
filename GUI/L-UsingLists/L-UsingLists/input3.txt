@@ -1,0 +1,8 @@
+Papildomas
+6
+LT 5 10
+EU 1 5
+GE 1 11
+FL 2 12
+JK 4 8
+LS 2 11

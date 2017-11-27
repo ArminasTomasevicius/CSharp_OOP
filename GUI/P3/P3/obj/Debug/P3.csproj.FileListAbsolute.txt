@@ -4,3 +4,10 @@ C:\Users\atomasevicius\documents\visual studio 2015\Projects\P3\P3\bin\Debug\P3.
 C:\Users\atomasevicius\documents\visual studio 2015\Projects\P3\P3\obj\Debug\P3.csprojResolveAssemblyReference.cache
 C:\Users\atomasevicius\documents\visual studio 2015\Projects\P3\P3\obj\Debug\P3.exe
 C:\Users\atomasevicius\documents\visual studio 2015\Projects\P3\P3\obj\Debug\P3.pdb
+F:\GitHub\CSharp_OOP\GUI\P3\P3\obj\Debug\P3.exe
+F:\GitHub\CSharp_OOP\GUI\P3\P3\obj\Debug\P3.pdb
+F:\GitHub\CSharp_OOP\GUI\P3\P3\bin\Debug\P3.exe.config
+F:\GitHub\CSharp_OOP\GUI\P3\P3\bin\Debug\P3.exe
+F:\GitHub\CSharp_OOP\GUI\P3\P3\bin\Debug\P3.pdb
+F:\GitHub\CSharp_OOP\GUI\P3\P3\obj\Debug\P3.csprojResolveAssemblyReference.cache
+F:\GitHub\CSharp_OOP\GUI\P3\P3\obj\Debug\P3.csproj.CoreCompileInputs.cache

@@ -24,12 +24,18 @@ namespace P3
 
         public override string ToString()
         {
-            string eilute; eilute = string.Format("  {0, -16}     {1, -20} {2, 5:f}", pavadinimas, tipas, kaina); return eilute;
+            string eilute;
+            eilute = string.Format("  {0, -16}     {1, -20} {2, 5:f}", pavadinimas, tipas, kaina);
+            return eilute;
         }
 
         public int CompareTo(Preke kita)
         {
-            int poz = String.Compare(this.pavadinimas, kita.pavadinimas, StringComparison.CurrentCulture); if ((this.kaina < kita.kaina) || ((this.kaina == kita.kaina) && (poz > 0))) return 1; else return -1;
+            int poz = String.Compare(this.pavadinimas, kita.pavadinimas, StringComparison.CurrentCulture);
+            if ((this.kaina < kita.kaina) || ((this.kaina == kita.kaina) && (poz > 0)))
+                return 1;
+            else
+                return -1;
         }
     }
 }

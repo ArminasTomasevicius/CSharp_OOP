@@ -36,15 +36,9 @@
             this.baigti = new System.Windows.Forms.Button();
             this.pavardeVardas = new System.Windows.Forms.Label();
             this.SalisR = new System.Windows.Forms.TextBox();
-            this.nominalasN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.SalisN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.maxnominalas = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.svorisN = new System.Windows.Forms.TextBox();
             this.newM = new System.Windows.Forms.Button();
             this.rikiuoti = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -135,15 +129,6 @@
             this.SalisR.TabIndex = 9;
             this.SalisR.TextChanged += new System.EventHandler(this.SalisR_TextChanged);
             // 
-            // nominalasN
-            // 
-            this.nominalasN.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.nominalasN.Location = new System.Drawing.Point(96, 349);
-            this.nominalasN.Name = "nominalasN";
-            this.nominalasN.Size = new System.Drawing.Size(86, 26);
-            this.nominalasN.TabIndex = 10;
-            this.nominalasN.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -155,14 +140,6 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Naujos Monetos Įvestis";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // SalisN
-            // 
-            this.SalisN.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.SalisN.Location = new System.Drawing.Point(58, 314);
-            this.SalisN.Name = "SalisN";
-            this.SalisN.Size = new System.Drawing.Size(124, 26);
-            this.SalisN.TabIndex = 12;
             // 
             // label2
             // 
@@ -183,47 +160,6 @@
             this.maxnominalas.Name = "maxnominalas";
             this.maxnominalas.Size = new System.Drawing.Size(38, 26);
             this.maxnominalas.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label3.Location = new System.Drawing.Point(9, 316);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 17);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Šalis:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 10.75F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label4.Location = new System.Drawing.Point(12, 380);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 17);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Svoris:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.75F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label5.Location = new System.Drawing.Point(9, 351);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 17);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Nominalas:";
-            // 
-            // svorisN
-            // 
-            this.svorisN.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.svorisN.Location = new System.Drawing.Point(72, 378);
-            this.svorisN.Name = "svorisN";
-            this.svorisN.Size = new System.Drawing.Size(49, 26);
-            this.svorisN.TabIndex = 18;
             // 
             // newM
             // 
@@ -254,15 +190,9 @@
             this.ClientSize = new System.Drawing.Size(431, 408);
             this.Controls.Add(this.rikiuoti);
             this.Controls.Add(this.newM);
-            this.Controls.Add(this.svorisN);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.maxnominalas);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.SalisN);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.nominalasN);
             this.Controls.Add(this.SalisR);
             this.Controls.Add(this.pavardeVardas);
             this.Controls.Add(this.baigti);
@@ -289,15 +219,9 @@
         private System.Windows.Forms.Button baigti;
         private System.Windows.Forms.Label pavardeVardas;
         private System.Windows.Forms.TextBox SalisR;
-        private System.Windows.Forms.TextBox nominalasN;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox SalisN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox maxnominalas;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox svorisN;
         private System.Windows.Forms.Button newM;
         private System.Windows.Forms.Button rikiuoti;
     }
