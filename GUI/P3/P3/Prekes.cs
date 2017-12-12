@@ -12,7 +12,7 @@ namespace P3
 
         public Prekes()
         {
-
+            
         }
 
         public Prekes(string pav = "", string tipas = "", double kaina = 0.0, int kiek = 0)
@@ -32,5 +32,11 @@ namespace P3
         {
             return kiek * kaina;
         }
+
+        public override void Padidinti()
+        {
+            kaina *= 1.1;
+        }
+
     }
 }

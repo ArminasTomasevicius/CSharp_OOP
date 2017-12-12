@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P3
 {
-    abstract public class Preke : IComparable<Preke>
+    abstract public class Preke:IComparable<Preke>
     {
         public string pavadinimas { get; set; }
         public string tipas { get; set; }
@@ -21,6 +21,8 @@ namespace P3
         }
 
         abstract public double Suma();
+
+        abstract public void Padidinti();
 
         public override string ToString()
         {

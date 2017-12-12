@@ -44,11 +44,11 @@ namespace P3
 
             List<Prekes> Papildomas = new List<Prekes>();
             Skaityti(CFd2, Papildomas);
+            Papildomas.RemoveAll(item => item.tipas == prekesTipas);
             if (Papildomas.Count() > 0)
             {
                 Spausdinti(CFr, Papildomas, "Papildomas sarasas");
                 Iterpti(NaujasPrekiuList, Papildomas);
-                Console.WriteLine("done");
                 Spausdinti(CFr, NaujasPrekiuList, "Iterptas sarasas");
 
             }
@@ -59,6 +59,47 @@ namespace P3
                     fr.WriteLine("Papildomas sarasas tuscias");
                 }
             }
+
+
+            if (PrekiuList.Count>0)
+            {
+                Padidinti(PrekiuList);
+                Spausdinti(CFr, PrekiuList, "Padidintas pradinių prekiu sarasas");
+            }
+            else
+            {
+                using (var fr = File.AppendText(CFr))
+                {
+                    fr.WriteLine("Padidintas pradiniu prekiu sarasas tuscias");
+                }
+            }
+
+            if (NaujasPrekiuList.Count>0)
+            {
+                Padidinti(NaujasPrekiuList);
+                Spausdinti(CFr, NaujasPrekiuList, "Padidintas surikiuotu prekiu sarasas");
+            }
+            else
+            {
+                using (var fr = File.AppendText(CFr))
+                {
+                    fr.WriteLine("Padidintas surikiuotu prekiu sarasas tuscias");
+                }
+            }
+
+            if (Papildomas.Count>0)
+            {
+                Padidinti(Papildomas);
+                Spausdinti(CFr, Papildomas, "Padidintas papildomas sarasas");
+            }
+            else
+            {
+                using (var fr = File.AppendText(CFr))
+                {
+                    fr.WriteLine("Padidintas papildomu prekiu sarasas tuscias");
+                }
+            }
+
         }
 
 
@@ -117,6 +158,14 @@ namespace P3
                         NaujasPrekiuList.Insert(i, Papildomas[j]);
                     }
                 }
+            }
+        }
+
+        static void Padidinti(List<Prekes> Prekes)
+        {
+            for (int i = 0; i < Prekes.Count; i++)
+            {
+                Prekes[i].Padidinti();
             }
         }
     }

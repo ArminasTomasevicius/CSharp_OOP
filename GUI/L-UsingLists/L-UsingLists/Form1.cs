@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// 3 failai, zr foto
 namespace L
 {
     public partial class Form1 : Form

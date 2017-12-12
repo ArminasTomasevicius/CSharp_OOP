@@ -35,8 +35,6 @@ Papildomas sarasas
 ----------------------------------------------------------
  Pavadinimas           Tipas                Kaina   Kiekis 
 ----------------------------------------------------------
-  Nutela               maisto               92.00    100
-  Sokoladas            maisto               242.00    200
   Brokuliai            dar˛oves             27.00    200
   Kopustai             dar˛oves             109.00    300
   Morkos               dar˛oves             88.00    150
@@ -47,13 +45,45 @@ Iterptas sarasas
 ----------------------------------------------------------
  Pavadinimas           Tipas                Kaina   Kiekis 
 ----------------------------------------------------------
-  Sokoladas            maisto               242.00    200
-  Sokoladas            maisto               242.00    200
   Kopustai             dar˛oves             109.00    300
   Kopustai             dar˛oves             109.00    300
   Burokai              dar˛oves             88.00    120
   Burokai              dar˛oves             88.00    120
   Morkos               dar˛oves             88.00    150
   Bulves               dar˛oves             27.00    200
+----------------------------------------------------------
+
+Padidintas pradinių prekiu sarasas
+----------------------------------------------------------
+ Pavadinimas           Tipas                Kaina   Kiekis 
+----------------------------------------------------------
+  Duona                maisto               101.20    100
+  Sviestas             maisto               266.20    200
+  Bulves               dar˛oves             29.70    200
+  Kopustai             dar˛oves             119.90    300
+  Morkos               dar˛oves             96.80    150
+  Burokai              dar˛oves             96.80    120
+----------------------------------------------------------
+
+Padidintas surikiuotu prekiu sarasas
+----------------------------------------------------------
+ Pavadinimas           Tipas                Kaina   Kiekis 
+----------------------------------------------------------
+  Kopustai             dar˛oves             119.90    300
+  Kopustai             dar˛oves             119.90    300
+  Burokai              dar˛oves             96.80    120
+  Burokai              dar˛oves             96.80    120
+  Morkos               dar˛oves             96.80    150
+  Bulves               dar˛oves             29.70    200
+----------------------------------------------------------
+
+Padidintas papildomas sarasas
+----------------------------------------------------------
+ Pavadinimas           Tipas                Kaina   Kiekis 
+----------------------------------------------------------
+  Brokuliai            dar˛oves             29.70    200
+  Kopustai             dar˛oves             131.89    300
+  Morkos               dar˛oves             96.80    150
+  Burokai              dar˛oves             106.48    120
 ----------------------------------------------------------
 
