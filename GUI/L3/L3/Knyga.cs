@@ -8,24 +8,36 @@ namespace L3
 {
     class Knyga:IComparable<Knyga>
     {
-        private int isbn, psl;
-        private string pav, autor, type, leidykla;
-        private DateTime metai;
+        public int isbn { set; get; }
+        public int psl { set; get; }
+        public string pav { set; get; }
+        public string autor { set; get; }
+        public double metai { set; get; }
 
-        public Knyga(int isbn, string pav, string autor, string type, string leidykla, DateTime metai, int psl)
+        public Knyga() { }
+
+        public Knyga(int isbn, string pav, string autor, double metai, int psl)
         {
             this.isbn = isbn;
             this.pav = pav;
             this.autor = autor;
-            this.type = type;
-            this.leidykla = leidykla;
             this.metai = metai;
             this.psl = psl;
         }
 
         public int CompareTo(Knyga kita)
         {
-            return 0;
+            if ((this.psl > kita.psl) || ((this.psl == kita.psl) && (this.metai > kita.metai) || (this.metai == kita.metai)))
+                return 1;
+            else
+                return -1;
+        }
+
+        public override string ToString()
+        {
+            string eilute;
+            eilute = string.Format("| {0, -5}|{1, -35}|{2, -32}| {3, 5} |{4, 11}   |", isbn, pav, autor, metai, psl);
+            return eilute;
         }
     }
 }

@@ -50,7 +50,6 @@ namespace P3
                 Spausdinti(CFr, Papildomas, "Papildomas sarasas");
                 Iterpti(NaujasPrekiuList, Papildomas);
                 Spausdinti(CFr, NaujasPrekiuList, "Iterptas sarasas");
-
             }
             else
             {

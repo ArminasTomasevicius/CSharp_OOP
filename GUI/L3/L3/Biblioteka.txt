@@ -1,0 +1,7 @@
+1234;Altoriu Seseliai;Putinas;Romanas;Sviesa;1950;520;
+4321;Altoriu Seseliai1;Puti\as;Romanas;Sviesa1;1950;520;
+3421;Altoriu Seseliai2;Putin;Romanas;Sviesa;1952;520;
+2134;Altoriu Seseliai3;Putinas;Romanas;Sviesa2;1950;520;
+6546;NeAltoriu Seseliai;Putinas;NeRomanas;Sviesa;1954;510;
+8541;Hamletas;Sekspyras;Romanas;Sviesa;1910;420;
+8541;Hamletas2;Sekspyras;Romanas;Sviesa;1910;430;

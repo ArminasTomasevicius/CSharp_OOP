@@ -1,0 +1,45 @@
+
+Pradiniai Duomenys
+-------------------------------------------------------------------------------------------------------------------------------------------
+| ISBN |            Pavadinimas            |            Autorius            | Metai | Puslapiu sk. |      Tipas      |      Leidykla      |
+-------------------------------------------------------------------------------------------------------------------------------------------
+| 1234 |Altoriu Seseliai                   |Putinas                         |  1950 |        520   |          Romanas|              Sviesa|
+| 4321 |Altoriu Seseliai1                  |Puti\as                         |  1950 |        520   |          Romanas|             Sviesa1|
+| 3421 |Altoriu Seseliai2                  |Putin                           |  1952 |        520   |          Romanas|              Sviesa|
+| 2134 |Altoriu Seseliai3                  |Putinas                         |  1950 |        520   |          Romanas|             Sviesa2|
+| 6546 |NeAltoriu Seseliai                 |Putinas                         |  1954 |        510   |        NeRomanas|              Sviesa|
+| 8541 |Hamletas                           |Sekspyras                       |  1910 |        420   |          Romanas|              Sviesa|
+| 8541 |Hamletas2                          |Sekspyras                       |  1910 |        430   |          Romanas|              Sviesa|
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Seniausia knyga: | 8541 |Hamletas                           |Sekspyras                       |  1910 |        420   |          Romanas|              Sviesa|
+Seniausia knyga: | 8541 |Hamletas2                          |Sekspyras                       |  1910 |        430   |          Romanas|              Sviesa|
+
+Pasirinktos Leidyklos Knygos
+-------------------------------------------------------------------------------------------------------------------------------------------
+| ISBN |            Pavadinimas            |            Autorius            | Metai | Puslapiu sk. |      Tipas      |      Leidykla      |
+-------------------------------------------------------------------------------------------------------------------------------------------
+| 1234 |Altoriu Seseliai                   |Putinas                         |  1950 |        520   |          Romanas|              Sviesa|
+| 3421 |Altoriu Seseliai2                  |Putin                           |  1952 |        520   |          Romanas|              Sviesa|
+| 6546 |NeAltoriu Seseliai                 |Putinas                         |  1954 |        510   |        NeRomanas|              Sviesa|
+| 8541 |Hamletas                           |Sekspyras                       |  1910 |        420   |          Romanas|              Sviesa|
+| 8541 |Hamletas2                          |Sekspyras                       |  1910 |        430   |          Romanas|              Sviesa|
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Surikiuotos Knygos
+-------------------------------------------------------------------------------------------------------------------------------------------
+| ISBN |            Pavadinimas            |            Autorius            | Metai | Puslapiu sk. |      Tipas      |      Leidykla      |
+-------------------------------------------------------------------------------------------------------------------------------------------
+| 8541 |Hamletas                           |Sekspyras                       |  1910 |        420   |          Romanas|              Sviesa|
+| 8541 |Hamletas2                          |Sekspyras                       |  1910 |        430   |          Romanas|              Sviesa|
+| 6546 |NeAltoriu Seseliai                 |Putinas                         |  1954 |        510   |        NeRomanas|              Sviesa|
+| 1234 |Altoriu Seseliai                   |Putinas                         |  1950 |        520   |          Romanas|              Sviesa|
+| 3421 |Altoriu Seseliai2                  |Putin                           |  1952 |        520   |          Romanas|              Sviesa|
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Autoriu sarasas
+Putinas
+Puti\as
+Putin
+Sekspyras
